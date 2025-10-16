@@ -1,0 +1,19 @@
+uuid: dca08f73-131d-4e8a-9475-cbae2f2f66bf
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.hero_banner
+    - field.storage.block_content.field_sub_title
+id: block_content.hero_banner.field_sub_title
+field_name: field_sub_title
+entity_type: block_content
+bundle: hero_banner
+label: Sub-Title
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

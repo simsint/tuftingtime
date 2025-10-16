@@ -1,0 +1,22 @@
+uuid: 02c931a2-100c-4145-9e7d-1fdc0affc16a
+langcode: en
+status: false
+dependencies:
+  module:
+    - system
+  theme:
+    - tufting
+_core:
+  default_config_hash: eYL19CLDyinGTWYQfBD1DswWzglEotE_kHnHx3AxTXM
+id: tufting_powered
+theme: tufting
+region: header
+weight: 4
+provider: null
+plugin: system_powered_by_block
+settings:
+  id: system_powered_by_block
+  label: 'Powered by Drupal'
+  label_display: '0'
+  provider: system
+visibility: {  }

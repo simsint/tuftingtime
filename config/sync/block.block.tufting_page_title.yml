@@ -1,0 +1,20 @@
+uuid: 79c2e575-755f-4858-ab6d-cd4f9b45dce0
+langcode: en
+status: false
+dependencies:
+  theme:
+    - tufting
+_core:
+  default_config_hash: 6aOgWsNTXjqrDm98TXSAjP6qd2nCijD1xw45MrnbK-Y
+id: tufting_page_title
+theme: tufting
+region: header
+weight: -7
+provider: null
+plugin: page_title_block
+settings:
+  id: page_title_block
+  label: 'Page title'
+  label_display: '0'
+  provider: core
+visibility: {  }

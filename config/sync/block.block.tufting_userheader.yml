@@ -1,0 +1,20 @@
+uuid: 38b04f46-b4af-4363-aa3a-8ee3f5a36a62
+langcode: en
+status: true
+dependencies:
+  module:
+    - tufting_customization
+  theme:
+    - tufting
+id: tufting_userheader
+theme: tufting
+region: header
+weight: -8
+provider: null
+plugin: tufting_customization_user_header
+settings:
+  id: tufting_customization_user_header
+  label: 'User Header'
+  label_display: '0'
+  provider: tufting_customization
+visibility: {  }

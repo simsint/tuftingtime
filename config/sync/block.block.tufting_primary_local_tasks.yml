@@ -1,0 +1,22 @@
+uuid: 1c16c2bc-6a12-468c-8f09-3060b497aebe
+langcode: en
+status: false
+dependencies:
+  theme:
+    - tufting
+_core:
+  default_config_hash: nGE3EoPQQaQCuqTUtZgw0-KIzmrqdKDzdNQf2JyPUt4
+id: tufting_primary_local_tasks
+theme: tufting
+region: header
+weight: -3
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: 'Primary tabs'
+  label_display: '0'
+  provider: core
+  primary: true
+  secondary: false
+visibility: {  }

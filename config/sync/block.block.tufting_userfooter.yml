@@ -1,0 +1,20 @@
+uuid: 058791a6-ce23-4890-81c0-1600e0fc0a72
+langcode: en
+status: false
+dependencies:
+  module:
+    - tufting_customization
+  theme:
+    - tufting
+id: tufting_userfooter
+theme: tufting
+region: footer
+weight: 0
+provider: null
+plugin: tufting_customization_user_footer
+settings:
+  id: tufting_customization_user_footer
+  label: 'User Footer'
+  label_display: '0'
+  provider: tufting_customization
+visibility: {  }

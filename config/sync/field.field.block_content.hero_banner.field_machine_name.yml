@@ -1,0 +1,19 @@
+uuid: 7f78bb17-2a9f-4e67-a072-a0f622bbdf31
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.hero_banner
+    - field.storage.block_content.field_machine_name
+id: block_content.hero_banner.field_machine_name
+field_name: field_machine_name
+entity_type: block_content
+bundle: hero_banner
+label: 'Machine Name'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

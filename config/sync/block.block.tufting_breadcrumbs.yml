@@ -1,0 +1,22 @@
+uuid: 4d5da6ba-5f59-4ee4-98f0-3ee22cbeb055
+langcode: en
+status: false
+dependencies:
+  module:
+    - system
+  theme:
+    - tufting
+_core:
+  default_config_hash: VhBzWb7lMRtIOg9G7VSw_0uopi-7zXeHq4vXqqV1HFE
+id: tufting_breadcrumbs
+theme: tufting
+region: header
+weight: 1
+provider: null
+plugin: system_breadcrumb_block
+settings:
+  id: system_breadcrumb_block
+  label: Breadcrumbs
+  label_display: '0'
+  provider: system
+visibility: {  }

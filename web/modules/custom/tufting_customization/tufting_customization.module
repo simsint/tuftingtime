@@ -1,0 +1,417 @@
+<?php
+
+/**
+ * @file
+ * Primary module hooks for Tufting-Customization Custom module.
+ */
+
+use Drupal\Core\Entity\Display\EntityFormDisplayInterface;
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Url;
+use Drupal\file\Entity\File;
+use Drupal\image\Entity\ImageStyle;
+
+function tufting_customization_theme($existing_theme, $type, $theme, $path) {
+  return [
+    'portal_header_template' => [
+      'variables' => [
+        'data' => NULL,
+      ],
+      'template' => 'portal-header',
+      'base hook' => 'block',
+    ],
+    'portal_footer_template' => [
+      'variables' => [
+        'data' => NULL,
+      ],
+      'template' => 'portal-footer',
+      'base hook' => 'block',
+    ],
+  ];
+}
+
+
+
+
+/**
+ * Implements template_preprocess_views_view_unformatted().
+ */
+function tufting_customization_preprocess_views_view__unformatted(&$variables) {
+  // Get the view object from the variables.
+  $view = $variables['view'];
+
+  if ($view->id() == 'home_page_services' && $view->current_display == 'home_services') {
+    foreach ($variables['rows'] as $key => $row) {
+      $entity = $row['content']['#row']->_entity;
+
+      $row['custom_fields'] = [
+        'title' => '',
+        'subtitle' => '',
+        'body' => '',
+        'image_url' => '',
+        'learn_more_url' => '',
+        'learn_more_text' => '',
+      ];
+
+      if (!$entity->get('title')->isEmpty()) {
+        $row['custom_fields']['title'] = $entity->get('title')->value;
+      }
+      if (!$entity->get('field_sub_title')->isEmpty()) {
+        $row['custom_fields']['subtitle'] = $entity->get('field_sub_title')->value;
+      }
+      if (!$entity->get('body')->isEmpty()) {
+        $row['custom_fields']['body'] = $entity->get('body')->processed;
+      }
+
+      if (!$entity->get('field_logo')->isEmpty()) {
+        $media_entity = $entity->get('field_logo')->entity;
+
+        if ($media_entity) {
+          $image_source_field = $media_entity->get('field_media_image');
+
+          if (!$image_source_field->isEmpty()) {
+            $file_uri = $image_source_field->entity->getFileUri();
+            $row['custom_fields']['field_logo'] = \Drupal::service('file_url_generator')->generateAbsoluteString($file_uri);
+          }
+        }
+      }
+
+      if (!$entity->get('field_background_image')->isEmpty()) {
+        $media_entity = $entity->get('field_background_image')->entity;
+
+        if ($media_entity) {
+          $image_source_field = $media_entity->get('field_media_image');
+
+          if (!$image_source_field->isEmpty()) {
+            $file_uri = $image_source_field->entity->getFileUri();
+            $row['custom_fields']['field_background_image'] = \Drupal::service('file_url_generator')->generateAbsoluteString($file_uri);
+          }
+        }
+      }
+
+      if (!$entity->get('field_center_image')->isEmpty()) {
+        $media_entity = $entity->get('field_center_image')->entity;
+
+        if ($media_entity) {
+          $image_source_field = $media_entity->get('field_media_image');
+
+          if (!$image_source_field->isEmpty()) {
+            $file_uri = $image_source_field->entity->getFileUri();
+            $row['custom_fields']['field_center_image'] = \Drupal::service('file_url_generator')->generateAbsoluteString($file_uri);
+          }
+        }
+      }
+
+      if (!$entity->get('field_learn_more')->isEmpty()) {
+        $row['custom_fields']['learn_more_url'] = $entity->get('field_learn_more')->first()->getUrl()->toString();
+        $row['custom_fields']['learn_more_text'] = $entity->get('field_learn_more')->title;
+      }
+      $variables['rows'][$key] = $row;
+      //dump($row);
+    }
+  }
+
+  if ($view->id() == 'homepage_banner_slider' && $view->current_display == 'slider') {
+    foreach ($variables['rows'] as $key => $row) {
+      $entity = $row['content']['#row']->_entity;
+
+      $row['custom_fields'] = [
+        'title' => '',
+        'subtitle' => '',
+        'body' => '',
+        'image_url' => '',
+        'learn_more_url' => '',
+        'learn_more_text' => '',
+        'view_works_url' => '',
+        'view_works_text' => '',
+      ];
+
+      if (!$entity->get('field_title')->isEmpty()) {
+        $row['custom_fields']['title'] = $entity->get('field_title')->value;
+      }
+      if (!$entity->get('field_sub_title')->isEmpty()) {
+        $row['custom_fields']['subtitle'] = $entity->get('field_sub_title')->value;
+      }
+      if (!$entity->get('body')->isEmpty()) {
+        $row['custom_fields']['body'] = $entity->get('body')->processed;
+      }
+
+      if (!$entity->get('field_image')->isEmpty()) {
+        $style_name = 'home_banner';
+          $media_entity = $entity->get('field_image')->entity;
+          if ($media_entity) {
+              $image_source_field = $media_entity->get('field_media_image');
+              if (!$image_source_field->isEmpty()) {
+                  $file_uri = $image_source_field->entity->getFileUri();
+                  $image_style = ImageStyle::load($style_name);
+                  if ($image_style) {
+                      $styled_url = $image_style->buildUrl($file_uri);
+                      $row['custom_fields']['image_url'] = $styled_url;
+                  } else {
+                      $row['custom_fields']['image_url'] = \Drupal::service('file_url_generator')->generateAbsoluteString($file_uri);
+                      \Drupal::logger('tufting_customization')->warning('Image style @style_name not found.', ['@style_name' => $style_name]);
+                  }
+              }
+          }
+      }
+
+      if (!$entity->get('field_learn_more')->isEmpty()) {
+        $row['custom_fields']['learn_more_url'] = $entity->get('field_learn_more')->first()->getUrl()->toString();
+        $row['custom_fields']['learn_more_text'] = $entity->get('field_learn_more')->title;
+      }
+      if (!$entity->get('field_view_our_works')->isEmpty()) {
+        $row['custom_fields']['view_works_url'] = $entity->get('field_view_our_works')->first()->getUrl()->toString();
+        $row['custom_fields']['view_works_text'] = $entity->get('field_view_our_works')->title;
+      }
+      $variables['rows'][$key] = $row;
+      //dump($row);
+    }
+  }
+
+  if ($view->id() == 'photographers' && $view->current_display == 'slider') {
+    foreach ($variables['rows'] as $key => $row) {
+      $entity = $row['content']['#row']->_entity;
+
+      $row['custom_fields'] = [
+        'title' => '',
+        'facebook' => '',
+        'linkedin' => '',
+        'logo' => '',
+        'x' => '',
+      ];
+
+      if (!$entity->get('title')->isEmpty()) {
+        $row['custom_fields']['title'] = $entity->get('title')->value;
+      }
+
+      if (!$entity->get('field_logo')->isEmpty()) {
+        $style_name = 'photographers_slider';
+          $media_entity = $entity->get('field_logo')->entity;
+          if ($media_entity) {
+              $image_source_field = $media_entity->get('field_media_image');
+              if (!$image_source_field->isEmpty()) {
+                  $file_uri = $image_source_field->entity->getFileUri();
+                  $image_style = ImageStyle::load($style_name);
+                  if ($image_style) {
+                      $styled_url = $image_style->buildUrl($file_uri);
+                      $row['custom_fields']['logo'] = $styled_url;
+                  } else {
+                      $row['custom_fields']['logo'] = \Drupal::service('file_url_generator')->generateAbsoluteString($file_uri);
+                      \Drupal::logger('tufting_customization')->warning('Image style @style_name not found.', ['@style_name' => $style_name]);
+                  }
+              }
+          }
+      }
+
+      if (!$entity->get('field_facebook')->isEmpty()) {
+        $row['custom_fields']['facebook'] = $entity->get('field_facebook')->first()->getUrl()->toString();
+      }
+
+      if (!$entity->get('field_linkedin')->isEmpty()) {
+        $row['custom_fields']['linkedin'] = $entity->get('field_linkedin')->first()->getUrl()->toString();
+
+      }if (!$entity->get('field_x')->isEmpty()) {
+        $row['custom_fields']['x'] = $entity->get('field_x')->first()->getUrl()->toString();
+      }
+      $variables['rows'][$key] = $row;
+      //dump($row);
+    }
+  }
+
+  if ($view->id() == 'facility' && $view->current_display == 'facility') {
+    foreach ($variables['rows'] as $key => $row) {
+      $entity = $row['content']['#row']->_entity;
+
+      $row['custom_fields'] = [
+        'title' => '',
+        'short_title' => '',
+        'logo' => '',
+        'logo_popup' => '',
+      ];
+
+      if (!$entity->get('title')->isEmpty()) {
+        $row['custom_fields']['title'] = $entity->get('title')->value;
+      }
+
+
+      if (!$entity->get('field_short_title')->isEmpty()) {
+        $row['custom_fields']['short_title'] = $entity->get('field_short_title')->value;
+      }
+
+      if (!$entity->get('field_logo')->isEmpty()) {
+        $media_entity = $entity->get('field_logo')->entity;
+
+        if ($media_entity) {
+          $image_source_field = $media_entity->get('field_media_image');
+
+          if (!$image_source_field->isEmpty()) {
+            $file_uri = $image_source_field->entity->getFileUri();
+            $row['custom_fields']['logo_popup'] = \Drupal::service('file_url_generator')->generateAbsoluteString($file_uri);
+            $row['custom_fields']['logo'] = \Drupal\image\Entity\ImageStyle::load('facilty_thumbnail')->buildUrl($file_uri);
+          }
+        }
+      }
+
+
+      $variables['rows'][$key] = $row;
+      //dump($row);
+    }
+  }
+
+  if ($view->id() == 'client_logos' && $view->current_display == 'logos') {
+    foreach ($variables['rows'] as $key => $row) {
+      $entity = $row['content']['#row']->_entity;
+
+      $row['custom_fields'] = [
+        'image_url' => '',
+      ];
+
+      if (!$entity->get('field_cover_image')->isEmpty()) {
+        $media_entity = $entity->get('field_cover_image')->entity;
+
+        if ($media_entity) {
+          $image_source_field = $media_entity->get('field_media_image');
+
+          if (!$image_source_field->isEmpty()) {
+            $file_uri = $image_source_field->entity->getFileUri();
+            $row['custom_fields']['image_url'] = \Drupal::service('file_url_generator')->generateAbsoluteString($file_uri);
+          }
+        }
+      }
+
+      $variables['rows'][$key] = $row;
+      //dump($row);
+    }
+  }
+
+  if ($view->id() == 'blogs' && $view->current_display == 'blog') {
+    foreach ($variables['rows'] as $key => $row) {
+      $entity = $row['content']['#row']->_entity;
+
+      $row['custom_fields'] = [
+        'image_url' => '',
+        'title' => '',
+        'date' => '',
+      ];
+
+      if (!$entity->get('title')->isEmpty()) {
+        $row['custom_fields']['title'] = $entity->get('title')->value;
+      }
+
+      if (!$entity->get('created')->isEmpty()) {
+        $row['custom_fields']['date'] = date('F j, Y', $entity->get('created')->value);
+      }
+
+      if ($entity && !$entity->get('field_image')->isEmpty()) {
+        $file_entity = $entity->get('field_image')->entity;
+
+        if ($file_entity) {
+          $file_uri = $file_entity->getFileUri();
+          $row['custom_fields']['image_url'] = \Drupal::service('file_url_generator')->generateAbsoluteString($file_uri);
+        }
+      }
+
+      $variables['rows'][$key] = $row;
+      //dump($row);
+    }
+  }
+
+  if ($view->id() == 'works' && $view->current_display == 'work') {
+    foreach ($variables['rows'] as $key => $row) {
+      $entity = $row['content']['#row']->_entity;
+
+      $row['custom_fields'] = [
+        'title' => '',
+        'sub_title' => '',
+        'image_thumb' => '',
+        'image' => '',
+      ];
+
+      if (!$entity->get('title')->isEmpty()) {
+        $row['custom_fields']['title'] = $entity->get('title')->value;
+      }
+
+      if (!$entity->get('field_sub_title')->isEmpty()) {
+        $row['custom_fields']['sub_title'] = $entity->get('field_sub_title')->value;
+      }
+
+      if (!$entity->get('field_center_image')->isEmpty()) {
+        $media_entity = $entity->get('field_center_image')->entity;
+
+        if ($media_entity) {
+          $image_source_field = $media_entity->get('field_media_image');
+
+          if (!$image_source_field->isEmpty()) {
+            $file_uri = $image_source_field->entity->getFileUri();
+            $row['custom_fields']['image'] = \Drupal::service('file_url_generator')->generateAbsoluteString($file_uri);
+          }
+        }
+      }
+
+      if (!$entity->get('field_background_image')->isEmpty()) {
+        $style_name = 'works_thumbnail';
+          $media_entity = $entity->get('field_background_image')->entity;
+          if ($media_entity) {
+              $image_source_field = $media_entity->get('field_media_image');
+              if (!$image_source_field->isEmpty()) {
+                  $file_uri = $image_source_field->entity->getFileUri();
+                  $image_style = ImageStyle::load($style_name);
+                  if ($image_style) {
+                      $styled_url = $image_style->buildUrl($file_uri);
+                      $row['custom_fields']['image_thumb'] = $styled_url;
+                  } else {
+                      $row['custom_fields']['image_thumb'] = \Drupal::service('file_url_generator')->generateAbsoluteString($file_uri);
+                      \Drupal::logger('tufting_customization')->warning('Image style @style_name not found.', ['@style_name' => $style_name]);
+                  }
+              }
+          }
+      }
+
+      /*if (!$entity->get('field_background_image')->isEmpty()) {
+        $media_entity = $entity->get('field_background_image')->entity;
+
+        if ($media_entity) {
+          $image_source_field = $media_entity->get('field_media_image');
+
+          if (!$image_source_field->isEmpty()) {
+            $file_uri = $image_source_field->entity->getFileUri();
+            $row['custom_fields']['image_thumb'] = \Drupal::service('file_url_generator')->generateAbsoluteString($file_uri);
+          }
+        }
+      }*/
+      $variables['rows'][$key] = $row;
+      //dump($row);
+    }
+  }
+  //dump($variables);
+}
+
+
+/**
+ * Implements template_preprocess_block().
+ */
+function tufting_customization_preprocess_block(&$variables) {
+  if (isset($variables['elements']['#base_plugin_id']) && $variables['elements']['#base_plugin_id'] === 'block_content') {
+    $entity = $variables['elements']['content']['#block_content'];
+    if ($entity->bundle() === 'hero_banner') {
+      if ($entity->get('field_machine_name')->value == 'intro_banner') {
+        //$variables['custom_title'] = '';
+        if (!$entity->get('field_image')->isEmpty()) {
+          $media_entity = $entity->get('field_image')->entity;
+
+          if ($media_entity) {
+            $image_source_field = $media_entity->get('field_media_image');
+
+            if (!$image_source_field->isEmpty()) {
+              $file_uri = $image_source_field->entity->getFileUri();
+              $variables['bg_image'] = \Drupal::service('file_url_generator')->generateAbsoluteString($file_uri);
+            }
+          }
+        }
+
+      }
+
+    }
+
+  }
+}

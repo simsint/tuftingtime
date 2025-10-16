@@ -1,0 +1,23 @@
+uuid: ecfc841c-a5e1-4bb4-9fe0-c9436965269d
+langcode: en
+status: false
+dependencies:
+  module:
+    - search
+  theme:
+    - tufting
+_core:
+  default_config_hash: pbbed0hdqGDF-_QWVVTWRAwgDIotFuAvWH5mWUZu0fA
+id: tufting_search_form_wide
+theme: tufting
+region: header
+weight: -5
+provider: null
+plugin: search_form_block
+settings:
+  id: search_form_block
+  label: 'Search form (wide)'
+  label_display: '0'
+  provider: search
+  page_id: null
+visibility: {  }

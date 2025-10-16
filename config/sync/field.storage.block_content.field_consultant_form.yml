@@ -1,0 +1,21 @@
+uuid: c6737d82-c92c-4ab8-bbf7-587e018b5ab3
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_content
+id: block_content.field_consultant_form
+field_name: field_consultant_form
+entity_type: block_content
+type: string
+settings:
+  max_length: 255
+  case_sensitive: false
+  is_ascii: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

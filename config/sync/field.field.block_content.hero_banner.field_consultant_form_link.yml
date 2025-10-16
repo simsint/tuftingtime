@@ -1,0 +1,19 @@
+uuid: de9e3dac-f735-4543-a5d2-876b4bfa6290
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.hero_banner
+    - field.storage.block_content.field_consultant_form_link
+id: block_content.hero_banner.field_consultant_form_link
+field_name: field_consultant_form_link
+entity_type: block_content
+bundle: hero_banner
+label: 'Consultant Form Link'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

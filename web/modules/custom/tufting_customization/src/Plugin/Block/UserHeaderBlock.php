@@ -1,0 +1,116 @@
+<?php
+
+declare(strict_types=1);
+
+namespace Drupal\tufting_customization\Plugin\Block;
+
+use Drupal\Core\Access\AccessResult;
+use Drupal\Core\Block\Attribute\Block;
+use Drupal\Core\Block\BlockBase;
+use Drupal\Core\Session\AccountInterface;
+use Drupal\Core\StringTranslation\TranslatableMarkup;
+use Drupal\Core\Menu\MenuLinkTreeInterface;
+use Drupal\Core\Menu\MenuTreeParameters;
+use Drupal\Core\Url;
+use Drupal\Core\Link;
+use Drupal\Core\Form\FormStateInterface;
+
+/**
+ * Provides an user header block.
+ */
+#[Block(
+  id: 'tufting_customization_user_header',
+  admin_label: new TranslatableMarkup('User Header'),
+  category: new TranslatableMarkup('Custom'),
+)]
+final class UserHeaderBlock extends BlockBase {
+
+  /**
+   * {@inheritdoc}
+   */
+  public function build(): array {
+    $site_name = \Drupal::config('system.site')->get('name');
+    // Get the menu link tree service.
+    $menu_link_tree = \Drupal::service('menu.link_tree');
+    $parameters = new MenuTreeParameters();
+    $parameters->setMinDepth(1);
+    $parameters->setMaxDepth(NULL);
+    $parameters->onlyEnabledLinks();
+    $tree = $menu_link_tree->load('main', $parameters);
+
+    $manipulators = [
+      ['callable' => 'menu.default_tree_manipulators:checkAccess'],
+      ['callable' => 'menu.default_tree_manipulators:generateIndexAndSort'],
+    ];
+    $tree = $menu_link_tree->transform($tree, $manipulators);
+    $user_links = $this->buildMenuLinks($tree);
+    //dump($user_links);exit;
+
+
+
+    $theme = \Drupal::theme()->getActiveTheme()->getName();
+    $logo = theme_get_setting('logo.url', $theme);
+    $sales_telephone = theme_get_setting('sales_telephone', $theme);
+    $sales_email = theme_get_setting('sales_email', $theme);
+
+    $data = [
+      'site_name' => $site_name,
+      'user_links' => $user_links,
+      'logo' => $logo,
+      'sales_telephone' => $sales_telephone,
+      'sales_email' => $sales_email,
+    ];
+
+    $build = [
+      '#theme' => 'portal_header_template',
+      '#data' => $data,
+      '#label' => $this->t($this->configuration['label']),
+      '#cache' => [
+        'max-age' => 0,
+      ],
+    ];
+
+    //dump($build);exit;
+
+    return $build;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  protected function blockAccess(AccountInterface $account): AccessResult {
+    // @todo Evaluate the access condition here.
+    return AccessResult::allowedIf(TRUE);
+  }
+
+
+  /**
+   * Builds a renderable array from a menu tree with debugging.
+   */
+  protected function buildMenuLinks(array $tree): array {
+
+    $build = [];
+    foreach ($tree as $element) {
+      if (!$element->access->isAllowed()) {
+        continue;
+      }
+
+      $link = $element->link;
+      $build_item = [
+        '#type' => 'link',
+        '#title' => $link->getTitle(),
+        '#url' => $link->getUrlObject(),
+        '#attributes' => $link->getPluginDefinition()['options']['attributes'] ?? [],
+      ];
+
+      if ($element->hasChildren) {
+        $build_item['#below'] = $this->buildMenuLinks($element->subtree);
+      }
+
+      $build[] = $build_item;
+    }
+
+    return $build;
+  }
+
+}

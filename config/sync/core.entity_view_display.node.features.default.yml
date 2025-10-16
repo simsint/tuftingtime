@@ -1,0 +1,27 @@
+uuid: 2e3fe809-9217-424e-ba28-49e271688e07
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.features.field_description
+    - node.type.features
+  module:
+    - user
+id: node.features.default
+targetEntityType: node
+bundle: features
+mode: default
+content:
+  field_description:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden: {  }

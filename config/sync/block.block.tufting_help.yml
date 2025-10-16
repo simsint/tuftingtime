@@ -1,0 +1,22 @@
+uuid: 4f4645ec-5006-4db0-b14a-2b7278098baf
+langcode: en
+status: false
+dependencies:
+  module:
+    - help
+  theme:
+    - tufting
+_core:
+  default_config_hash: VfPFqqxfkomud5CO8DUijw85QIl9GIxh_nIxLOYESxg
+id: tufting_help
+theme: tufting
+region: header
+weight: 2
+provider: null
+plugin: help_block
+settings:
+  id: help_block
+  label: Help
+  label_display: '0'
+  provider: help
+visibility: {  }

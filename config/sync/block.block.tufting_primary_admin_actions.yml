@@ -1,0 +1,20 @@
+uuid: 775b750e-f1a6-4b45-9b7a-b4ca8ddb06c1
+langcode: en
+status: false
+dependencies:
+  theme:
+    - tufting
+_core:
+  default_config_hash: Q9_2whdOj1YIomfvsIfopROW4FT_X5pY0DjdOiOaQ5U
+id: tufting_primary_admin_actions
+theme: tufting
+region: header
+weight: -6
+provider: null
+plugin: local_actions_block
+settings:
+  id: local_actions_block
+  label: 'Primary admin actions'
+  label_display: '0'
+  provider: core
+visibility: {  }

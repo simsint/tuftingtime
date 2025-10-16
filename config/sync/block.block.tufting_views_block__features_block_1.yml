@@ -1,0 +1,29 @@
+uuid: bc644e20-0c65-4902-8b23-b47268778c2b
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.features
+  module:
+    - system
+    - views
+  theme:
+    - tufting
+id: tufting_views_block__features_block_1
+theme: tufting
+region: content
+weight: 0
+provider: null
+plugin: 'views_block:features-block_1'
+settings:
+  id: 'views_block:features-block_1'
+  label: ''
+  label_display: '0'
+  provider: views
+  views_label: ''
+  items_per_page: null
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: /home
