@@ -1,0 +1,11 @@
+# Main theme library.
+global:
+  js:
+
+  dependencies:
+    - core/drupal
+    - core/jquery
+    - core/drupalSettings
+  css:
+    theme:
+      css/tufting-style.css: {}

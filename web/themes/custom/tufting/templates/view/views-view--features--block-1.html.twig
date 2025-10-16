@@ -1,0 +1,66 @@
+{#
+/**
+ * @file
+ * Theme override for a main view template.
+ *
+ * Available variables:
+ * - attributes: Remaining HTML attributes for the element.
+ * - css_name: A CSS-safe version of the view name.
+ * - css_class: The user-specified classes names, if any.
+ * - header: The optional header.
+ * - footer: The optional footer.
+ * - rows: The results of the view query, if any.
+ * - empty: The content to display if there are no rows.
+ * - pager: The optional pager next/prev links to display.
+ * - exposed: Exposed widget form/info to display.
+ * - feed_icons: Optional feed icons to display.
+ * - more: An optional link to the next page of results.
+ * - title: Title of the view, only used when displaying in the admin preview.
+ * - title_prefix: Additional output populated by modules, intended to be
+ *   displayed in front of the view title.
+ * - title_suffix: Additional output populated by modules, intended to be
+ *   displayed after the view title.
+ * - attachment_before: An optional attachment view to be displayed before the
+ *   view content.
+ * - attachment_after: An optional attachment view to be displayed after the
+ *   view content.
+ * - dom_id: Unique id for every view being printed to give unique class for
+ *   JavaScript.
+ *
+ * @see template_preprocess_views_view()
+ */
+#}
+
+<section id="why-choose-us" class="sections">
+	<section class="section section--padding-lg">
+		<div class="container">
+			<div class="reasons">
+				<div class="reasons__side">
+				{% if features_header.field_sub_title.value %}
+					<div class="subheading reasons__subheading">{{ features_header.field_sub_title.value }}</div>
+					{% endif %}
+					<div class="heading-wrapper">
+						<h2 data-name="title-parent" class="heading heading--lg">
+						{% if features_header.field_title.value %}
+							<span data-name="title-item" class="heading-span" id="animate2">{{ features_header.field_title.value }}</span>
+						{% endif %}
+						</h2>
+					</div>
+					{% if features_header.field_consultant_form_link.value %}
+							<a data-role="circle-btn" data-name-button="form"  href="{{ features_header.field_consultant_form_link.value }}" class="button reasons__button w-button">{{ features_header.field_consultant_form.value }}</a>
+					{% endif %}
+				</div>
+				<div class="reasons__body">
+					<ul role="list" class="reasons__list">
+						{% if rows %}
+							{{ rows }}
+						{% endif %}
+					</ul>
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+
+

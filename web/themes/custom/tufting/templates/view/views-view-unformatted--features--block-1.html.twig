@@ -1,0 +1,38 @@
+{#
+/**
+ * @file
+ * Theme override to display a view of unformatted rows.
+ *
+ * Available variables:
+ * - title: The title of this group of rows. May be empty.
+ * - rows: A list of the view's row items.
+ *   - attributes: The row's HTML attributes.
+ *   - content: The row's content.
+ * - view: The view object.
+ * - default_row_class: A flag indicating whether default classes should be
+ *   used on rows.
+ *
+ * @see template_preprocess_views_view_unformatted()
+ */
+#}
+{% if title %}
+  <h3>{{ title }}</h3>
+{% endif %}
+{% for row in view.result %}
+
+  {%
+    set row_classes = [
+      'views-row',
+    ]
+  %}
+{% set plan = row._entity %}
+{% set plan_type = plan.field_machine_name.value %}
+{%  set index = loop.index0 %}
+
+<li  class="reasons__item">
+	<h3 class="heading heading--ls-sm heading--italic">{{ plan.title.value }}</h3>
+	<p class="paragraph">{{ plan.field_description.value }}</p>
+</li>
+
+
+{% endfor %}

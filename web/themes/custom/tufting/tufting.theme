@@ -1,0 +1,28 @@
+<?php
+
+/**
+ * Implements hook_preprocess_views_view().
+ */
+function tufting_preprocess_views_view(&$variables) {
+  //dump($variables);
+  // Check if this is the view you want to target.
+  if ($variables['id'] == 'features') {
+
+    // Use an entity query to load the block by our custom identifier field.
+    $query = \Drupal::entityTypeManager()->getStorage('block_content')->getQuery();
+    $query->condition('type', 'hero_banner'); // The block type machine name.
+    $query->condition('field_machine_name', 'features_homepage'); // The field and value to look for.
+    $query->range(0, 1); // We only want one result.
+    $query->accessCheck(FALSE);
+    $block_ids = $query->execute();
+
+    if (!empty($block_ids)) {
+      $block_id = array_shift($block_ids);
+      $block_content = \Drupal::entityTypeManager()->getStorage('block_content')->load($block_id);
+
+      if ($block_content) {
+        $variables['features_header'] = $block_content;
+      }
+    }
+  }
+}
