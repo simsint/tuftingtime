@@ -3279,6 +3279,7 @@ a {
 .body {
   background-color: var(--background-color--background-color-2);
   color: var(--text-color--color-text-1);
+  overflow: scroll;
 }
 
 .hero {

@@ -395,7 +395,7 @@ function tufting_customization_preprocess_block(&$variables) {
     $entity = $variables['elements']['content']['#block_content'];
     if ($entity->bundle() === 'hero_banner') {
       if ($entity->get('field_machine_name')->value == 'intro_banner') {
-        //$variables['custom_title'] = '';
+
         if (!$entity->get('field_image')->isEmpty()) {
           $media_entity = $entity->get('field_image')->entity;
 
@@ -405,6 +405,22 @@ function tufting_customization_preprocess_block(&$variables) {
             if (!$image_source_field->isEmpty()) {
               $file_uri = $image_source_field->entity->getFileUri();
               $variables['bg_image'] = \Drupal::service('file_url_generator')->generateAbsoluteString($file_uri);
+            }
+          }
+        }
+
+      }
+
+      if ($entity->get('field_machine_name')->value == 'hero_banner') {
+        if (!$entity->get('field_image')->isEmpty()) {
+          $media_entity = $entity->get('field_image')->entity;
+
+          if ($media_entity) {
+            $image_source_field = $media_entity->get('field_media_image');
+
+            if (!$image_source_field->isEmpty()) {
+              $file_uri = $image_source_field->entity->getFileUri();
+              $variables['logo_image'] = \Drupal::service('file_url_generator')->generateAbsoluteString($file_uri);
             }
           }
         }
