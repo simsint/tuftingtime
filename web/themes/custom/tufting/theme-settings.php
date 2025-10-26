@@ -32,10 +32,10 @@ function tufting_form_system_theme_settings_alter(array &$form, FormState $form_
     '#default_value' => theme_get_setting('sales_email'),
   ];
 
-  /*$form['tufting']['copyright'] = [
+  $form['tufting']['sales_whatsapp'] = [
     '#type' => 'textfield',
-    '#title' => t('Footer Copyright Text'),
-    '#default_value' => theme_get_setting('copyright'),
-  ];*/
+    '#title' => t('Sales WhatsApp URL'),
+    '#default_value' => theme_get_setting('sales_whatsapp'),
+  ];
 
 }

@@ -4,8 +4,10 @@ features:
   comment_user_verification: 1
   favicon: 1
 logo:
-  use_default: 1
+  use_default: 0
+  path: themes/custom/tufting/images/logo.webp
 favicon:
   use_default: 1
 sales_telephone: +1-2345-1111
 sales_email: sales@tufting.co
+sales_whatsapp: 'https://api.whatsapp.com/send?phone=15551234567'

@@ -4,7 +4,7 @@
 			<h1 class="heading heading--xl hidden">{{ content.field_title}}</h1>
 			<div>
 				<div class="hero__content">
-					<div  class="title-icon-wrapper">
+					<div data-w-id="62b2f35c-87b9-8037-6bb1-4668116b2bee" class="title-icon-wrapper">
 						<div class="hero__icon">
 							<img src="{{ logo_image }}" loading="lazy" alt="" class="hero__icon-image"/>
 						</div>
@@ -15,27 +15,28 @@
 					</div>
 				</div>
 				<div>
-					<div class="hero__paragraph">
+					<div data-w-id="0de37b4d-840f-530b-baaa-f601308c05f0" class="hero__paragraph">
 						<div class="paragraph paragraph--semibold paragraph--center">{{ content.field_sub_title}}</div>
 					</div>
 				</div>
 			</div>
-			<a data-role="circle-btn" href="{{ content.field_consultant_form_link}}" class="button button--fade w-button">{{ content.field_consultant_form}}</a>
+			<a data-widget="button" data-role="circle-btn" data-w-id="10e7a6bf-fe58-4523-a589-c374966110e0" href="#popup" class="button button--fade w-button" data-fancybox>{{ content.field_consultant_form}}</a>
 			<div class="hidden w-embed">
 
 			</div>
 		</div>
-		<!--<div data-w-id="423707b2-06f6-da27-433f-863b5ec06b1a" class="disclamer disclamer--hero">
+		{% if adv_title %}
+		<div data-w-id="423707b2-06f6-da27-433f-863b5ec06b1a" class="disclamer disclamer--hero">
 			<div class="disclamer__inner">
 				<div class="leather leather--disclaimer">
-					<img src="images/leather-1.webp" loading="lazy" alt="" class="leather__image"/>
+					<img src="{{ adv_logo_image_url }}" loading="lazy" alt="" class="leather__image"/>
 					<div class="leather__image-shadow"></div>
 				</div>
-				<p class="paragraph paragraph--lh-140">Don’t need upholstery leather?
+				<p class="paragraph paragraph--lh-140">{{ adv_title }}
 					<br/>
-					Shop our extensive leather collections for the fashion and leathercraft industries!</p>
+					{{ adv_sub_title }}</p>
 				<div class="disclamer__link">
-					<a data-name-button="form" href="#" class="link">Shop now</a>
+					<a data-name-button="form" href="{{adv_link_url}}" class="link">{{adv_link_text}}</a>
 				</div>
 				<div data-name-disclaimer="button" class="disclamer__close w-embed">
 					<svg width="100%" height="100%" viewbox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -43,7 +44,7 @@
 					</svg>
 				</div>
 			</div>
-		</div>-->
+		</div>
 	</div>
+	{% endif %}
 </section>
-

@@ -1,4 +1,13 @@
 <div class="contacts">
+{% if data.sales_whatsapp %}
+	<a href="tel:{{ data.sales_whatsapp}}" data-w-id="389d7e11-de83-2435-42e9-2b98f6599f7d" class="contacts__link w-inline-block" target="_blank">
+		<div class="flex w-embed">
+			<img src="/themes/custom/tufting/images/whatsapp.png" loading="lazy" alt="" class="hero__icon-image"/>
+			</svg>
+		</div>
+	</a>
+{% endif %}
+
   {% if data.sales_telephone %}
 	<a href="tel:{{ data.sales_telephone}}" data-w-id="389d7e11-de83-2435-42e9-2b98f6599f7d" class="contacts__link w-inline-block">
 		<div class="flex w-embed">
@@ -22,7 +31,7 @@
 	<div class="header-menu__row">
 		<a href="/" class="w-inline-block w--current">
 			<div class="hero__icon hero__icon--mob">
-				<!--<img src="images/logo.webp" loading="lazy" alt="" class="hero__icon-image"/>-->
+				<img src="{{ data.logo_image_url }}" loading="lazy" alt="" class="hero__icon-image"/>
 			</div>
 		</a>
 	</div>
@@ -51,4 +60,109 @@
 	<div class="burger-line burger-line--top"></div>
 	<div class="burger-line burger-line--bottom"></div>
 </div>
-<a data-widget="button" data-w-id="389d7e11-de83-2435-42e9-2b98f6599fa8" href="#" class="button button--light button--mob-hidden w-button">Contact us</a>
+<a data-widget="button" data-w-id="389d7e11-de83-2435-42e9-2b98f6599fa8" href="#popup" class="button button--light button--mob-hidden w-button" data-fancybox>Contact us</a>
+
+
+
+<div class="popup" id="popup">
+	<div class="popup__inner">
+		<div data-name="popup-close" class="popup__overlay"></div>
+		<div data-no-lenis="" class="popup-content scrollable">
+			<div class="popupt__col popupt__col--right">
+				<div class="popup__image-wrapper"><img src="https://cdn.prod.website-files.com/6736298731cbe5c55f005f38/6748c0591052e850ab862211_image.webp" loading="lazy" sizes="(max-width: 512px) 100vw, 512px" srcset="https://cdn.prod.website-files.com/6736298731cbe5c55f005f38/6748c0591052e850ab862211_image-p-500.webp 500w, https://cdn.prod.website-files.com/6736298731cbe5c55f005f38/6748c0591052e850ab862211_image.webp 512w" alt="" class="popup-content__image"/></div>
+				<div class="popup__footer">
+					<div class="popup__box">
+						<h3 class="popup__heading">NYC Showroom</h3>
+						<p class="paragraph paragraph--semibold">253 West 35th Street Store
+							<br/>
+							Front #2 New York, NY 10001</p>
+					</div>
+					<div class="popup__box">
+						<h3 class="popup__heading">Contacts</h3>
+						<p class="paragraph paragraph--semibold">212.244.5190</p>
+						<a href="#" class="popup__link">info@globalleathers.com</a>
+					</div>
+				</div>
+			</div>
+			<div class="popupt__col popupt__col--left">
+				<h2 class="heading heading--italic heading-popup">Schedule a consultation</h2>
+				<div class="popup__paragraph">
+					<p class="paragraph paragraph--semibold">Fill in your details and we will contact you soon!</p>
+				</div>
+				<div class="popup-form w-form">
+					<form id="wf-form-Email-Form" name="wf-form-Email-Form" data-name="Email Form" redirect="/success" data-redirect="/success" method="get" class="popup-form__inner" data-wf-page-id="6736298731cbe5c55f005f2d" data-wf-element-id="df6ebae6-7b9f-4e7d-5643-827e0a8dba55">
+						<input class="popup-form__input w-input" maxlength="256" name="name-3" data-name="Name 3" placeholder="Full Name *" type="text" id="name-3" required=""/>
+						<input class="popup-form__input w-input" maxlength="256" name="name-2" data-name="Name 2" placeholder="Email *" type="text" id="name-2" required=""/>
+						<div class="popup-form__input-wrp popup-form__input-wrp--phone">
+							<div class="code-embed popup-form__select-wrp w-embed">
+								<select name="select" class="popup-form__input-select">
+									<option value="value1" selected>US</option>
+								</select>
+								<style>
+									.popup-form__input-select {
+										padding: 0.125rem 0 1.25rem;
+										padding-block-end: 0.15rem;
+										color: rgba(81, 72, 63, 0.4);
+										padding-block: 0.46rem;
+										font-size: 1rem;
+										border: none;
+									}
+									.popup-form__input-select:focus {
+										outline: none;
+									}
+								</style>
+							</div>
+							<input class="popup-form__input popup-form__input--phone w-input" maxlength="256" name="name-2" data-name="Name 2" placeholder="Phone number *" type="text" id="name-2" required=""/>
+						</div>
+						<input class="popup-form__input w-input" maxlength="256" name="name-2" data-name="Name 2" placeholder="Company Name " type="text" id="name-2"/>
+						<input class="popup-form__input w-input" maxlength="256" name="Message-2" data-name="Message 2" placeholder="Message" type="text" id="Message-2"/>
+						<label class="w-checkbox checkbox">
+							<input type="checkbox" name="privacy-policy-2" id="privacy-policy-2" data-name="Privacy Policy 2" class="w-checkbox-input checkbox__input"/>
+							<div class="checkbox__label">
+								<div class="checkbox__label--inner">
+									<div class="checkbox__label-active">
+										<div class="embed-2 w-embed">
+											<svg width="10" height="8" viewbox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+												<path fill-rule="evenodd" clip-rule="evenodd" d="M9.71853 0.200581C10.0634 0.49318 10.0959 0.998751 9.79106 1.32981L3.89884 7.7298C3.73359 7.90929 3.49324 8.00825 3.24388 7.99946C2.99452 7.99068 2.76237 7.87508 2.61127 7.68444L0.170206 4.60475C-0.10849 4.25314 -0.0375081 3.75121 0.328749 3.48366C0.695007 3.21611 1.21785 3.28426 1.49654 3.63586L3.32261 5.93967L8.54226 0.270211C8.84705 -0.0608434 9.37368 -0.092018 9.71853 0.200581Z" fill="#252622"/>
+											</svg>
+										</div>
+									</div>
+								</div>
+							</div>
+							<span class="checkbox__paragraph w-form-label" for="privacy-policy-2">I agree to the
+								<a href="#" class="checkbox__link">Terms</a>
+								of use and
+								<a href="/privacy-policy" class="checkbox__link">Privacy Policy</a>
+							</span>
+						</label>
+						<div class="popup-form__footer">
+							<div data-role="circle-btn" data-w-id="4469e997-96bb-425e-3391-498826f8c679" class="form__footer form__footer--popup">
+								<input type="submit" data-wait="Please wait..." class="button button--border-none w-button" value="Submit now"/>
+							</div>
+						</div>
+					</form>
+					<div class="w-form-done">
+						<div>Thank you! Your submission has been received!</div>
+					</div>
+					<div class="w-form-fail">
+						<div>Oops! Something went wrong while submitting the form.</div>
+					</div>
+				</div>
+			</div>
+			<div class="popup_button-close w-embed">
+				<a href="javascript:parent.$.fancybox.close();">
+					<svg width="20" height="20" viewbox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path d="M18.6648 7.1112e-06L19.9981 1.33321L1.3332 19.9981L0 18.6649L18.6648 7.1112e-06Z" fill="#675B50"/>
+						<path d="M20 18.6649L18.6668 19.9981L0.00194881 1.3332L1.33515 0L20 18.6649Z" fill="#675B50"/>
+					</svg>
+				</a>
+			</div>
+		</div>
+	</div>
+	<div class="w-embed">
+		<style>
+			.checkbox__input:checked + .checkbox__label .checkbox__label-active {
+				opacity: 1;
+			}
+		</style>
+	</div>

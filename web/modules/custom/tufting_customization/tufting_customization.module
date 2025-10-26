@@ -425,6 +425,34 @@ function tufting_customization_preprocess_block(&$variables) {
           }
         }
 
+        $adv_query = \Drupal::entityTypeManager()->getStorage('block_content')->getQuery();
+        $adv_query->condition('type', 'hero_banner'); // The block type machine name.
+        $adv_query->condition('field_machine_name', 'advertise_pop_up'); // The field and value to look for.
+        $adv_query->range(0, 1); // We only want one result.
+        $adv_query->accessCheck(FALSE);
+        $adv_block_ids = $adv_query->execute();
+
+        if (!empty($adv_block_ids)) {
+          $block_id = array_shift($adv_block_ids);
+          $block_content = \Drupal::entityTypeManager()->getStorage('block_content')->load($block_id);
+          $variables['adv_title'] = $block_content->get('field_title')->value;
+          $variables['adv_sub_title'] = $block_content->get('field_sub_title')->value;
+          $variables['adv_link_text'] = $block_content->get('field_consultant_form')->value;
+          $variables['adv_link_url'] = $block_content->get('field_consultant_form_link')->value;
+
+          if ($block_content->hasField('field_image') && !$block_content->get('field_image')->isEmpty()) {
+              $fid = $block_content->get('field_image')->target_id;
+              $file = \Drupal::entityTypeManager()->getStorage('file')->load($fid);
+
+              if ($file) {
+                  $uri = $file->getFileUri();
+                  $variables['adv_logo_image_url'] = \Drupal::service('file_url_generator')->generateAbsoluteString($uri);
+              }
+          }
+
+
+        }
+
       }
 
     }
