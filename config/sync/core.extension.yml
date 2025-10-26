@@ -46,8 +46,12 @@ module:
   text: 0
   toolbar: 0
   tufting_customization: 0
+  twig_tweak: 0
   user: 0
   views_ui: 0
+  webform: 0
+  webform_image_select: 0
+  webform_ui: 0
   views: 10
   standard: 1000
 theme:

@@ -38,4 +38,18 @@ function tufting_form_system_theme_settings_alter(array &$form, FormState $form_
     '#default_value' => theme_get_setting('sales_whatsapp'),
   ];
 
+  $form['tufting']['main_showroom'] = [
+    '#type' => 'textfield',
+    '#title' => t('Main Showroom Name'),
+    '#default_value' => theme_get_setting('main_showroom'),
+  ];
+
+  $form['tufting']['main_showroom_address'] = [
+    '#type' => 'textfield',
+    '#title' => t('Main Showroom Address'),
+    '#default_value' => theme_get_setting('main_showroom_address'),
+  ];
+
+
+
 }
