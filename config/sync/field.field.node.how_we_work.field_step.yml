@@ -1,0 +1,23 @@
+uuid: 75dfa711-05df-47c3-bfce-84de32495664
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_step
+    - node.type.how_we_work
+id: node.how_we_work.field_step
+field_name: field_step
+entity_type: node
+bundle: how_we_work
+label: Step
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

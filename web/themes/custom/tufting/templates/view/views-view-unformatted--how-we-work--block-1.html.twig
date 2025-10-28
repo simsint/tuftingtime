@@ -1,0 +1,44 @@
+{#
+/**
+ * @file
+ * Theme override to display a view of unformatted rows.
+ *
+ * Available variables:
+ * - title: The title of this group of rows. May be empty.
+ * - rows: A list of the view's row items.
+ *   - attributes: The row's HTML attributes.
+ *   - content: The row's content.
+ * - view: The view object.
+ * - default_row_class: A flag indicating whether default classes should be
+ *   used on rows.
+ *
+ * @see template_preprocess_views_view_unformatted()
+ */
+#}
+{% if title %}
+  <h3>{{ title }}</h3>
+{% endif %}
+{% for row in view.result %}
+
+  {%
+    set row_classes = [
+      'views-row',
+    ]
+  %}
+{% set plan = row._entity %}
+{% set plan_type = plan.field_machine_name.value %}
+{%  set index = loop.index0 %}
+
+<li class="steps-item">
+	<div data-w-id="607bba7d-500f-1ee6-5437-520c501ef3ba"  class="steps-item__circle">
+		<div class="steps-item__number">{{ plan.field_step.value }}</div>
+	</div>
+	<h3 data-w-id="81a1eee9-ead8-e12a-6c79-feeef0792588"  class="heading heading--italic">{{ plan.title.value }}</h3>
+	<div class="steps-item__paragraph">
+		<p data-w-id="e33e05d7-5cf7-7676-d23f-a3f914ae9bf5" class="paragraph">{{ plan.field_sub_title.value }}</p>
+	</div>
+	<img src="https://cdn.prod.website-files.com/6736298731cbe5c55f005f38/6736298731cbe5c55f005faf_Line%201387.svg" loading="lazy" data-w-id="318831db-481c-31b5-3854-37e1dfb35dc2" alt="" class="steps-item__line"/></li>
+
+
+
+{% endfor %}

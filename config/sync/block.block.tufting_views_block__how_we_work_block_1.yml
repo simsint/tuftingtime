@@ -1,0 +1,24 @@
+uuid: c9e3b6a0-8fad-4ef8-9b98-6e2c01ac81ea
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.how_we_work
+  module:
+    - views
+  theme:
+    - tufting
+id: tufting_views_block__how_we_work_block_1
+theme: tufting
+region: content
+weight: 0
+provider: null
+plugin: 'views_block:how_we_work-block_1'
+settings:
+  id: 'views_block:how_we_work-block_1'
+  label: ''
+  label_display: '0'
+  provider: views
+  views_label: ''
+  items_per_page: null
+visibility: {  }

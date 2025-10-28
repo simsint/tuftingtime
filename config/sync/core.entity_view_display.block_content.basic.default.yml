@@ -4,9 +4,9 @@ status: true
 dependencies:
   config:
     - block_content.type.basic
-    - field.field.block_content.basic.body
-  module:
-    - text
+    - field.field.block_content.basic.field_machine_name
+    - field.field.block_content.basic.field_sub_title
+    - field.field.block_content.basic.field_title
 _core:
   default_config_hash: hBNNDTFwakREOTa6GGMqN899Iyrii0hInwSJtQ7Kj30
 id: block_content.basic.default
@@ -14,11 +14,28 @@ targetEntityType: block_content
 bundle: basic
 mode: default
 content:
-  body:
-    type: text_default
+  field_machine_name:
+    type: string
     label: hidden
-    settings: {  }
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_sub_title:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
     third_party_settings: {  }
     weight: 0
+    region: content
+  field_title:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 2
     region: content
 hidden: {  }
