@@ -25,4 +25,28 @@ function tufting_preprocess_views_view(&$variables) {
       }
     }
   }
+
+  if ($variables['id'] == 'how_we_work') {
+
+    $view = $variables['view'];
+    $total_results = $view->total_rows;
+    $variables['total_row_count'] = $total_results;
+
+    // Use an entity query to load the block by our custom identifier field.
+    $query = \Drupal::entityTypeManager()->getStorage('block_content')->getQuery();
+    $query->condition('type', 'basic'); // The block type machine name.
+    $query->condition('field_machine_name', 'how_we_work_intro'); // The field and value to look for.
+    $query->range(0, 1); // We only want one result.
+    $query->accessCheck(FALSE);
+    $block_ids = $query->execute();
+
+    if (!empty($block_ids)) {
+      $block_id = array_shift($block_ids);
+      $block_content = \Drupal::entityTypeManager()->getStorage('block_content')->load($block_id);
+
+      if ($block_content) {
+        $variables['how_we_work_intro'] = $block_content;
+      }
+    }
+  }
 }
