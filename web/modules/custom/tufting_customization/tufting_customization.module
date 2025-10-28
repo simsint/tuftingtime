@@ -457,5 +457,48 @@ function tufting_customization_preprocess_block(&$variables) {
 
     }
 
+    if ($entity->bundle() === 'design_dreams') {
+      if ($entity->get('field_machine_name')->value == 'design_dreams') {
+        if (!$entity->get('field_image')->isEmpty()) {
+          $media_entity = $entity->get('field_image')->entity;
+
+          if ($media_entity) {
+            $image_source_field = $media_entity->get('field_media_image');
+
+            if (!$image_source_field->isEmpty()) {
+              $file_uri = $image_source_field->entity->getFileUri();
+              $variables['design_dreams_image_1'] = \Drupal::service('file_url_generator')->generateAbsoluteString($file_uri);
+            }
+          }
+        }
+
+        if (!$entity->get('field_image_2')->isEmpty()) {
+          $media_entity = $entity->get('field_image_2')->entity;
+
+          if ($media_entity) {
+            $image_source_field = $media_entity->get('field_media_image');
+
+            if (!$image_source_field->isEmpty()) {
+              $file_uri = $image_source_field->entity->getFileUri();
+              $variables['design_dreams_image_2'] = \Drupal::service('file_url_generator')->generateAbsoluteString($file_uri);
+            }
+          }
+        }
+
+        if (!$entity->get('field_image_3')->isEmpty()) {
+          $media_entity = $entity->get('field_image_3')->entity;
+
+          if ($media_entity) {
+            $image_source_field = $media_entity->get('field_media_image');
+
+            if (!$image_source_field->isEmpty()) {
+              $file_uri = $image_source_field->entity->getFileUri();
+              $variables['design_dreams_image_3'] = \Drupal::service('file_url_generator')->generateAbsoluteString($file_uri);
+            }
+          }
+        }
+      }
+    }
+
   }
 }

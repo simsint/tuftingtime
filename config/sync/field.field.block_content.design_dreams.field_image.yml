@@ -1,0 +1,29 @@
+uuid: 5285217d-2bad-4686-a935-15a03ff57899
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.design_dreams
+    - field.storage.block_content.field_image
+    - media.type.image
+id: block_content.design_dreams.field_image
+field_name: field_image
+entity_type: block_content
+bundle: design_dreams
+label: 'Image 1'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

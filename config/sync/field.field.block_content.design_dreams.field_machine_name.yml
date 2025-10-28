@@ -1,0 +1,19 @@
+uuid: 112753b9-1578-4004-bf28-946678750632
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.design_dreams
+    - field.storage.block_content.field_machine_name
+id: block_content.design_dreams.field_machine_name
+field_name: field_machine_name
+entity_type: block_content
+bundle: design_dreams
+label: 'Machine Name'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

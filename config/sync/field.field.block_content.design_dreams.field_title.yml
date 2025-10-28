@@ -1,0 +1,19 @@
+uuid: 9ae6d351-3119-4144-83de-f471c1121600
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.design_dreams
+    - field.storage.block_content.field_title
+id: block_content.design_dreams.field_title
+field_name: field_title
+entity_type: block_content
+bundle: design_dreams
+label: Title
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
