@@ -55,3 +55,14 @@
 .button.button--fade {
   opacity: 0;
 }*/
+
+.star-rating-wrapper {
+  color: #f2b01e;
+  /* A nice gold color */
+  font-size: 1.25rem;
+  white-space: nowrap;
+}
+
+.star-rating-wrapper .star-empty {
+  color: #ccc;
+}

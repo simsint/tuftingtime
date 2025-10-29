@@ -1,0 +1,74 @@
+{#
+/**
+ * @file
+ * Theme override to display a view of unformatted rows.
+ *
+ * Available variables:
+ * - title: The title of this group of rows. May be empty.
+ * - rows: A list of the view's row items.
+ *   - attributes: The row's HTML attributes.
+ *   - content: The row's content.
+ * - view: The view object.
+ * - default_row_class: A flag indicating whether default classes should be
+ *   used on rows.
+ *
+ * @see template_preprocess_views_view_unformatted()
+ */
+#}
+{% if title %}
+  <h3>{{ title }}</h3>
+{% endif %}
+{% for row in view.result %}
+
+  {%
+    set row_classes = [
+      'views-row',
+    ]
+  %}
+{% set plan = row._entity %}
+{% set plan_type = plan.field_machine_name.value %}
+{%  set index = loop.index0 %}
+
+
+{%
+  set classes = [
+    'star-rating-wrapper',
+    'star-rating--' ~ row._entity.field_rating.value,
+  ]
+%}
+{% set numeric_rating = row._entity.field_rating.value %}
+
+
+
+<div role="listitem" class="drug-slide w-dyn-item">
+	<div class="testimonial-slide__body">
+		<div class="star-embed w-embed">
+			<div class="testimonial-slide__header" style="--rate:5">
+					{% if numeric_rating %}
+						<div{{attributes.addClass(classes)}}>
+							{# Loop 5 times to print 5 stars #}
+							{% for i in 1..5 %}
+								{% if i <= numeric_rating %}
+									{# Print a FILLED star #}
+									<span class="star star-filled">&#9733;</span>
+								{% else %}
+									{# Print an EMPTY star #}
+									<span class="star star-empty">&#9734;</span>
+								{% endif %}
+							{% endfor %}
+						</div>
+					{% endif %}
+
+				<!--<img src="images/star.svg" loading="lazy" alt="stars" class="testimonial-slide__image">-->
+			</div>
+		</div>
+		<p class="testimonial-slide__paragraph scrollable">{{ plan.field_testimonial_content.value }}
+		<p class="paragraph paragraph--mt-auto">{{ plan.field_testimonial_by.value }}</p>
+		<p class="paragraph">{{ plan.field_designation.value }}, {{ plan.field_company.value }} / {{ plan.field_company_type.value }}</p>
+	</div>
+</div>
+
+
+
+
+{% endfor %}

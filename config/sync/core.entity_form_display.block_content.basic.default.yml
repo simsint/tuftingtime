@@ -4,9 +4,12 @@ status: true
 dependencies:
   config:
     - block_content.type.basic
+    - field.field.block_content.basic.field_image
     - field.field.block_content.basic.field_machine_name
     - field.field.block_content.basic.field_sub_title
     - field.field.block_content.basic.field_title
+  module:
+    - media_library
 _core:
   default_config_hash: jAps3FCxvKecABS_tgExbhCZrBLQB3bNPWw18WjE3ss
 id: block_content.basic.default
@@ -14,6 +17,13 @@ targetEntityType: block_content
 bundle: basic
 mode: default
 content:
+  field_image:
+    type: media_library_widget
+    weight: 2
+    region: content
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
   field_machine_name:
     type: string_textfield
     weight: 3

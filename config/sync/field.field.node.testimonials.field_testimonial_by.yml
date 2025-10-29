@@ -1,0 +1,19 @@
+uuid: 74ca5cac-e0b2-4dea-96ff-726769ce62f1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_testimonial_by
+    - node.type.testimonials
+id: node.testimonials.field_testimonial_by
+field_name: field_testimonial_by
+entity_type: node
+bundle: testimonials
+label: 'Testimonial By'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

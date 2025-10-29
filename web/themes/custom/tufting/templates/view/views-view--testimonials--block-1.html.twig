@@ -30,29 +30,27 @@
  * @see template_preprocess_views_view()
  */
 #}
+<div class="section-wrapper">
+	<section id="reviews" data-w-id="9d98cc40-90c0-b033-d755-f22705f64bc8" class="section section-testimonials">
+		<div class="testimonials">
+			<div class="drug-slider-wrapper">
+				<div class="drug-slider__body">
+					<div class="drug-slider drug-slider--animation w-dyn-list">
+						<div role="list" class="drug-slider__wrapper w-dyn-items">
 
-<section id="how-we-work" class="section section--steps">
-	<div class="container container--lg">
-		<div class="steps">
-			<div class="steps__header">
-				<div data-w-id="f3080947-c64d-b292-3cd2-0e07855ac5c1" class="subheading reasons__subheading">{{ how_we_work_intro.field_title.value}}</div>
-
-
-				<h2 data-name="title-parent" class="heading heading--lg">
-					<span data-name="title-item" class="heading-span" id="#animate7">{{ total_row_count }} {{ how_we_work_intro.field_sub_title.value}}</span>
-				</h2>
-			</div>
-			<ul role="list" class="steps__list">
-				{% if rows %}
+					{% if rows %}
 					{{ rows }}
-				{% endif %}
+					{% endif %}
 
-
-			</ul>
-			<div class="steps__image-wrapper"><img src="{{how_we_work_image}}" loading="lazy" alt="" class="steps__image"/></div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="bg"><img loading="lazy" src="{{testimonial_bg_image}}" alt="" class="bg_image bg_image--md bg_image--testimonilas"/></div>
 		</div>
-	</div>
-</section>
+	</section>
+</div>
+
 
 
 

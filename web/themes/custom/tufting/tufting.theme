@@ -46,6 +46,45 @@ function tufting_preprocess_views_view(&$variables) {
 
       if ($block_content) {
         $variables['how_we_work_intro'] = $block_content;
+        if ($block_content->hasField('field_image') && !$block_content->get('field_image')->isEmpty()) {
+          $fid = $block_content->get('field_image')->target_id;
+          $file = \Drupal::entityTypeManager()->getStorage('file')->load($fid);
+
+          if ($file) {
+              $uri = $file->getFileUri();
+              $image_url = \Drupal::service('file_url_generator')->generateAbsoluteString($uri);
+              $variables['how_we_work_image'] = $image_url;
+          }
+        }
+      }
+    }
+  }
+
+  if ($variables['id'] == 'testimonials') {
+
+    // Use an entity query to load the block by our custom identifier field.
+    $query = \Drupal::entityTypeManager()->getStorage('block_content')->getQuery();
+    $query->condition('type', 'basic'); // The block type machine name.
+    $query->condition('field_machine_name', 'testimonial_header_block'); // The field and value to look for.
+    $query->range(0, 1); // We only want one result.
+    $query->accessCheck(FALSE);
+    $block_ids = $query->execute();
+
+    if (!empty($block_ids)) {
+      $block_id = array_shift($block_ids);
+      $block_content = \Drupal::entityTypeManager()->getStorage('block_content')->load($block_id);
+
+      if ($block_content) {
+        if ($block_content->hasField('field_image') && !$block_content->get('field_image')->isEmpty()) {
+          $fid = $block_content->get('field_image')->target_id;
+          $file = \Drupal::entityTypeManager()->getStorage('file')->load($fid);
+
+          if ($file) {
+              $uri = $file->getFileUri();
+              $image_url = \Drupal::service('file_url_generator')->generateAbsoluteString($uri);
+              $variables['testimonial_bg_image'] = $image_url;
+          }
+        }
       }
     }
   }

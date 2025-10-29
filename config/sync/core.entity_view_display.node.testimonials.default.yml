@@ -1,0 +1,73 @@
+uuid: 6a240249-a1ce-4194-bc11-4709807e7abc
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.testimonials.field_company
+    - field.field.node.testimonials.field_company_type
+    - field.field.node.testimonials.field_designation
+    - field.field.node.testimonials.field_rating
+    - field.field.node.testimonials.field_testimonial_by
+    - field.field.node.testimonials.field_testimonial_content
+    - node.type.testimonials
+  module:
+    - user
+id: node.testimonials.default
+targetEntityType: node
+bundle: testimonials
+mode: default
+content:
+  field_company:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 105
+    region: content
+  field_company_type:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 106
+    region: content
+  field_designation:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 104
+    region: content
+  field_rating:
+    type: number_integer
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  field_testimonial_by:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 103
+    region: content
+  field_testimonial_content:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 102
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden: {  }
