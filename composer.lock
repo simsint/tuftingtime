@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b55b1e5e945e197113995d1fb0dbd419",
+    "content-hash": "c0e008b2193d15132a800f70abad5e46",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1238,6 +1238,73 @@
             }
         },
         {
+            "name": "drupal/blazy",
+            "version": "3.0.15",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/blazy.git",
+                "reference": "3.0.15"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/blazy-3.0.15.zip",
+                "reference": "3.0.15",
+                "shasum": "9464e029679a3bf3ef811865eb859f6789294590"
+            },
+            "require": {
+                "drupal/core": ">=9.4"
+            },
+            "conflict": {
+                "drupal/csp": "<1.12"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "3.0.15",
+                    "datestamp": "1760528174",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Gaus Surahman",
+                    "homepage": "https://www.drupal.org/u/gausarts",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "Contributors",
+                    "homepage": "https://www.drupal.org/node/2663268/committers",
+                    "role": "Contributor"
+                },
+                {
+                    "name": "geek-merlin",
+                    "homepage": "https://www.drupal.org/user/229048"
+                },
+                {
+                    "name": "sun",
+                    "homepage": "https://www.drupal.org/user/54136"
+                }
+            ],
+            "description": "Provides basic bLazy integration for lazy loading and multi-serving images.",
+            "homepage": "https://drupal.org/project/blazy",
+            "keywords": [
+                "Drupal",
+                "bLazy",
+                "lazyload"
+            ],
+            "support": {
+                "source": "https://git.drupalcode.org/project/blazy",
+                "issues": "https://drupal.org/project/issues/blazy"
+            }
+        },
+        {
             "name": "drupal/core",
             "version": "11.2.5",
             "source": {
@@ -1609,6 +1676,66 @@
                 "GPL-2.0-or-later"
             ],
             "description": "Core and its dependencies with known-compatible minor versions. Require this project INSTEAD OF drupal/core."
+        },
+        {
+            "name": "drupal/slick",
+            "version": "3.0.6",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/slick.git",
+                "reference": "3.0.6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/slick-3.0.6.zip",
+                "reference": "3.0.6",
+                "shasum": "011d7d8b6166f37a4f9dfcac9cbe8ce2b41830fe"
+            },
+            "require": {
+                "drupal/blazy": "^3.0",
+                "drupal/core": ">=9.4"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "3.0.6",
+                    "datestamp": "1760846719",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Contributors",
+                    "homepage": "https://www.drupal.org/node/2232779/committers",
+                    "role": "Contributors"
+                },
+                {
+                    "name": "shadcn",
+                    "homepage": "https://www.drupal.org/user/571032"
+                },
+                {
+                    "name": "thalles",
+                    "homepage": "https://www.drupal.org/user/3589086"
+                }
+            ],
+            "description": "Slick carousel, the last carousel you'll ever need.",
+            "homepage": "https://drupal.org/project/slick",
+            "keywords": [
+                "Drupal",
+                "carousel",
+                "slideshow"
+            ],
+            "support": {
+                "source": "https://git.drupalcode.org/project/slick",
+                "issues": "https://drupal.org/project/issues/slick"
+            }
         },
         {
             "name": "drupal/twig_tweak",
@@ -2424,6 +2551,27 @@
                 }
             ],
             "time": "2025-03-27T12:30:47+00:00"
+        },
+        {
+            "name": "kenwheeler/slick",
+            "version": "1.6.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Alexander2Leb/slick.git",
+                "reference": "76f05b1f6a1bd4792cd877d2c9ae22d0c7bcb712"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Alexander2Leb/slick/zipball/76f05b1f6a1bd4792cd877d2c9ae22d0c7bcb712",
+                "reference": "76f05b1f6a1bd4792cd877d2c9ae22d0c7bcb712",
+                "shasum": ""
+            },
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "support": {
+                "source": "https://github.com/Alexander2Leb/slick/tree/1.6.1"
+            },
+            "time": "2017-03-31T12:40:41+00:00"
         },
         {
             "name": "laravel/prompts",
