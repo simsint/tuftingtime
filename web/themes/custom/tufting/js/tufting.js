@@ -5,7 +5,7 @@
   Drupal.behaviors.sdactSection = {
     attach: function (context, settings) {
 
-      WebFont.load({ google: { families: ["Inter:regular,italic"] } });
+      /*WebFont.load({ google: { families: ["Inter:regular,italic"] } });*/
 
       !function (o, c) { var n = c.documentElement, t = " w-mod-"; n.className += t + "js", ("ontouchstart" in o || o.DocumentTouch && c instanceof DocumentTouch) && (n.className += t + "touch") }(window, document);
 
@@ -43,7 +43,7 @@
         autoplaySpeed: 0, // Set to 0 for continuous scroll without pause
         speed: 5000, // Adjust this value to control the speed of the continuous scroll (in milliseconds)
         cssEase: 'linear', // Ensures a smooth, consistent animation
-        slidesToShow: 4, // Number of slides visible at once
+        slidesToShow: 2, // Number of slides visible at once
         slidesToScroll: 1, // Number of slides to scroll at a time
         infinite: true, // Essential for continuous looping
         arrows: false, // Hide navigation arrows if desired
