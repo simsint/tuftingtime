@@ -1,0 +1,29 @@
+uuid: cceabf7f-44e9-4058-a864-88e702d77b41
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.gallery.field_gallery_image
+    - node.type.gallery
+  module:
+    - user
+id: node.gallery.default
+targetEntityType: node
+bundle: gallery
+mode: default
+content:
+  field_gallery_image:
+    type: entity_reference_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden: {  }

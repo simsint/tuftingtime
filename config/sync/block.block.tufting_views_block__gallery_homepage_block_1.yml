@@ -1,0 +1,24 @@
+uuid: 44a7a44a-6f3d-4565-9633-968c1fbc7395
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.gallery_homepage
+  module:
+    - views
+  theme:
+    - tufting
+id: tufting_views_block__gallery_homepage_block_1
+theme: tufting
+region: content
+weight: 0
+provider: null
+plugin: 'views_block:gallery_homepage-block_1'
+settings:
+  id: 'views_block:gallery_homepage-block_1'
+  label: ''
+  label_display: '0'
+  provider: views
+  views_label: ''
+  items_per_page: null
+visibility: {  }

@@ -29,7 +29,7 @@
         autoplaySpeed: 0, // Set to 0 for continuous scroll without pause
         speed: 5000, // Adjust this value to control the speed of the continuous scroll (in milliseconds)
         cssEase: 'linear', // Ensures a smooth, consistent animation
-        slidesToShow: 5, // Number of slides visible at once
+        slidesToShow: 2, // Number of slides visible at once
         slidesToScroll: 1, // Number of slides to scroll at a time
         infinite: true, // Essential for continuous looping
         arrows: false, // Hide navigation arrows if desired

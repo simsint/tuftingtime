@@ -1,0 +1,48 @@
+{% if title %}
+  <h3>{{ title }}</h3>
+{% endif %}
+
+{% for row in view.result %}
+  {%
+    set row_classes = [
+      'views-row',
+    ]
+  %}
+
+  {% set plan = row._entity %}
+  {% set index = loop.index0 %}
+
+  {# ------------------------------------------------------------- #}
+  {# --- Corrected steps for Media Entity Reference field: ----- #}
+
+  {# 1. Get the referenced Media Entity (e.g., Media Type: Image). #}
+  {% set media_entity = plan.field_gallery_image.entity %}
+
+  {% set image_url = null %}
+
+  {% if media_entity %}
+    {# 2. Get the actual file field within the Media Entity. #}
+    {# This field is typically named 'field_media_image' for Drupal's standard Image Media Type. #}
+    {% set file_field = media_entity.field_media_image.entity %}
+
+    {# 3. Get the file URI from the File Entity. #}
+    {% if file_field %}
+      {% set image_uri = file_field.uri.value %}
+
+      {# 4. Generate the absolute URL. #}
+      {% set image_url = image_uri | file_url %}
+    {% endif %}
+  {% endif %}
+  {# ------------------------------------------------------------- #}
+
+  <div role="listitem" class="discover__banner-item w-dyn-item">
+
+    {% if image_url %}
+      <img src="{{ image_url }}"
+           loading="eager"
+           alt="{{ media_entity.label }}" {# Use the Media Entity's label for alt text, or another field #}
+           class="discover__banner-item-image"/>
+    {% endif %}
+
+  </div>
+{% endfor %}

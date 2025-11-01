@@ -88,6 +88,29 @@ function tufting_preprocess_views_view(&$variables) {
       }
     }
   }
+
+  if ($variables['id'] == 'gallery_homepage') {
+
+    // Use an entity query to load the block by our custom identifier field.
+    $query = \Drupal::entityTypeManager()->getStorage('block_content')->getQuery();
+    $query->condition('type', 'hero_banner'); // The block type machine name.
+    $query->condition('field_machine_name', 'homepage_gallery_1_header'); // The field and value to look for.
+    $query->range(0, 1); // We only want one result.
+    $query->accessCheck(FALSE);
+    $block_ids = $query->execute();
+
+    if (!empty($block_ids)) {
+      $block_id = array_shift($block_ids);
+      $block_content = \Drupal::entityTypeManager()->getStorage('block_content')->load($block_id);
+
+      if ($block_content) {
+        $variables['gallery_header'] = $block_content;
+        if ($block_content->hasField('field_consultant_form_link') && !$block_content->get('field_consultant_form_link')->isEmpty()) {
+          $variables['consultant_form_link'] = $block_content->get('field_consultant_form_link')->value;
+        }
+      }
+    }
+  }
 }
 
 
