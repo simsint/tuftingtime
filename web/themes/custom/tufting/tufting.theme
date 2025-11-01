@@ -89,3 +89,22 @@ function tufting_preprocess_views_view(&$variables) {
     }
   }
 }
+
+
+use Drupal\block_content\BlockContentInterface;
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter() for blocks.
+ */
+function tufting_theme_suggestions_block_alter(array &$suggestions, array $variables) {
+
+  //dump($variables['elements']['content']['field_machine_name']);
+
+  if ($variables['elements']['content']['field_machine_name']) {
+    $machine_name = $variables['elements']['content']['field_machine_name']['#object']->get('field_machine_name')->value;
+    $sanitized_value = preg_replace('/[^a-z0-9_]+/', '_', strtolower($machine_name));
+    $suggestions[] = 'block__custom__' . $sanitized_value;
+  }
+
+
+}

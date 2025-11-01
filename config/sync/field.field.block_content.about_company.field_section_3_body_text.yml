@@ -1,0 +1,19 @@
+uuid: a3bdce83-a435-4b51-b613-b0cb87175339
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.about_company
+    - field.storage.block_content.field_section_3_body_text
+id: block_content.about_company.field_section_3_body_text
+field_name: field_section_3_body_text
+entity_type: block_content
+bundle: about_company
+label: 'Section 3 Body text'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

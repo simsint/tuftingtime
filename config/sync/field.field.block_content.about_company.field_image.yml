@@ -1,0 +1,29 @@
+uuid: f58984b9-56b5-4c76-90df-deca71a2177d
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.about_company
+    - field.storage.block_content.field_image
+    - media.type.image
+id: block_content.about_company.field_image
+field_name: field_image
+entity_type: block_content
+bundle: about_company
+label: 'Section 1 Image'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

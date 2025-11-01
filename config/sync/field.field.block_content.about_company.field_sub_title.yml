@@ -1,0 +1,19 @@
+uuid: 299cd720-fedf-4e44-9b9f-8518db19d2cf
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.about_company
+    - field.storage.block_content.field_sub_title
+id: block_content.about_company.field_sub_title
+field_name: field_sub_title
+entity_type: block_content
+bundle: about_company
+label: Sub-Title
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

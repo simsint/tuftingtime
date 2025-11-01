@@ -1,6 +1,6 @@
 uuid: 465dfd31-50d0-4e93-8573-f11dc50689a6
 langcode: en
-status: false
+status: true
 dependencies:
   module:
     - system
@@ -11,7 +11,7 @@ _core:
 id: tufting_content
 theme: tufting
 region: content
-weight: -5
+weight: -6
 provider: null
 plugin: system_main_block
 settings:

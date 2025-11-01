@@ -11,7 +11,7 @@ dependencies:
 id: tufting_views_block__how_we_work_block_1
 theme: tufting
 region: content
-weight: 0
+weight: -5
 provider: null
 plugin: 'views_block:how_we_work-block_1'
 settings:

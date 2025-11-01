@@ -1,4 +1,4 @@
-uuid: 830ad3e6-b669-4ead-9297-b395d2cf1e67
+uuid: 21f51a81-ceff-4233-9e3d-0889b6dff20f
 langcode: en
 status: true
 dependencies:
@@ -6,13 +6,12 @@ dependencies:
     - 'block_content:hero_banner:71197a48-44c8-4807-b43f-1074f903cd89'
   module:
     - block_content
-    - system
   theme:
     - tufting
 id: tufting_herobannerhomepage
 theme: tufting
 region: content
-weight: -9
+weight: -10
 provider: null
 plugin: 'block_content:71197a48-44c8-4807-b43f-1074f903cd89'
 settings:
@@ -23,8 +22,4 @@ settings:
   status: true
   info: ''
   view_mode: full
-visibility:
-  request_path:
-    id: request_path
-    negate: false
-    pages: /home
+visibility: {  }

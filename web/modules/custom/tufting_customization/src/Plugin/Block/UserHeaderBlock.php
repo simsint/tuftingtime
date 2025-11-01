@@ -49,7 +49,7 @@ final class UserHeaderBlock extends BlockBase {
 
     $query = \Drupal::entityTypeManager()->getStorage('block_content')->getQuery();
     $query->condition('type', 'hero_banner'); // The block type machine name.
-    $query->condition('field_machine_name', 'hero_banner'); // The field and value to look for.
+    $query->condition('field_machine_name', 'hero_banner_top'); // The field and value to look for.
     $query->range(0, 1); // We only want one result.
     $query->accessCheck(FALSE);
     $block_ids = $query->execute();

@@ -1,0 +1,127 @@
+uuid: 8f31c1ab-72ed-41a0-aa80-0d7140528b72
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.about_company
+    - field.field.block_content.about_company.field_image
+    - field.field.block_content.about_company.field_image_2
+    - field.field.block_content.about_company.field_image_3
+    - field.field.block_content.about_company.field_machine_name
+    - field.field.block_content.about_company.field_section_1_body_text
+    - field.field.block_content.about_company.field_section_1_title
+    - field.field.block_content.about_company.field_section_2_body_text
+    - field.field.block_content.about_company.field_section_2_title
+    - field.field.block_content.about_company.field_section_3_body_text
+    - field.field.block_content.about_company.field_section_3_title
+    - field.field.block_content.about_company.field_sub_title
+    - field.field.block_content.about_company.field_title
+  module:
+    - media_library
+id: block_content.about_company.default
+targetEntityType: block_content
+bundle: about_company
+mode: default
+content:
+  field_image:
+    type: media_library_widget
+    weight: 5
+    region: content
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
+  field_image_2:
+    type: media_library_widget
+    weight: 8
+    region: content
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
+  field_image_3:
+    type: media_library_widget
+    weight: 11
+    region: content
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
+  field_machine_name:
+    type: string_textfield
+    weight: 12
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_section_1_body_text:
+    type: string_textarea
+    weight: 4
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_section_1_title:
+    type: string_textfield
+    weight: 3
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_section_2_body_text:
+    type: string_textarea
+    weight: 7
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_section_2_title:
+    type: string_textfield
+    weight: 6
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_section_3_body_text:
+    type: string_textarea
+    weight: 10
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_section_3_title:
+    type: string_textfield
+    weight: 9
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_sub_title:
+    type: string_textfield
+    weight: 2
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_title:
+    type: string_textfield
+    weight: 1
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  info:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden: {  }
