@@ -94,3 +94,15 @@
 #hidden_gallery {
   visibility: hidden;
 }
+
+.dreams-banner-video-wrapper {
+  width: 100%;
+    object-fit: cover;
+    /* Important: Ensures the image covers the 16x9 area without stretching */
+    position: absolute;
+    /* Essential for the Bootstrap 'ratio' class to work */
+    top: 0;
+    left: 0;
+    border-radius: 10px;
+    /* Inherit rounded corners from parent */
+}
