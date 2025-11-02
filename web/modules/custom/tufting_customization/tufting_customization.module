@@ -452,6 +452,31 @@ function tufting_customization_preprocess_block(&$variables) {
           }
         }
 
+        if ($entity->hasField('field_video') && !$entity->get('field_video')->isEmpty()) {
+          $fid = $entity->get('field_video')->target_id;
+          $file = \Drupal::service('entity_type.manager')->getStorage('file')->load($fid);
+
+          if ($file) {
+            $video_url = \Drupal::service('file_url_generator')->generateAbsoluteString($file->getFileUri());
+            $variables['video_url'] = $video_url;
+            $play_str = '';
+            if ($entity->hasField('field_autoplay_video') && !$entity->get('field_autoplay_video')->isEmpty() && $entity->get('field_autoplay_video')->value == 1) {
+              $play_str .= 'autoplay ';
+            }
+            if ($entity->hasField('field_loop_video') && !$entity->get('field_loop_video')->isEmpty() && $entity->get('field_loop_video')->value == 1) {
+              $play_str .= 'loop ';
+            }
+            if ($entity->hasField('field_mute_video') && !$entity->get('field_mute_video')->isEmpty() && $entity->get('field_mute_video')->value == 1) {
+              $play_str .= 'muted ';
+            }
+
+            $variables['mime_type'] = $file->getMimeType();
+            $variables['play_str'] = $play_str;
+        }
+        } else {
+          $variables['video_url'] = [];
+        }
+
       }
 
 
@@ -546,6 +571,32 @@ function tufting_customization_preprocess_block(&$variables) {
             }
           }
         }
+
+         if ($entity->hasField('field_video') && !$entity->get('field_video')->isEmpty()) {
+          $fid = $entity->get('field_video')->target_id;
+          $file = \Drupal::service('entity_type.manager')->getStorage('file')->load($fid);
+
+          if ($file) {
+            $video_url = \Drupal::service('file_url_generator')->generateAbsoluteString($file->getFileUri());
+            $variables['video_url'] = $video_url;
+            $play_str = '';
+            if ($entity->hasField('field_autoplay_video') && !$entity->get('field_autoplay_video')->isEmpty() && $entity->get('field_autoplay_video')->value == 1) {
+              $play_str .= 'autoplay ';
+            }
+            if ($entity->hasField('field_loop_video') && !$entity->get('field_loop_video')->isEmpty() && $entity->get('field_loop_video')->value == 1) {
+              $play_str .= 'loop ';
+            }
+            if ($entity->hasField('field_mute_video') && !$entity->get('field_mute_video')->isEmpty() && $entity->get('field_mute_video')->value == 1) {
+              $play_str .= 'muted ';
+            }
+
+            $variables['mime_type'] = $file->getMimeType();
+            $variables['play_str'] = $play_str;
+          }
+          } else {
+            $variables['video_url'] = [];
+          }
+
       }
     }
 

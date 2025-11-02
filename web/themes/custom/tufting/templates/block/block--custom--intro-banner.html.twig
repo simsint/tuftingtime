@@ -1,7 +1,33 @@
 
 	<section  class="section section--illustration">
 		<div class="illustration">
-			<img src="{{ bg_image }}" loading="lazy" alt="" class="illustration__bg-image"/>
+			<!--<img src="{{ bg_image }}" loading="lazy" alt="" class="illustration__bg-image"/>-->
+
+			<div class="video-img-container">
+
+				{% if video_url is not empty %}
+					<div class="video-container">
+
+						<video
+							class="ratio ratio-16x9 rounded-lg shadow-xl banner-video-wrapper" style="--bs-aspect-ratio: 56.25%;" controls="false" {{ play_str }} playsinline>
+
+							<source
+							src="{{ video_url }}" type="{{ mime_type }}">
+
+							Your browser does not support the video tag.
+						</video>
+
+					</div>
+				{% elseif bg_image is not empty %}
+					<img src="{{ bg_image }}" loading="lazy" alt="" class="illustration__bg-image"/>
+
+				{% else %}
+					<img src="https://placehold.co/1200x500/3A81EE/FFFFFF?text=Placeholder+Media+Block" loading="lazy" alt="" class="illustration__bg-image">
+				{% endif %}
+			</div>
+
+
+
 			<div class="illustration__inner">
 				<div class="illustration__header"></div>
 				<div class="illustration__body">

@@ -1,0 +1,21 @@
+uuid: 49d73446-1ca3-4f96-8d1e-848beaa12be7
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.basic
+    - field.storage.block_content.field_autoplay_video
+id: block_content.basic.field_autoplay_video
+field_name: field_autoplay_video
+entity_type: block_content
+bundle: basic
+label: 'Autoplay Video'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

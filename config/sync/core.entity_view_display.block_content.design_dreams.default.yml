@@ -4,16 +4,32 @@ status: true
 dependencies:
   config:
     - block_content.type.design_dreams
+    - field.field.block_content.design_dreams.field_autoplay_video
     - field.field.block_content.design_dreams.field_image
     - field.field.block_content.design_dreams.field_image_2
     - field.field.block_content.design_dreams.field_image_3
+    - field.field.block_content.design_dreams.field_loop_video
     - field.field.block_content.design_dreams.field_machine_name
+    - field.field.block_content.design_dreams.field_mute_video
     - field.field.block_content.design_dreams.field_title
+    - field.field.block_content.design_dreams.field_video
+  module:
+    - file
 id: block_content.design_dreams.default
 targetEntityType: block_content
 bundle: design_dreams
 mode: default
 content:
+  field_autoplay_video:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 7
+    region: content
   field_image:
     type: entity_reference_entity_view
     label: hidden
@@ -41,6 +57,16 @@ content:
     third_party_settings: {  }
     weight: 6
     region: content
+  field_loop_video:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 9
+    region: content
   field_machine_name:
     type: string
     label: hidden
@@ -49,6 +75,16 @@ content:
     third_party_settings: {  }
     weight: 4
     region: content
+  field_mute_video:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 8
+    region: content
   field_title:
     type: string
     label: hidden
@@ -56,5 +92,13 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     weight: 2
+    region: content
+  field_video:
+    type: file_default
+    label: above
+    settings:
+      use_description_as_link_text: true
+    third_party_settings: {  }
+    weight: 6
     region: content
 hidden: {  }

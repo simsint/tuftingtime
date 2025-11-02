@@ -85,6 +85,31 @@ function tufting_preprocess_views_view(&$variables) {
               $variables['testimonial_bg_image'] = $image_url;
           }
         }
+
+        if ($block_content->hasField('field_video') && !$block_content->get('field_video')->isEmpty()) {
+          $fid = $block_content->get('field_video')->target_id;
+          $file = \Drupal::service('entity_type.manager')->getStorage('file')->load($fid);
+
+          if ($file) {
+            $video_url = \Drupal::service('file_url_generator')->generateAbsoluteString($file->getFileUri());
+            $variables['video_url'] = $video_url;
+            $play_str = '';
+            if ($block_content->hasField('field_autoplay_video') && !$block_content->get('field_autoplay_video')->isEmpty() && $block_content->get('field_autoplay_video')->value == 1) {
+              $play_str .= 'autoplay ';
+            }
+            if ($block_content->hasField('field_loop_video') && !$block_content->get('field_loop_video')->isEmpty() && $block_content->get('field_loop_video')->value == 1) {
+              $play_str .= 'loop ';
+            }
+            if ($block_content->hasField('field_mute_video') && !$block_content->get('field_mute_video')->isEmpty() && $block_content->get('field_mute_video')->value == 1) {
+              $play_str .= 'muted ';
+            }
+
+            $variables['mime_type'] = $file->getMimeType();
+            $variables['play_str'] = $play_str;
+          }
+          } else {
+            $variables['video_url'] = [];
+          }
       }
     }
   }

@@ -1,0 +1,21 @@
+uuid: 470c97b3-37e6-4781-a2fa-92fe54c769c0
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.hero_banner
+    - field.storage.block_content.field_autoplay_video
+id: block_content.hero_banner.field_autoplay_video
+field_name: field_autoplay_video
+entity_type: block_content
+bundle: hero_banner
+label: 'Autoplay Video'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

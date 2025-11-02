@@ -4,10 +4,16 @@ status: true
 dependencies:
   config:
     - block_content.type.basic
+    - field.field.block_content.basic.field_autoplay_video
     - field.field.block_content.basic.field_image
+    - field.field.block_content.basic.field_loop_video
     - field.field.block_content.basic.field_machine_name
+    - field.field.block_content.basic.field_mute_video
     - field.field.block_content.basic.field_sub_title
     - field.field.block_content.basic.field_title
+    - field.field.block_content.basic.field_video
+  module:
+    - file
 _core:
   default_config_hash: hBNNDTFwakREOTa6GGMqN899Iyrii0hInwSJtQ7Kj30
 id: block_content.basic.default
@@ -15,6 +21,16 @@ targetEntityType: block_content
 bundle: basic
 mode: default
 content:
+  field_autoplay_video:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 7
+    region: content
   field_image:
     type: entity_reference_entity_view
     label: hidden
@@ -24,6 +40,16 @@ content:
     third_party_settings: {  }
     weight: 3
     region: content
+  field_loop_video:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 9
+    region: content
   field_machine_name:
     type: string
     label: hidden
@@ -31,6 +57,16 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     weight: 4
+    region: content
+  field_mute_video:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 8
     region: content
   field_sub_title:
     type: string
@@ -47,5 +83,13 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     weight: 2
+    region: content
+  field_video:
+    type: file_default
+    label: above
+    settings:
+      use_description_as_link_text: true
+    third_party_settings: {  }
+    weight: 6
     region: content
 hidden: {  }

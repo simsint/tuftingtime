@@ -1,33 +1,82 @@
 <section id="desing-dreams" class="section section-gallery">
 	<div class="section-gallery__header">
 		<div class="container container--md">
+		{% if video_url is empty %}
 			<div data-name="title-parent" class="gallery-header__heading">
-				<div data-name="title-item" class="gallery-header__span" id="">See Your Design Dreams Come To Life</div>
+				<div data-name="title-item" class="gallery-header__span" id="">{{ content.field_title }}</div>
 				<!--<div class="gallery-header__heading-iine">
 					<div data-name="title-item" class="gallery-header__span" id="animate5">See Your Design Dreams Come To Life</div>
 				</div>-->
 				<!--<div data-name="title-item" class="gallery-header__span" id="animate6">Come&nbsp;To&nbsp;Life</div>-->
 			</div>
 		</div>
+		{% endif %}
+		{% if video_url is not empty %}
+
+
+				<video class=" banner-video-wrapper" style="--bs-aspect-ratio: 56.25%;" controls="false" {{ play_str }} playsinline>
+
+					<source src="{{ video_url }}" type="{{ mime_type }}">
+
+					Your browser does not support the video tag.
+				</video>
+
+		{% endif %}
 	</div>
+{% if video_url is not empty %}
+
+<div class="section-gallery__body" id="hidden_gallery">
+	<div class="section-gallery__body-gradient"></div>
+	<div class="container container--lg">
+		<div class="gallery">
+			<div id="w-node-ec923fee-d284-e4c2-882d-ceb7e1f88d2c-5f005f2d" class="gallery__image-wrapper-first">
+				<img src="{{design_dreams_image_1}}" loading="lazy" data-w-id="889b405f-904f-e59b-aaf3-2fe9940e5afa" alt="" class="gallery__image gallery__image--mob-hidden"/>
+			</div>
+			<div id="w-node-_1df1e429-f8c8-d023-496a-e50a01521ad1-5f005f2d" class="gallery__image-wrapper-second">
+				<div data-w-id="fc9ae041-5f49-973d-2c6f-e10589d69b03" class="gallery__image-inner">
+					<img src="{{design_dreams_image_2}}" loading="lazy" data-w-id="14dbe6d1-6761-7e19-0f59-db59e925a60d" alt="" class="gallery__image"/>
+				</div>
+			</div>
+			<div id="w-node-_9870da6e-778e-245d-c474-24d84f973fb4-5f005f2d" class="gallery__image-wrapper-third">
+				<div data-w-id="9a6cbaa4-0855-39c3-782a-d6dafc4d73d7" class="gallery__image-inner">
+					<img src="{{design_dreams_image_3}}" loading="lazy" data-w-id="07be7dfb-712e-5589-1a84-a37560843af0" alt="" class="gallery__image"/>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{% endif %}
+
+
+
+</section>
+
+<section id="desing-dreams" class="section section-gallery">
+
+
+
 	<div class="section-gallery__body">
 		<div class="section-gallery__body-gradient"></div>
 		<div class="container container--lg">
 			<div class="gallery">
 				<div id="w-node-ec923fee-d284-e4c2-882d-ceb7e1f88d2c-5f005f2d" class="gallery__image-wrapper-first">
-          <img src="{{design_dreams_image_1}}" loading="lazy" data-w-id="889b405f-904f-e59b-aaf3-2fe9940e5afa" alt="" class="gallery__image gallery__image--mob-hidden"/>
-        </div>
+					<img src="{{design_dreams_image_1}}" loading="lazy" data-w-id="889b405f-904f-e59b-aaf3-2fe9940e5afa" alt="" class="gallery__image gallery__image--mob-hidden"/>
+				</div>
 				<div id="w-node-_1df1e429-f8c8-d023-496a-e50a01521ad1-5f005f2d" class="gallery__image-wrapper-second">
 					<div data-w-id="fc9ae041-5f49-973d-2c6f-e10589d69b03" class="gallery__image-inner">
-          <img src="{{design_dreams_image_2}}" loading="lazy" data-w-id="14dbe6d1-6761-7e19-0f59-db59e925a60d" alt="" class="gallery__image"/>
-          </div>
+						<img src="{{design_dreams_image_2}}" loading="lazy" data-w-id="14dbe6d1-6761-7e19-0f59-db59e925a60d" alt="" class="gallery__image"/>
+					</div>
 				</div>
 				<div id="w-node-_9870da6e-778e-245d-c474-24d84f973fb4-5f005f2d" class="gallery__image-wrapper-third">
 					<div data-w-id="9a6cbaa4-0855-39c3-782a-d6dafc4d73d7" class="gallery__image-inner">
-          <img src="{{design_dreams_image_3}}" loading="lazy" data-w-id="07be7dfb-712e-5589-1a84-a37560843af0" alt="" class="gallery__image"/>
-          </div>
+						<img src="{{design_dreams_image_3}}" loading="lazy" data-w-id="07be7dfb-712e-5589-1a84-a37560843af0" alt="" class="gallery__image"/>
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
 </section>
+
+
+</section>
+

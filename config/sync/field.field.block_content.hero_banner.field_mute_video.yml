@@ -1,0 +1,21 @@
+uuid: fbb770bf-8c27-43cf-a291-c41acfe4c6ba
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.hero_banner
+    - field.storage.block_content.field_mute_video
+id: block_content.hero_banner.field_mute_video
+field_name: field_mute_video
+entity_type: block_content
+bundle: hero_banner
+label: 'Mute Video'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

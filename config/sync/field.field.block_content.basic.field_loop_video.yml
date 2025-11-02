@@ -1,0 +1,21 @@
+uuid: d7ff96ca-9e23-43be-b52a-a0a64606cb97
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.basic
+    - field.storage.block_content.field_loop_video
+id: block_content.basic.field_loop_video
+field_name: field_loop_video
+entity_type: block_content
+bundle: basic
+label: 'Loop Video'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

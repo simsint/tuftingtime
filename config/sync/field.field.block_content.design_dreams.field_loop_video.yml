@@ -1,0 +1,21 @@
+uuid: d1a27d35-5861-4d52-acc3-9d0d1ccc16bf
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.design_dreams
+    - field.storage.block_content.field_loop_video
+id: block_content.design_dreams.field_loop_video
+field_name: field_loop_video
+entity_type: block_content
+bundle: design_dreams
+label: 'Loop Video'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean
