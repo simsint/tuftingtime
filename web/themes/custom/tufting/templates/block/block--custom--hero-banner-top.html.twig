@@ -37,7 +37,9 @@
 					<br/>
 					{{ adv_sub_title }}</p>
 				<div class="disclamer__link">
+				{% if adv_link_url %}
 					<a data-name-button="form" href="{{adv_link_url}}" class="link">{{adv_link_text}}</a>
+					{% endif %}
 				</div>
 				<div data-name-disclaimer="button" class="disclamer__close w-embed">
 					<svg width="100%" height="100%" viewbox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">

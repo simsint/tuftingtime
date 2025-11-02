@@ -26,6 +26,26 @@ function tufting_preprocess_views_view(&$variables) {
     }
   }
 
+  if ($variables['id'] == 'faq') {
+
+    // Use an entity query to load the block by our custom identifier field.
+    $query = \Drupal::entityTypeManager()->getStorage('block_content')->getQuery();
+    $query->condition('type', 'basic'); // The block type machine name.
+    $query->condition('field_machine_name', 'faq_header'); // The field and value to look for.
+    $query->range(0, 1); // We only want one result.
+    $query->accessCheck(FALSE);
+    $block_ids = $query->execute();
+
+    if (!empty($block_ids)) {
+      $block_id = array_shift($block_ids);
+      $block_content = \Drupal::entityTypeManager()->getStorage('block_content')->load($block_id);
+
+      if ($block_content) {
+        $variables['faq_header'] = $block_content;
+      }
+    }
+  }
+
   if ($variables['id'] == 'how_we_work') {
 
     $view = $variables['view'];
@@ -133,6 +153,46 @@ function tufting_preprocess_views_view(&$variables) {
         if ($block_content->hasField('field_consultant_form_link') && !$block_content->get('field_consultant_form_link')->isEmpty()) {
           $variables['consultant_form_link'] = $block_content->get('field_consultant_form_link')->value;
         }
+      }
+    }
+  }
+
+  if ($variables['id'] == 'portfolio') {
+
+    // Use an entity query to load the block by our custom identifier field.
+    $query = \Drupal::entityTypeManager()->getStorage('block_content')->getQuery();
+    $query->condition('type', 'basic'); // The block type machine name.
+    $query->condition('field_machine_name', 'project_portfolio_heading'); // The field and value to look for.
+    $query->range(0, 1); // We only want one result.
+    $query->accessCheck(FALSE);
+    $block_ids = $query->execute();
+
+    if (!empty($block_ids)) {
+      $block_id = array_shift($block_ids);
+      $block_content = \Drupal::entityTypeManager()->getStorage('block_content')->load($block_id);
+
+      if ($block_content) {
+        if ($block_content->hasField('field_image') && !$block_content->get('field_image')->isEmpty()) {
+          $fid = $block_content->get('field_image')->target_id;
+          $file = \Drupal::entityTypeManager()->getStorage('file')->load($fid);
+
+          if ($file) {
+              $uri = $file->getFileUri();
+              $image_url = \Drupal::service('file_url_generator')->generateAbsoluteString($uri);
+              $variables['portfolio_logo_image'] = $image_url;
+          }
+        }
+
+        if ($block_content->hasField('field_title') && !$block_content->get('field_title')->isEmpty()) {
+          $title = $block_content->get('field_title')->value;
+          $title_data = explode('[Logo]', $title);
+          $title_1 = $title_data[0] ?? '';
+          $title_2 = $title_data[1] ?? '';
+          $variables['title_1'] = $title_1;
+          $variables['title_2'] = $title_2;
+        }
+
+        $variables['portfolio_header'] = $block_content;
       }
     }
   }

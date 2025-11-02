@@ -1,0 +1,25 @@
+uuid: ec65725a-f2ca-404b-b4fe-9d939b9dfe3f
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:bring_your_design:b0791ca4-4a9e-479b-9d3d-892385309830'
+  module:
+    - block_content
+  theme:
+    - tufting
+id: tufting_bringyourdesign
+theme: tufting
+region: content
+weight: -4
+provider: null
+plugin: 'block_content:b0791ca4-4a9e-479b-9d3d-892385309830'
+settings:
+  id: 'block_content:b0791ca4-4a9e-479b-9d3d-892385309830'
+  label: 'Bring Your Design'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

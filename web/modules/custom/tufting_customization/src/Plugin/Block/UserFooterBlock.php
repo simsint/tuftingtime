@@ -30,12 +30,46 @@ final class UserFooterBlock extends BlockBase {
    */
   public function build(): array {
     $theme = \Drupal::theme()->getActiveTheme()->getName();
+    $logo = theme_get_setting('logo.url', $theme);
     $sales_telephone = theme_get_setting('sales_telephone', $theme);
-    $copyright = theme_get_setting('copyright', $theme);
+    $sales_email = theme_get_setting('sales_email', $theme);
+    $sales_whatsapp = theme_get_setting('sales_whatsapp', $theme);
+    $main_showroom = theme_get_setting('main_showroom', $theme);
+    $main_showroom_address = theme_get_setting('main_showroom_address', $theme);
+    $footer_title = theme_get_setting('footer_title', $theme);
 
-    /*$query = \Drupal::entityTypeManager()->getStorage('block_content')->getQuery();
-    $query->condition('type', 'social_links'); // The block type machine name.
-    $query->condition('field_machine_name', 'footer_social_links'); // The field and value to look for.
+    $menu_link_tree = \Drupal::service('menu.link_tree');
+    $parameters = new MenuTreeParameters();
+    $parameters->setMinDepth(1);
+    $parameters->setMaxDepth(NULL);
+    $parameters->onlyEnabledLinks();
+    $tree = $menu_link_tree->load('footer', $parameters);
+
+    $manipulators = [
+      ['callable' => 'menu.default_tree_manipulators:checkAccess'],
+      ['callable' => 'menu.default_tree_manipulators:generateIndexAndSort'],
+    ];
+    $tree = $menu_link_tree->transform($tree, $manipulators);
+    $user_links = $this->buildMenuLinks($tree);
+
+
+    $menu_link_tree = \Drupal::service('menu.link_tree');
+    $parameters = new MenuTreeParameters();
+    $parameters->setMinDepth(1);
+    $parameters->setMaxDepth(NULL);
+    $parameters->onlyEnabledLinks();
+    $tree = $menu_link_tree->load('footer-bottom', $parameters);
+
+    $manipulators = [
+      ['callable' => 'menu.default_tree_manipulators:checkAccess'],
+      ['callable' => 'menu.default_tree_manipulators:generateIndexAndSort'],
+    ];
+    $tree = $menu_link_tree->transform($tree, $manipulators);
+    $footer_bottom_links = $this->buildMenuLinks($tree);
+
+    $query = \Drupal::entityTypeManager()->getStorage('block_content')->getQuery();
+    $query->condition('type', 'hero_banner'); // The block type machine name.
+    $query->condition('field_machine_name', 'advertise_footer'); // The field and value to look for.
     $query->range(0, 1); // We only want one result.
     $query->accessCheck(FALSE);
     $block_ids = $query->execute();
@@ -45,15 +79,38 @@ final class UserFooterBlock extends BlockBase {
       $block_content = \Drupal::entityTypeManager()->getStorage('block_content')->load($block_id);
 
       if ($block_content) {
-        $user_links = $block_content;
+          $variables['adv_title'] = $block_content->get('field_title')->value;
+          $variables['adv_sub_title'] = $block_content->get('field_sub_title')->value;
+          $variables['adv_link_text'] = $block_content->get('field_consultant_form')->value;
+          $variables['adv_link_url'] = $block_content->get('field_consultant_form_link')->value;
+
+          if ($block_content->hasField('field_image') && !$block_content->get('field_image')->isEmpty()) {
+              $fid = $block_content->get('field_image')->target_id;
+              $file = \Drupal::entityTypeManager()->getStorage('file')->load($fid);
+
+              if ($file) {
+                  $uri = $file->getFileUri();
+                  $variables['adv_logo_image_url'] = \Drupal::service('file_url_generator')->generateAbsoluteString($uri);
+              }
+          }
       }
-    }*/
+    }
 
     //dump($user_links);exit;
 
     $data = [
-      'copyright' => $copyright,
+      'site_name' => $site_name,
       'user_links' => $user_links,
+      'footer_bottom_links' => $footer_bottom_links,
+      'logo' => $logo,
+      'sales_telephone' => $sales_telephone,
+      'sales_email' => $sales_email,
+      'sales_whatsapp' => $sales_whatsapp,
+      'logo_image_url' => $logo_image_url,
+      'main_showroom' => $main_showroom,
+      'main_showroom_address' => $main_showroom_address,
+      'footer_title' => $footer_title,
+      'advertise_footer' => $advertise_footer,
     ];
 
     $build = [

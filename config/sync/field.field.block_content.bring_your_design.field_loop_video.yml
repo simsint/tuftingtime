@@ -1,0 +1,21 @@
+uuid: 4f032ae3-eaea-479e-8ff9-f32755cd5ccc
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.bring_your_design
+    - field.storage.block_content.field_loop_video
+id: block_content.bring_your_design.field_loop_video
+field_name: field_loop_video
+entity_type: block_content
+bundle: bring_your_design
+label: 'Loop Video'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

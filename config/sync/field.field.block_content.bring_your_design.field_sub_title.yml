@@ -1,0 +1,19 @@
+uuid: 1076039b-0e28-4c1f-a8b1-21b52bd6696e
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.bring_your_design
+    - field.storage.block_content.field_sub_title
+id: block_content.bring_your_design.field_sub_title
+field_name: field_sub_title
+entity_type: block_content
+bundle: bring_your_design
+label: 'Title 2'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

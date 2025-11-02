@@ -11,7 +11,7 @@ dependencies:
 id: tufting_designdreams
 theme: tufting
 region: content
-weight: -7
+weight: -10
 provider: null
 plugin: 'block_content:ced438f1-1223-469c-ada0-e3722e506c3b'
 settings:

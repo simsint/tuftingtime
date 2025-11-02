@@ -50,6 +50,12 @@ function tufting_form_system_theme_settings_alter(array &$form, FormState $form_
     '#default_value' => theme_get_setting('main_showroom_address'),
   ];
 
+  $form['tufting']['footer_title'] = [
+    '#type' => 'textfield',
+    '#title' => t('Footer Title'),
+    '#default_value' => theme_get_setting('footer_title'),
+  ];
+
 
 
 }

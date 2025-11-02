@@ -1,6 +1,6 @@
 uuid: 058791a6-ce23-4890-81c0-1600e0fc0a72
 langcode: en
-status: false
+status: true
 dependencies:
   module:
     - tufting_customization

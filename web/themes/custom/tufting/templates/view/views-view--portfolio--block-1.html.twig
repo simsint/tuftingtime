@@ -1,0 +1,126 @@
+{#
+/**
+ * @file
+ * Theme override for a main view template.
+ *
+ * Available variables:
+ * - attributes: Remaining HTML attributes for the element.
+ * - css_name: A CSS-safe version of the view name.
+ * - css_class: The user-specified classes names, if any.
+ * - header: The optional header.
+ * - footer: The optional footer.
+ * - rows: The results of the view query, if any.
+ * - empty: The content to display if there are no rows.
+ * - pager: The optional pager next/prev links to display.
+ * - exposed: Exposed widget form/info to display.
+ * - feed_icons: Optional feed icons to display.
+ * - more: An optional link to the next page of results.
+ * - title: Title of the view, only used when displaying in the admin preview.
+ * - title_prefix: Additional output populated by modules, intended to be
+ *   displayed in front of the view title.
+ * - title_suffix: Additional output populated by modules, intended to be
+ *   displayed after the view title.
+ * - attachment_before: An optional attachment view to be displayed before the
+ *   view content.
+ * - attachment_after: An optional attachment view to be displayed after the
+ *   view content.
+ * - dom_id: Unique id for every view being printed to give unique class for
+ *   JavaScript.
+ *
+ * @see template_preprocess_views_view()
+ */
+#}
+
+
+
+<section id="portfolio" class="section section-portfolio">
+	<div class="portfolio">
+		<div class="container">
+			<div data-w-id="40522c91-1791-a431-368f-f905630e8c4d"  class="portfolio__header">
+				<div data-w-id="2a264bde-ac71-5ab8-d97e-3fc2d6fee976"  class="subheading">{{ portfolio_header.field_sub_title.value }}</div>
+				<div data-name="title-parent" class="title-icon title-icon--portfolio">
+					<div data-name="title-item" class="title-icon__heading portfolio__heading" id="#animate16">{{ title_1 }}</div>
+					<div class="title-icon-portfolio__wrapper">
+						<!--<div data-name="title-item" class="title-icon__heading portfolio__heading" id="animate17">Your&nbsp;Design</div>-->
+						<div class="title-icon-portfolio__wrapper">
+							<div class="title-icon-wrapper title-icon-wrapper--desktop">
+								<div class="leather title-icon__leather title-icon__leather--top">
+									<img src="{{ portfolio_logo_image }}" loading="lazy" alt="" class="leather__image"/>
+									<div class="leather__image-shadow"></div>
+								</div>
+							</div>
+							<div data-name="title-item" class="title-icon__heading portfolio__heading" id="#animate18">{{ title_2 }}</div>
+							<!--<div data-name="title-item" class="title-icon__heading portfolio__heading" id="animate19">&nbsp;Come&nbsp;Alive</div>-->
+						</div>
+
+
+						<!--<div data-name="title-parent" class="title-icon title-icon--portfolio title-icon--portfolio-mobile">
+							<div>
+								<div data-name="title-item" class="title-icon__heading portfolio__heading italic">Allow
+								</div>
+								<div data-name="title-item" class="title-icon__heading portfolio__heading">Yourself</div>
+							</div>
+							<div class="title-icon-portfolio__wrapper">
+								<div class="title-icon-wrapper title-icon-wrapper--mobile">
+									<div class="leather title-icon__leather title-icon__leather--portfolio"><img src="images/icon-1.webp" loading="lazy" alt="" class="leather__image"/>
+										<div class="leather__image-shadow title-icon__leather-image-shadow"></div>
+									</div>
+								</div>
+								<div data-name="title-item" class="title-icon__heading portfolio__heading">to
+								</div>
+								<div data-name="title-item" class="title-icon__heading portfolio__heading">See
+								</div>
+								<div data-name="title-item" class="title-icon__heading portfolio__heading">
+									your</div>
+							</div>
+							<div>
+								<div data-name="title-item" class="title-icon__heading portfolio__heading italic">Design
+								</div>
+								<div data-name="title-item" class="title-icon__heading portfolio__heading italic">
+									Dreams
+								</div>
+								<div data-name="title-item" class="title-icon__heading portfolio__heading italic">
+									Come</div>
+								<div data-name="title-item" class="title-icon__heading portfolio__heading italic">
+									Alive</div>
+							</div>
+						</div>-->
+
+
+					</div>
+				</div>
+			</div>
+			<div data-w-id="17c83847-490f-aeb3-e475-81bcd9e84454"  class="portfolio__body">
+				<div data-name="drug-parent" data-widget="drug" class="portfolio-slider">
+					<div data-name="slider-drag" class="drug-slider__body portfolio-slider__body">
+						<div class="drug-slider w-dyn-list">
+							<div role="list" class="drug-slider__wrapper drug-slider__wrapper--top w-dyn-items">
+
+								{% if rows %}
+									{{ rows }}
+								{% endif %}
+
+							</div>
+						</div>
+					</div>
+					<div data-name="slider-drag-cursor" class="slider-drag">
+						<div class="embed w-embed">
+							<svg xmlns="http://www.w3.org/2000/svg" width="7" height="12" viewbox="0 0 7 12" fill="none">
+								<path d="M0.46967 5.46967C0.176777 5.76256 0.176777 6.23744 0.46967 6.53033L5.24264 11.3033C5.53553 11.5962 6.01041 11.5962 6.3033 11.3033C6.59619 11.0104 6.59619 10.5355 6.3033 10.2426L2.06066 6L6.3033 1.75736C6.59619 1.46447 6.59619 0.989593 6.3033 0.696699C6.01041 0.403806 5.53553 0.403806 5.24264 0.696699L0.46967 5.46967ZM2 5.25H1V6.75H2V5.25Z" fill="#675B50"/>
+							</svg>
+						</div>
+						<div class="slider-drag__text">Drag</div>
+						<div class="embed w-embed">
+							<svg xmlns="http://www.w3.org/2000/svg" width="8" height="12" viewbox="0 0 8 12" fill="none">
+								<path d="M7.03033 5.46967C7.32322 5.76256 7.32322 6.23744 7.03033 6.53033L2.25736 11.3033C1.96447 11.5962 1.48959 11.5962 1.1967 11.3033C0.903806 11.0104 0.903806 10.5355 1.1967 10.2426L5.43934 6L1.1967 1.75736C0.903806 1.46447 0.903806 0.989593 1.1967 0.696699C1.48959 0.403806 1.96447 0.403806 2.25736 0.696699L7.03033 5.46967ZM5.5 5.25H6.5V6.75H5.5V5.25Z" fill="#675B50"/>
+							</svg>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+
+
+
+

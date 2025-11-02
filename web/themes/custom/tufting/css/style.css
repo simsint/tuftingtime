@@ -3365,6 +3365,7 @@ a {
   text-align: center;
 }
 
+.disclamerfooter,
 .disclamer {
   z-index: 2;
   border: 1px dashed var(--palette-2--color-palette-300);

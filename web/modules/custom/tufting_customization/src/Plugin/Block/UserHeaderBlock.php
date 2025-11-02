@@ -78,6 +78,7 @@ final class UserHeaderBlock extends BlockBase {
     $sales_email = theme_get_setting('sales_email', $theme);
     $sales_whatsapp = theme_get_setting('sales_whatsapp', $theme);
 
+
     $data = [
       'site_name' => $site_name,
       'user_links' => $user_links,

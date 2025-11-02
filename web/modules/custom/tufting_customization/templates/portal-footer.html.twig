@@ -1,8 +1,9 @@
 <div class="container container--lg">
 	<div class="footer__body">
-		<!--<div class="illustration__inner-wrapper">
+		<div class="illustration__inner-wrapper">
 			<div class="illustration__inner illustration__inner--footer">
-				<div class="illustration__header illustration__header--border-color"><img src="images/footer-image.webp" loading="lazy" alt="" class="illustration__image"/></div>
+			<div class="illustration__header illustration__header--border-color"><img src="/themes/custom/tufting/images/footer-image.webp" loading="lazy" alt="" class="illustration__image"/></div>
+
 				<div class="illustration__body illustration__body--bg-color">
 					<div class="illustration__content illustration__content--width-full">
 						<div class="illustration__heading illustration__heading-span">Get Samples Today!</div>
@@ -23,46 +24,35 @@
 					</div>
 				</div>
 			</div>
-			<div data-w-id="7b1a136e-b730-6007-fd54-b2b614a3652f" class="disclamer disclamer--footer disclamer--footer-tablet">
+			<div data-w-id="7b1a136e-b730-6007-fd54-b2b614a3652f" class="disclamer-footer disclamer--footer disclamer--footer-tablet">
 				<div class="disclamer__inner disclamer__inner--footer">
 					<div id="w-node-_7b1a136e-b730-6007-fd54-b2b614a36531-54061193" class="leather leather--footer leather--disclaimer">
-						<img src="images/leather-2.webp" loading="lazy" alt="" class="leather__image"/>
+						<img src="{{ adv_logo_image_url }}" loading="lazy" alt="" class="leather__image"/>
 						<div class="leather__image-shadow"></div>
 					</div>
-					<p class="paragraph paragraph--lh-140 paragraph--footer">Don’t need upholstery leather? Shop our extensive leather collections for the fashion and leathercraft industries!</p>
+					<p class="paragraph paragraph--lh-140 paragraph--footer">{{ adv_title }} 	{{ adv_sub_title }}</p>
 					<div id="w-node-_7b1a136e-b730-6007-fd54-b2b614a36536-54061193" class="disclamer__link disclamer__link--footer">
-						<a data-name-button="form" href="#" class="link">Shop now</a>
+					{% if adv_link_url %}
+						<a data-name-button="form" href="{{adv_link_url}}" class="link">{{adv_link_text}}</a>
+						{% endif %}
 					</div>
 				</div>
 			</div>
-		</div>-->
+		</div>
 		<div  class="footer__content">
 			<div class="footer__row footer__row--top">
 				<div class="footer__col">
 					<ul role="list" class="footer__list">
+					{% for menu_column in data.user_links %}
 						<li class="footer-item">
-							<a href="#why-choose-us" class="footer-item__link">Why choose us?</a>
+							<a href="{{ menu_column['#url'] }}" class="footer-item__link">{{ menu_column['#title'] }}</a>
 						</li>
-						<li class="footer-item">
-							<a href="#reviews" class="footer-item__link">Reviews</a>
-						</li>
-						<li class="footer-item">
-							<a href="#about" class="footer-item__link">About</a>
-						</li>
-						<li class="footer-item">
-							<a href="#portfolio" class="footer-item__link">View  portfolio</a>
-						</li>
-						<li class="footer-item">
-							<a href="#showroom" class="footer-item__link">Showroom</a>
-						</li>
-						<li class="footer-item">
-							<a href="#faq" class="footer-item__link">FAQ</a>
-						</li>
+					{% endfor %}
 					</ul>
 				</div>
 				<div data-w-id="ded494a9-d0dd-17aa-23f3-962ef3c07349" class="disclamer disclamer--footer">
 					<div class="disclamer__inner disclamer__inner--footer">
-						<div id="w-node-ded494a9-d0dd-17aa-23f3-962ef3c0734b-54061193" class="leather leather--footer"><img src="https://cdn.prod.website-files.com/6736298731cbe5c55f005f38/673ef97ee5783a2be3ad42c5_25.webp" loading="lazy" sizes="(max-width: 896px) 100vw, 896px" srcset="https://cdn.prod.website-files.com/6736298731cbe5c55f005f38/673ef97ee5783a2be3ad42c5_25-p-500.webp 500w, https://cdn.prod.website-files.com/6736298731cbe5c55f005f38/673ef97ee5783a2be3ad42c5_25-p-800.webp 800w, https://cdn.prod.website-files.com/6736298731cbe5c55f005f38/673ef97ee5783a2be3ad42c5_25.webp 896w" alt="" class="leather__image"/>
+						<div id="w-node-ded494a9-d0dd-17aa-23f3-962ef3c0734b-54061193" class="leather leather--footer"><img src="https://cdn.prod.website-files.com/6736298731cbe5c55f005f38/673ef97ee5783a2be3ad42c5_25.webp" loading="lazy" sizes="(max-width: 896px) 100vw, 896px" srcset="https://cdn.prod.website-files.com/6736298731cbe5c55f005f38/673ef97ee5783a2be3ad42c5_25-p-500.webp 500w, https://cdn.prod.website-files.com/6736298731cbe5c55f005f38/673ef97ee5783a2be3ad42c5_25-p-800.webp 800w, https://cdn.prod.website-files.com/6736298731cbe5c55f005f38/673ef97ee5783a2be3ad42c5_25.webp 896w" alt="" class="leather__image" style=""/>
 							<div class="leather__image-shadow"></div>
 						</div>
 						<p class="paragraph paragraph--lh-140 paragraph--footer">Don’t need upholstery leather?<br/>
@@ -73,35 +63,39 @@
 					</div>
 				</div>
 				<div class="footer__location-tablet">
-					<p class="footer__paragraph footer__paragraph--hidden-mob">NYC Showroom:
-						<span class="no-wrap">253 West 35th</span>
-						Street Store Front #2 New York,
-						<br/>
-						NY 10001</p>
-					<p class="footer__paragraph footer__paragraph--show-mob">NYC Showroom:
-						<span class="no-wrap">253 West 35th</span>
-						<br/>
-						Street Store
-						<br/>
-						Front #2 New York,
-						<br/>
-						NY 10001</p>
+					<p class="footer__paragraph footer__paragraph--hidden-mob"></p>
+					<p class="footer__paragraph footer__paragraph--hidden-mob">{{ data.main_showroom }}:</p>
+					<p class="footer__paragraph footer__paragraph--hidden-mob">{{ data.main_showroom_address }}</p>
+
+
 					<div class="footer__col-contacts">
 						<div class="contacts">
-							<a href="tel:(212)244-5190" data-role="circle-btn" data-w-id="41a6caab-44a4-e1c2-6c9c-39f81d1bc956" class="contacts__link w-inline-block">
+						{% if data.sales_whatsapp %}
+							<a href="tel:{{ data.sales_whatsapp}}" data-w-id="389d7e11-de83-2435-42e9-2b98f6599f7d" class="contacts__link w-inline-block" target="_blank">
+								<div class="flex w-embed">
+									<img src="/themes/custom/tufting/images/whatsapp.png" loading="lazy" alt="" class="hero__icon-image"/>
+									</svg>
+								</div>
+							</a>
+						{% endif %}
+						{% if data.sales_telephone %}
+							<a href="tel:{{ data.sales_telephone}}" data-role="circle-btn" data-w-id="41a6caab-44a4-e1c2-6c9c-39f81d1bc956" class="contacts__link w-inline-block">
 								<div class="flex w-embed">
 									<svg width="20" height="20" viewbox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
 										<path d="M11.7074 4.99935C12.5213 5.15815 13.2694 5.55623 13.8558 6.14263C14.4422 6.72903 14.8403 7.47707 14.9991 8.29102M11.7074 1.66602C13.3985 1.85388 14.9754 2.61116 16.1793 3.81352C17.3831 5.01588 18.1424 6.59186 18.3324 8.28268M8.52155 11.5519C7.52023 10.5506 6.72958 9.41839 6.14958 8.21037C6.09969 8.10647 6.07475 8.05451 6.05558 7.98877C5.98748 7.75514 6.0364 7.46826 6.17807 7.2704C6.21794 7.21472 6.26557 7.16709 6.36083 7.07183C6.65217 6.78049 6.79784 6.63483 6.89308 6.48834C7.25224 5.93593 7.25224 5.22378 6.89308 4.67138C6.79784 4.52489 6.65217 4.37923 6.36083 4.08789L6.19844 3.92549C5.75557 3.48263 5.53414 3.26119 5.29632 3.1409C4.82335 2.90168 4.2648 2.90168 3.79183 3.1409C3.55401 3.26119 3.33258 3.48263 2.88971 3.92549L2.75835 4.05686C2.31699 4.49821 2.09632 4.71889 1.92778 5.01891C1.74076 5.35183 1.60629 5.86891 1.60743 6.25076C1.60845 6.59488 1.67521 6.83007 1.80871 7.30044C2.52619 9.82827 3.87992 12.2136 5.8699 14.2036C7.85988 16.1935 10.2452 17.5473 12.773 18.2647C13.2434 18.3983 13.4786 18.465 13.8227 18.466C14.2045 18.4672 14.7216 18.3327 15.0545 18.1457C15.3546 17.9771 15.5752 17.7565 16.0166 17.3151L16.148 17.1837C16.5908 16.7409 16.8123 16.5194 16.9325 16.2816C17.1718 15.8087 17.1718 15.2501 16.9325 14.7771C16.8123 14.5393 16.5908 14.3179 16.148 13.875L15.9856 13.7126C15.6942 13.4213 15.5486 13.2756 15.4021 13.1804C14.8497 12.8212 14.1375 12.8212 13.5851 13.1804C13.4386 13.2756 13.293 13.4213 13.0016 13.7126C12.9064 13.8079 12.8587 13.8555 12.8031 13.8954C12.6052 14.0371 12.3183 14.086 12.0847 14.0179C12.0189 13.9987 11.967 13.9738 11.8631 13.9239C10.6551 13.3439 9.52286 12.5532 8.52155 11.5519Z" stroke="currentColor" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
 									</svg>
 								</div>
 							</a>
-							<a href="mailto:info@globalleathers.com" data-role="circle-btn" data-w-id="41a6caab-44a4-e1c2-6c9c-39f81d1bc958" class="contacts__link w-inline-block">
+							{% endif %}
+							{% if data.sales_email %}
+							<a href="mailto:{{ data.sales_email }}" data-role="circle-btn" data-w-id="41a6caab-44a4-e1c2-6c9c-39f81d1bc958" class="contacts__link w-inline-block">
 								<div class="flex w-embed">
 									<svg width="20" height="16" viewbox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
 										<path d="M1.66602 3.83398L8.47012 8.59685C9.02109 8.98254 9.29658 9.17538 9.59624 9.25007C9.86093 9.31605 10.1378 9.31605 10.4025 9.25007C10.7021 9.17538 10.9776 8.98254 11.5286 8.59685L18.3327 3.83398M5.66602 14.6673H14.3327C15.7328 14.6673 16.4329 14.6673 16.9677 14.3948C17.4381 14.1552 17.8205 13.7727 18.0602 13.3023C18.3327 12.7675 18.3327 12.0674 18.3327 10.6673V5.33398C18.3327 3.93385 18.3327 3.23379 18.0602 2.69901C17.8205 2.2286 17.4381 1.84615 16.9677 1.60647C16.4329 1.33398 15.7328 1.33398 14.3327 1.33398H5.66602C4.26588 1.33398 3.56582 1.33398 3.03104 1.60647C2.56063 1.84615 2.17818 2.2286 1.9385 2.69901C1.66602 3.23379 1.66602 3.93385 1.66602 5.33398V10.6673C1.66602 12.0674 1.66602 12.7675 1.9385 13.3023C2.17818 13.7727 2.56063 14.1552 3.03104 14.3948C3.56582 14.6673 4.26588 14.6673 5.66602 14.6673Z" stroke="currentColor" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
 									</svg>
 								</div>
 							</a>
+							{% endif %}
 						</div>
 						<a data-w-id="41a6caab-44a4-e1c2-6c9c-39f81d1bc95a" href="#hero" class="footer__anchor w-inline-block">
 							<div class="icon icon--none w-embed">
@@ -118,34 +112,38 @@
 			</div>
 			<div class="footer__row footer__row--bottom">
 				<div class="footer__col">
-					<p class="footer__paragraph footer__paragraph--hidden-mob">NYC Showroom:
-						<span class="no-wrap">253 West 35th</span>
-						Street Store Front #2  New York, NY 10001</p>
-					<p class="footer__paragraph footer__paragraph--show-mob">NYC Showroom:
-						<span class="no-wrap">253 West 35th</span>
-						<br/>
-						Street Store
-						<br/>
-						Front #2 New York,
-						<br/>
-						NY 10001</p>
+					<p class="footer__paragraph footer__paragraph--hidden-mob">{{ data.main_showroom }}:</p>
+					<p class="footer__paragraph footer__paragraph--hidden-mob">{{ data.main_showroom_address }}</p>
+
 				</div>
 				<div class="footer__col-contacts">
 					<div class="contacts">
-						<a href="tel:(212)244-5190" data-role="circle-btn" data-w-id="c2a2ce2a-9cd1-fb73-bcb3-ce771f9cc9cb" class="contacts__link w-inline-block">
+					{% if data.sales_whatsapp %}
+							<a href="tel:{{ data.sales_whatsapp}}" data-w-id="389d7e11-de83-2435-42e9-2b98f6599f7d" class="contacts__link w-inline-block" target="_blank">
+								<div class="flex w-embed">
+									<img src="/themes/custom/tufting/images/whatsapp.png" loading="lazy" alt="" class="hero__icon-image"/>
+									</svg>
+								</div>
+							</a>
+						{% endif %}
+					{% if data.sales_telephone %}
+						<a href="tel:{{ data.sales_telephone}}" data-role="circle-btn" data-w-id="c2a2ce2a-9cd1-fb73-bcb3-ce771f9cc9cb" class="contacts__link w-inline-block">
 							<div class="flex w-embed">
 								<svg width="20" height="20" viewbox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
 									<path d="M11.7074 4.99935C12.5213 5.15815 13.2694 5.55623 13.8558 6.14263C14.4422 6.72903 14.8403 7.47707 14.9991 8.29102M11.7074 1.66602C13.3985 1.85388 14.9754 2.61116 16.1793 3.81352C17.3831 5.01588 18.1424 6.59186 18.3324 8.28268M8.52155 11.5519C7.52023 10.5506 6.72958 9.41839 6.14958 8.21037C6.09969 8.10647 6.07475 8.05451 6.05558 7.98877C5.98748 7.75514 6.0364 7.46826 6.17807 7.2704C6.21794 7.21472 6.26557 7.16709 6.36083 7.07183C6.65217 6.78049 6.79784 6.63483 6.89308 6.48834C7.25224 5.93593 7.25224 5.22378 6.89308 4.67138C6.79784 4.52489 6.65217 4.37923 6.36083 4.08789L6.19844 3.92549C5.75557 3.48263 5.53414 3.26119 5.29632 3.1409C4.82335 2.90168 4.2648 2.90168 3.79183 3.1409C3.55401 3.26119 3.33258 3.48263 2.88971 3.92549L2.75835 4.05686C2.31699 4.49821 2.09632 4.71889 1.92778 5.01891C1.74076 5.35183 1.60629 5.86891 1.60743 6.25076C1.60845 6.59488 1.67521 6.83007 1.80871 7.30044C2.52619 9.82827 3.87992 12.2136 5.8699 14.2036C7.85988 16.1935 10.2452 17.5473 12.773 18.2647C13.2434 18.3983 13.4786 18.465 13.8227 18.466C14.2045 18.4672 14.7216 18.3327 15.0545 18.1457C15.3546 17.9771 15.5752 17.7565 16.0166 17.3151L16.148 17.1837C16.5908 16.7409 16.8123 16.5194 16.9325 16.2816C17.1718 15.8087 17.1718 15.2501 16.9325 14.7771C16.8123 14.5393 16.5908 14.3179 16.148 13.875L15.9856 13.7126C15.6942 13.4213 15.5486 13.2756 15.4021 13.1804C14.8497 12.8212 14.1375 12.8212 13.5851 13.1804C13.4386 13.2756 13.293 13.4213 13.0016 13.7126C12.9064 13.8079 12.8587 13.8555 12.8031 13.8954C12.6052 14.0371 12.3183 14.086 12.0847 14.0179C12.0189 13.9987 11.967 13.9738 11.8631 13.9239C10.6551 13.3439 9.52286 12.5532 8.52155 11.5519Z" stroke="currentColor" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
 								</svg>
 							</div>
 						</a>
-						<a href="mailto:info@globalleathers.com" data-role="circle-btn" data-w-id="c2a2ce2a-9cd1-fb73-bcb3-ce771f9cc9cd" class="contacts__link w-inline-block">
+						{% endif %}
+						{% if data.sales_email %}
+						<a href="mailto:{{ data.sales_email }}" data-role="circle-btn" data-w-id="c2a2ce2a-9cd1-fb73-bcb3-ce771f9cc9cd" class="contacts__link w-inline-block">
 							<div class="flex w-embed">
 								<svg width="20" height="16" viewbox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
 									<path d="M1.66602 3.83398L8.47012 8.59685C9.02109 8.98254 9.29658 9.17538 9.59624 9.25007C9.86093 9.31605 10.1378 9.31605 10.4025 9.25007C10.7021 9.17538 10.9776 8.98254 11.5286 8.59685L18.3327 3.83398M5.66602 14.6673H14.3327C15.7328 14.6673 16.4329 14.6673 16.9677 14.3948C17.4381 14.1552 17.8205 13.7727 18.0602 13.3023C18.3327 12.7675 18.3327 12.0674 18.3327 10.6673V5.33398C18.3327 3.93385 18.3327 3.23379 18.0602 2.69901C17.8205 2.2286 17.4381 1.84615 16.9677 1.60647C16.4329 1.33398 15.7328 1.33398 14.3327 1.33398H5.66602C4.26588 1.33398 3.56582 1.33398 3.03104 1.60647C2.56063 1.84615 2.17818 2.2286 1.9385 2.69901C1.66602 3.23379 1.66602 3.93385 1.66602 5.33398V10.6673C1.66602 12.0674 1.66602 12.7675 1.9385 13.3023C2.17818 13.7727 2.56063 14.1552 3.03104 14.3948C3.56582 14.6673 4.26588 14.6673 5.66602 14.6673Z" stroke="currentColor" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
 								</svg>
 							</div>
 						</a>
+						{% endif %}
 					</div>
 					<a data-w-id="10e85c08-83fd-bdd9-d254-df3d322e3a2e" href="#main" class="footer__anchor w-inline-block">
 						<div class="icon icon--none w-embed">
@@ -165,15 +163,14 @@
 <div class="footer___brand-overflow">
 	<div class="footer___brand-wrapper">
 		<div class="container container--xxl container--no-padding">
-			<div data-w-id="3ce065db-8456-0538-ed15-026498163146" class="footer___brand">Tufting Time</div>
+			<div data-w-id="3ce065db-8456-0538-ed15-026498163146" class="footer___brand">{{ data.footer_title }}</div>
 		</div>
 	</div>
 	<div class="container container--lg">
 		<div data-widget="preloader" class="footer__bottom">
-			<p class="footer__link footer__link--1">© 2025 All rights reserved.</p>
-			<a href="/cookies-policy" class="footer__link footer__link--2">Cookies</a>
-			<a href="/privacy-policy" class="footer__link footer__link--3">Privacy Policy</a>
-			<a href="https://www.digitalbutlers.team/" class="footer__link footer__link--4">Made by Tufting Time</a>
+			{% for footer_menu_column in data.footer_bottom_links %}
+			<a href="{{ footer_menu_column['#url'] }}" class="footer__link footer__link--2">{{ footer_menu_column['#title'] }}</a>
+			{% endfor %}
 		</div>
 	</div>
 </div>

@@ -1,0 +1,20 @@
+uuid: feec4d0c-0f21-4e68-8e7e-5051b9c9bf52
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_content
+    - media
+id: block_content.field_image_6
+field_name: field_image_6
+entity_type: block_content
+type: entity_reference
+settings:
+  target_type: media
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,21 @@
+uuid: 595cc5dc-e52a-47ea-9bc6-c4d41fd89c0a
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.bring_your_design
+    - field.storage.block_content.field_mute_video
+id: block_content.bring_your_design.field_mute_video
+field_name: field_mute_video
+entity_type: block_content
+bundle: bring_your_design
+label: 'Mute Video'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

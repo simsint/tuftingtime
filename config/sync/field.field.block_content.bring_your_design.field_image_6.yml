@@ -1,0 +1,29 @@
+uuid: 94b15cd0-0637-4ea2-8d62-7282e6a1dfce
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.bring_your_design
+    - field.storage.block_content.field_image_6
+    - media.type.image
+id: block_content.bring_your_design.field_image_6
+field_name: field_image_6
+entity_type: block_content
+bundle: bring_your_design
+label: 'Image 6'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

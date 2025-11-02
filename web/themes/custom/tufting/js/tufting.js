@@ -21,7 +21,7 @@
       });
 
       $('.disclamer__close').click(function () {
-        $('.disclamer').hide();
+        $('.disclamer--hero').hide();
       });
 
       $('.discover__banner-list').slick({
