@@ -1,0 +1,22 @@
+uuid: dbccf6c5-32c5-41ba-9fb5-49b41b2e3075
+langcode: en
+status: true
+dependencies: {  }
+name: branch_card
+label: 'Branch Card'
+effects:
+  c1ba2f16-3fa1-4a1a-8fd7-0cc91fdc0da8:
+    uuid: c1ba2f16-3fa1-4a1a-8fd7-0cc91fdc0da8
+    id: image_scale
+    weight: -9
+    data:
+      width: 400
+      height: 280
+      upscale: false
+  61366c9d-1aa8-4b66-970a-a71e72b24321:
+    uuid: 61366c9d-1aa8-4b66-970a-a71e72b24321
+    id: image_resize
+    weight: -10
+    data:
+      width: 400
+      height: 280

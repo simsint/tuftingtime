@@ -79,20 +79,21 @@ final class UserFooterBlock extends BlockBase {
       $block_content = \Drupal::entityTypeManager()->getStorage('block_content')->load($block_id);
 
       if ($block_content) {
-          $variables['adv_title'] = $block_content->get('field_title')->value;
-          $variables['adv_sub_title'] = $block_content->get('field_sub_title')->value;
-          $variables['adv_link_text'] = $block_content->get('field_consultant_form')->value;
-          $variables['adv_link_url'] = $block_content->get('field_consultant_form_link')->value;
+          $advertise_footer['footer_adv_title'] = $block_content->get('field_title')->value;
+          $advertise_footer['footer_adv_sub_title'] = $block_content->get('field_sub_title')->value;
+          $advertise_footer['footer_adv_link_text'] = $block_content->get('field_consultant_form')->value;
+          $advertise_footer['footer_adv_link_url'] = $block_content->get('field_consultant_form_link')->value;
 
           if ($block_content->hasField('field_image') && !$block_content->get('field_image')->isEmpty()) {
-              $fid = $block_content->get('field_image')->target_id;
-              $file = \Drupal::entityTypeManager()->getStorage('file')->load($fid);
+              $fid_image = $block_content->get('field_image')->target_id;
+              $file_image = \Drupal::entityTypeManager()->getStorage('file')->load($fid_image);
 
-              if ($file) {
-                  $uri = $file->getFileUri();
-                  $variables['adv_logo_image_url'] = \Drupal::service('file_url_generator')->generateAbsoluteString($uri);
+              if ($file_image) {
+                  $uri_image = $file_image->getFileUri();
+                  $advertise_footer['footer_adv_logo_image_url'] = \Drupal::service('file_url_generator')->generateAbsoluteString($uri_image);
               }
           }
+
       }
     }
 
@@ -106,7 +107,6 @@ final class UserFooterBlock extends BlockBase {
       'sales_telephone' => $sales_telephone,
       'sales_email' => $sales_email,
       'sales_whatsapp' => $sales_whatsapp,
-      'logo_image_url' => $logo_image_url,
       'main_showroom' => $main_showroom,
       'main_showroom_address' => $main_showroom_address,
       'footer_title' => $footer_title,

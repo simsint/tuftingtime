@@ -1,0 +1,84 @@
+{% if title %}
+  <h3>{{ title }}</h3>
+{% endif %}
+
+{% for row in view.result %}
+  {%
+    set row_classes = [
+      'views-row',
+    ]
+  %}
+
+  {% set plan = row._entity %}
+  {% set index = loop.index0 %}
+
+{# ------------------------------------------------------------- #}
+{# --- Corrected steps for Media Entity Reference field: ----- #}
+
+{# 1. Get the referenced Media Entity (e.g., Media Type: Image). #}
+{% set media_entity = plan.field_gallery_image.entity %}
+
+{% set image_url = null %}
+
+	{% if media_entity %}
+	{# 2. Get the actual file field within the Media Entity. #}
+	{# This field is typically named 'field_media_image' for Drupal's standard Image Media Type. #}
+	{% set file_field = media_entity.field_media_image.entity %}
+
+	{# 3. Get the file URI from the File Entity. #}
+		{% if file_field %}
+		{% set image_uri = file_field.uri.value %}
+
+		{# 4. Generate the absolute URL. #}
+	{% set image_url = image_uri | image_style('branch_card') %}
+{% endif %}
+{% endif %}
+{# ------------------------------------------------------------- #}
+
+
+<section class="section section--illustration section--sohowroom">
+	<div class="illustration showroom">
+		<div
+			class="illustration__bg-wrapper">
+			<!-- Image Added Back -->
+			<img src="{{image_url}}" loading="lazy" alt="{{ media_entity.label }}" class=""/>
+		</div>
+		<div class="illustration__inner">
+			<div class="illustration__body illustration__body--no-bottom-padding">
+				<div class="illustration__content">
+					<div class="illustration__heading italic">{{ plan.title.value }}</div>
+					<p class="illustration__address">{{ plan.field_address.value }}</p>
+
+					<div class="illustration__details">
+						{% if plan.field_phone is not empty %}
+                <p>
+                  <strong>Phone:</strong>
+                  <span class="links">
+                    {% for item in plan.field_phone %}
+                      <a href="tel:{{ item.value | replace({' ': '', '(': '', ')': '', '-': ''}) }}">{{ item.value }}</a>
+                    {% endfor %}
+                  </span>
+                </p>
+                {% endif %}
+						{% if plan.field_email is not empty %}
+                <p>
+                  <strong>Email:</strong>
+                  <span class="links">
+                    {% for item in plan.field_email %}
+                      <a href="mailto:{{ item.value }}">{{ item.value }}</a>
+                    {% endfor %}
+                  </span>
+                </p>
+                {% endif %}
+					</div>
+					{% if plan.field_whatsapp_link.value %}
+					<a href="{{ plan.field_whatsapp_link.value }}" class="whatsapp-link" target="_blank">Chat on WhatsApp</a>
+					{% endif %}
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+{% endfor %}
+

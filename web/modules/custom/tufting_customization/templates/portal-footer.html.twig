@@ -24,20 +24,9 @@
 					</div>
 				</div>
 			</div>
-			<div data-w-id="7b1a136e-b730-6007-fd54-b2b614a3652f" class="disclamer-footer disclamer--footer disclamer--footer-tablet">
-				<div class="disclamer__inner disclamer__inner--footer">
-					<div id="w-node-_7b1a136e-b730-6007-fd54-b2b614a36531-54061193" class="leather leather--footer leather--disclaimer">
-						<img src="{{ adv_logo_image_url }}" loading="lazy" alt="" class="leather__image"/>
-						<div class="leather__image-shadow"></div>
-					</div>
-					<p class="paragraph paragraph--lh-140 paragraph--footer">{{ adv_title }} 	{{ adv_sub_title }}</p>
-					<div id="w-node-_7b1a136e-b730-6007-fd54-b2b614a36536-54061193" class="disclamer__link disclamer__link--footer">
-					{% if adv_link_url %}
-						<a data-name-button="form" href="{{adv_link_url}}" class="link">{{adv_link_text}}</a>
-						{% endif %}
-					</div>
-				</div>
-			</div>
+
+
+
 		</div>
 		<div  class="footer__content">
 			<div class="footer__row footer__row--top">
@@ -52,13 +41,14 @@
 				</div>
 				<div data-w-id="ded494a9-d0dd-17aa-23f3-962ef3c07349" class="disclamer disclamer--footer">
 					<div class="disclamer__inner disclamer__inner--footer">
-						<div id="w-node-ded494a9-d0dd-17aa-23f3-962ef3c0734b-54061193" class="leather leather--footer"><img src="https://cdn.prod.website-files.com/6736298731cbe5c55f005f38/673ef97ee5783a2be3ad42c5_25.webp" loading="lazy" sizes="(max-width: 896px) 100vw, 896px" srcset="https://cdn.prod.website-files.com/6736298731cbe5c55f005f38/673ef97ee5783a2be3ad42c5_25-p-500.webp 500w, https://cdn.prod.website-files.com/6736298731cbe5c55f005f38/673ef97ee5783a2be3ad42c5_25-p-800.webp 800w, https://cdn.prod.website-files.com/6736298731cbe5c55f005f38/673ef97ee5783a2be3ad42c5_25.webp 896w" alt="" class="leather__image" style=""/>
+						<div id="w-node-ded494a9-d0dd-17aa-23f3-962ef3c0734b-54061193" class="leather leather--footer"><img src="{{data.advertise_footer.footer_adv_logo_image_url}}" alt="" class="leather__image" style=""/>
 							<div class="leather__image-shadow"></div>
 						</div>
-						<p class="paragraph paragraph--lh-140 paragraph--footer">Don’t need upholstery leather?<br/>
-							Shop our extensive leather collections for the fashion and leathercraft industries!</p>
+						<p class="paragraph paragraph--lh-140 paragraph--footer">{{ data.advertise_footer.footer_adv_title }} {{ data.advertise_footer.footer_adv_sub_title }}</p>
 						<div id="w-node-ded494a9-d0dd-17aa-23f3-962ef3c07350-54061193" class="disclamer__link disclamer__link--footer">
-							<a data-name-button="form" href="#" class="link">Shop now</a>
+							{% if data.advertise_footer.footer_adv_link_url %}
+						<a data-name-button="form" href="{{data.advertise_footer.footer_adv_link_url}}" class="link">{{data.advertise_footer.footer_adv_link_text}}</a>
+						{% endif %}
 						</div>
 					</div>
 				</div>

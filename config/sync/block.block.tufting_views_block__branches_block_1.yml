@@ -1,0 +1,24 @@
+uuid: 8d624829-6e56-48b1-8f35-aab3be558253
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.branches
+  module:
+    - views
+  theme:
+    - tufting
+id: tufting_views_block__branches_block_1
+theme: tufting
+region: content
+weight: 0
+provider: null
+plugin: 'views_block:branches-block_1'
+settings:
+  id: 'views_block:branches-block_1'
+  label: ''
+  label_display: '0'
+  provider: views
+  views_label: ''
+  items_per_page: null
+visibility: {  }

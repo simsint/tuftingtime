@@ -100,3 +100,204 @@
     left: 0;
     border-radius: 10px;
 }
+
+
+.branch {
+
+      /* Basic Page Styles */
+
+          font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+          /* This is the background color for the whole page */
+          background-color: #dfd7ce;
+          /* gray-100 */
+          padding: 2rem;
+          /* 32px */
+          margin: 0;
+
+
+        /* Grid Container */
+        .showroom-grid-container {
+          margin-top: -10%;
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          gap: 2rem;
+          /* 32px spacing */
+          max-width: 90rem;
+          margin-left: auto;
+          margin-right: auto;
+          align-content: start;
+        }
+
+        /* Responsive Grid */
+        @media (max-width: 1280px) {
+          .showroom-grid-container {
+            grid-template-columns: repeat(3, 1fr);
+          }
+        }
+
+        @media (max-width: 1024px) {
+          .showroom-grid-container {
+            grid-template-columns: repeat(2, 1fr);
+          }
+        }
+
+        @media (max-width: 768px) {
+          .showroom-grid-container {
+            grid-template-columns: 1fr;
+          }
+
+          body {
+            padding: 1.5rem;
+            /* 24px */
+          }
+        }
+
+        /* Card Styles */
+        .section {
+          width: 100%;
+        }
+
+        .illustration {
+          position: relative;
+          overflow: hidden;
+          border-radius: 0.75rem;
+          box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+          /* The card itself is white */
+          background-color: #ffffff;
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+        }
+
+        .illustration__bg-wrapper {
+          position: relative;
+          width: 100%;
+          /* 3:2 aspect ratio */
+          overflow: hidden;
+          height: 250px;
+          /* Fallback color if image is slow to load */
+          flex-shrink: 0;
+        }
+
+        /* --- UPDATED --- */
+        .illustration__bg-image {
+          /* This class is now used again */
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+
+        .illustration__inner {
+          position: relative;
+          flex-grow: 1;
+          display: flex;
+          flex-direction: column;
+        }
+
+        .illustration__body {
+          padding: 1.5rem;
+          /* 24px */
+          flex-grow: 1;
+          display: flex;
+          flex-direction: column;
+        }
+
+        .illustration__content {
+          text-align: left;
+          flex-grow: 1;
+          display: flex;
+          flex-direction: column;
+        }
+
+        .illustration__heading {
+          font-size: 1.875rem;
+          /* 30px */
+          line-height: 2.25rem;
+          /* 36px */
+          font-weight: 300;
+          margin-bottom: 0.25rem;
+          text-align: center;
+        }
+
+        .italic {
+          font-style: italic;
+        }
+
+        .illustration__address {
+          font-size: 1rem;
+          /* 16px */
+          line-height: 1.5;
+          /* 24px */
+          color: #374151;
+          /* gray-700 */
+          text-align: center;
+          margin-bottom: 1.5rem;
+          /* 24px */
+        }
+
+        .illustration__details {
+          font-size: 0.9rem;
+          /* 14px */
+          color: #374151;
+          /* gray-700 */
+          flex-grow: 1;
+          /* Push whatsapp link to the bottom */
+        }
+
+        .illustration__details p {
+          margin-bottom: 0.75rem;
+          /* 12px */
+          display: flex;
+          line-height: 1.4;
+        }
+
+        .illustration__details strong {
+          display: inline-block;
+          width: 80px;
+          /* Aligns the labels */
+          flex-shrink: 0;
+          color: #111827;
+          /* gray-900 */
+        }
+
+        .illustration__details .links {
+          display: flex;
+          flex-direction: column;
+        }
+
+        .illustration__details .links a {
+          padding-bottom: 4px;
+          /* Space out links a bit */
+        }
+
+        .illustration__details a {
+          color: #059669;
+          /* green-700 */
+          text-decoration: none;
+        }
+
+        .illustration__details a:hover {
+          text-decoration: underline;
+        }
+
+        .whatsapp-link {
+          display: inline-block;
+          margin-top: 1rem;
+          padding: 0.5rem 1rem;
+          background-color: #25D366;
+          color: white !important;
+          font-weight: bold;
+          border-radius: 0.5rem;
+          text-align: center;
+          font-size: 1rem;
+          align-self: center;
+        }
+
+        .whatsapp-link:hover {
+          background-color: #1EAE56;
+          text-decoration: none;
+        }
+}

@@ -1,0 +1,30 @@
+uuid: d22b1b4f-3a17-4872-9ac8-ee6cae9cdcd8
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.branches.field_address
+    - field.field.node.branches.field_email
+    - field.field.node.branches.field_gallery_image
+    - field.field.node.branches.field_phone
+    - field.field.node.branches.field_whatsapp_link
+    - node.type.branches
+  module:
+    - user
+id: node.branches.teaser
+targetEntityType: node
+bundle: branches
+mode: teaser
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_address: true
+  field_email: true
+  field_gallery_image: true
+  field_phone: true
+  field_whatsapp_link: true
