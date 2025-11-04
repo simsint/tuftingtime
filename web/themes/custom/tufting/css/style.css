@@ -3831,6 +3831,7 @@ a {
   z-index: 3;
   position: relative;
   transform: translate(0, 6.25rem);
+  margin-top:25%;
 }
 
 .section-wrapper {

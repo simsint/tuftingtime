@@ -179,6 +179,10 @@
           flex-shrink: 0;
         }
 
+        .hero__body {
+          margin-top:10%;
+        }
+
         /* --- UPDATED --- */
         .illustration__bg-image {
           /* This class is now used again */
