@@ -3831,7 +3831,7 @@ a {
   z-index: 3;
   position: relative;
   transform: translate(0, 6.25rem);
-  margin-top:25%;
+  margin-top:24%;
 }
 
 .section-wrapper {
@@ -5428,7 +5428,7 @@ a {
 
   .illustration__inner-wrapper {
     max-width: 40%;
-    margin-top: -18.5625rem;
+    margin-top: -13rem;
   }
 
   .footer__content {
