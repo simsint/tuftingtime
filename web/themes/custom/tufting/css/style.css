@@ -4021,6 +4021,11 @@ a {
   height: 100%;
 }
 
+ .whatsapp{
+    width: 24px;
+    height: 24px;
+}
+
 .illustration__image {
   object-fit: cover;
   width: 100%;

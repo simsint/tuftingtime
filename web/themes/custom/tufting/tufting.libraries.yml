@@ -15,6 +15,7 @@ global:
   css:
     theme:
       https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css: { type: external, attributes: { defer: true } }
+      //fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap: { type: external }
       css/slick.css: {}
       css/slick-theme.css: {}
       css/style.css: {}
