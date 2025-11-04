@@ -1,0 +1,25 @@
+uuid: 765f8014-62c2-4150-b1fd-35cfeda7c0ac
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:hero_banner:992bd269-9d31-4ec2-9be1-5283828876eb'
+  module:
+    - block_content
+  theme:
+    - tufting
+id: tufting_introbannerhomepgae
+theme: tufting
+region: content
+weight: -12
+provider: null
+plugin: 'block_content:992bd269-9d31-4ec2-9be1-5283828876eb'
+settings:
+  id: 'block_content:992bd269-9d31-4ec2-9be1-5283828876eb'
+  label: 'Intro Banner - Homepgae'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

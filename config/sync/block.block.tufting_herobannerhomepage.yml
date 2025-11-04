@@ -1,0 +1,25 @@
+uuid: e423a4f2-9a12-4ddd-9aa5-b01c7ca95ee8
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:hero_banner:71197a48-44c8-4807-b43f-1074f903cd89'
+  module:
+    - block_content
+  theme:
+    - tufting
+id: tufting_herobannerhomepage
+theme: tufting
+region: content
+weight: -13
+provider: null
+plugin: 'block_content:71197a48-44c8-4807-b43f-1074f903cd89'
+settings:
+  id: 'block_content:71197a48-44c8-4807-b43f-1074f903cd89'
+  label: 'Hero Banner - Homepage'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

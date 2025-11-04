@@ -9,7 +9,7 @@ dependencies:
 id: tufting_userfooter
 theme: tufting
 region: footer
-weight: 0
+weight: -14
 provider: null
 plugin: tufting_customization_user_footer
 settings:

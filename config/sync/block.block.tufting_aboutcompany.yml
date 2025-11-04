@@ -1,0 +1,25 @@
+uuid: 92a99d99-130e-487e-a97a-539ad2fe74f7
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:about_company:e78b91c5-bb0f-46ad-8ce5-0d0c85010da1'
+  module:
+    - block_content
+  theme:
+    - tufting
+id: tufting_aboutcompany
+theme: tufting
+region: content
+weight: -7
+provider: null
+plugin: 'block_content:e78b91c5-bb0f-46ad-8ce5-0d0c85010da1'
+settings:
+  id: 'block_content:e78b91c5-bb0f-46ad-8ce5-0d0c85010da1'
+  label: 'About Company'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }
