@@ -262,7 +262,7 @@ handlers:
     handler_id: email_confirmation
     label: 'Email confirmation'
     notes: ''
-    status: true
+    status: false
     conditions: {  }
     weight: 1
     settings:
@@ -314,12 +314,12 @@ handlers:
       cc_options: {  }
       from_mail: _default
       from_options: {  }
-      from_name: '[webform_submission:values:name:raw]'
+      from_name: 'Tufting Time'
       reply_to: ''
       return_path: ''
       sender_mail: ''
       sender_name: ''
-      subject: 'Contact us from Home page'
+      subject: 'Contact us from Tufting time'
       body: '[webform_submission:values:message:value]'
       excluded_elements: {  }
       ignore_access: false
