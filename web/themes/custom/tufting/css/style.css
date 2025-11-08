@@ -7585,13 +7585,29 @@ a {
 @media (max-width: 1000px) {
   .section.section--steps{padding-bottom: 0;}
   .video-container video{height: 100vh; object-fit: cover;}
+  .illustration{align-items: center;}
   .illustration__bg-wrapper img{width: 100%;}
   .section.section--illustration.section--sohowroom{padding-bottom: 0; padding-top: 40px;}
   .illustration__inner-wrapper{margin-top: 0 !important;}
+  .hero.top{padding-bottom: 50px;}
+  .section.section--padding-lg{padding-top: 4.5rem; padding-bottom: 4.5rem;}
+  .section-gallery__header{padding-bottom: 50px;}
+  #how-we-work .subheading{margin-top: 50%;}
+  .section.section-introduction{padding-top: 4.5rem; padding-bottom: 4.5rem;}
+  .section.discover{padding-top: 65px; padding-bottom: 50px;}
+  .section.section-portfolio{padding-top: 4.5rem; padding-bottom: 2.5rem;}
+  .section.faq{padding-top: 4.5rem; padding-bottom: 2.5rem;}
+  .container.faq__container{grid-row-gap: 2rem;}
+  .branch{padding: 2rem 2rem 10rem;}
 }
 
 @media (max-width: 767px) {
   .title-icon__heading{font-size: 4rem;}
   .gallery-header__heading{font-size: 4rem; line-height: 1;}
   .section.section-portfolio{padding-top: 0.5rem; padding-bottom: 0;}
+  .section.section--illustration{padding-top: 4rem;}
+  .section.section--padding-lg{padding-top: 0;}
+  #how-we-work .subheading{margin-top: 50%;}
+  .section.section--steps{padding-bottom: 4.75rem;}
+  .section.section-introduction{padding-top: 4rem;}
 }
