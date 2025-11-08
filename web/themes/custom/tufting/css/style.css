@@ -7581,3 +7581,17 @@ a {
 .drug-slide{padding: 0 10px;}
 .testimonials .drug-slide{min-height: 540px;}
 .testimonials .slick-slide{padding: 0 10px;}
+
+@media (max-width: 1000px) {
+  .section.section--steps{padding-bottom: 0;}
+  .video-container video{height: 100vh; object-fit: cover;}
+  .illustration__bg-wrapper img{width: 100%;}
+  .section.section--illustration.section--sohowroom{padding-bottom: 0; padding-top: 40px;}
+  .illustration__inner-wrapper{margin-top: 0 !important;}
+}
+
+@media (max-width: 767px) {
+  .title-icon__heading{font-size: 4rem;}
+  .gallery-header__heading{font-size: 4rem; line-height: 1;}
+  .section.section-portfolio{padding-top: 0.5rem; padding-bottom: 0;}
+}
