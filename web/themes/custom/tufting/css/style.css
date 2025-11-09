@@ -7593,6 +7593,8 @@ a {
   transform: translate(0%);
 }
 
+#how-we-work .subheading{margin-top: 55% !important;}
+
 @media (max-width: 1000px) {
   .section.section--steps{padding-bottom: 0;}
   .video-container video{height: 100vh; object-fit: cover;}
