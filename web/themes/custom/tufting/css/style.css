@@ -7608,12 +7608,12 @@ a {
   .section.section-portfolio{padding-top: 0.5rem; padding-bottom: 0;}
   .section.section--illustration{padding-top: 4rem;}
   #why-choose-us .section.section--padding-lg{padding-top: 3.5rem;}
-  #how-we-work .subheading{margin-top: 50%;}
+  #how-we-work .subheading{margin-top: 0 !important;}
   .section.section--steps{padding-bottom: 4.75rem;}
   .section.section-introduction{padding-top: 4rem;}
   .testimonial-slide__paragraph.scrollable{font-size: 1.1rem;}
-  .bg_image.bg_image--md.bg_image--testimonilas{height: 100vh !important; object-fit: cover !important;}
-  .testimonials .drug-slider-wrapper{margin-top: -80% !important;}
+  /*.bg_image.bg_image--md.bg_image--testimonilas{height: 100vh !important; object-fit: cover !important;}*/
+  .testimonials .drug-slider-wrapper{margin-top: 0 !important;}
   .footer___brand{font-size: 3.5rem !important; text-align: center !important; margin-left: 0 !important;}
   .bring__text{display: block !important; font-size: 5rem !important;}
   .testimonials .bg{left: -25% !important;}
