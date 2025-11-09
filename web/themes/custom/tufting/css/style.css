@@ -7582,6 +7582,17 @@ a {
 .testimonials .drug-slide{min-height: 540px;}
 .testimonials .slick-slide{padding: 0 10px;}
 
+.burger.js--active .burger-line--top {
+  transform: rotate(45deg) translate(2px, 2px);
+}
+.burger.js--active .burger-line--bottom {
+  transform: rotate(-45deg) translate(2px, -2px);
+}
+.header-menu.js--active {
+  opacity: 1;
+  transform: translate(0%);
+}
+
 @media (max-width: 1000px) {
   .section.section--steps{padding-bottom: 0;}
   .video-container video{height: 100vh; object-fit: cover;}
@@ -7613,9 +7624,10 @@ a {
   .section.section-introduction{padding-top: 4rem;}
   .testimonial-slide__paragraph.scrollable{font-size: 1.1rem;}
   /*.bg_image.bg_image--md.bg_image--testimonilas{height: 100vh !important; object-fit: cover !important;}*/
-  .testimonials .drug-slider-wrapper{margin-top: 0 !important;}
+  .testimonials .drug-slider-wrapper{margin-top: -30% !important;}
   .footer___brand{font-size: 3.5rem !important; text-align: center !important; margin-left: 0 !important;}
   .bring__text{display: block !important; font-size: 5rem !important;}
   .testimonials .bg{left: -25% !important;}
   .section.section-gallery{margin-bottom: 0;}
+  .paragraph.paragraph--heder-link{font-size: 2.5rem !important;}
 }
