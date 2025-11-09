@@ -52,6 +52,19 @@
         // Add other desired options here, e.g., responsive settings
       });
 
+      $('.burger').click(function () {
+        $(this).toggleClass('js--active');
+        $(".header-menu").toggleClass('js--active');
+      });
+
+      $('.header-menu .header__link').click(function () {
+        $(".burger").removeClass('js--active');
+        $(".header-menu").removeClass('js--active');
+        $('body').animate({
+          scrollTop: eval($('#' + $(this).attr('target')).offset().top)
+        }, 1000);
+      });
+
     }
   };
 
