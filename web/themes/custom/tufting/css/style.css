@@ -7610,4 +7610,7 @@ a {
   #how-we-work .subheading{margin-top: 50%;}
   .section.section--steps{padding-bottom: 4.75rem;}
   .section.section-introduction{padding-top: 4rem;}
+  .testimonial-slide__paragraph.scrollable{font-size: 1.1rem;}
+  .bg_image.bg_image--md.bg_image--testimonilas{height: 100vh; object-fit: cover;}
+  .testimonials .drug-slider-wrapper{margin-top: 0 !important; margin-top: -80%;}
 }
