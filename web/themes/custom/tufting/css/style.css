@@ -7607,7 +7607,7 @@ a {
   .gallery-header__heading{font-size: 4rem; line-height: 1;}
   .section.section-portfolio{padding-top: 0.5rem; padding-bottom: 0;}
   .section.section--illustration{padding-top: 4rem;}
-  .section.section--padding-lg{padding-top: 0;}
+  #why-choose-us .section.section--padding-lg{padding-top: 3.5rem;}
   #how-we-work .subheading{margin-top: 50%;}
   .section.section--steps{padding-bottom: 4.75rem;}
   .section.section-introduction{padding-top: 4rem;}
@@ -7615,5 +7615,7 @@ a {
   .bg_image.bg_image--md.bg_image--testimonilas{height: 100vh !important; object-fit: cover !important;}
   .testimonials .drug-slider-wrapper{margin-top: -80% !important;}
   .footer___brand{font-size: 3.5rem !important; text-align: center !important; margin-left: 0 !important;}
-  .bring__text{display: block !important; font-size: 4rem !important;}
+  .bring__text{display: block !important; font-size: 5rem !important;}
+  .testimonials .bg{left: -25% !important;}
+  .section.section-gallery{margin-bottom: 0;}
 }
