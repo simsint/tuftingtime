@@ -44,14 +44,25 @@
 		</div>
 		<div class="header__bottom">
 			<div class="contacts">
-				<a href="#" class="contacts__link w-inline-block">
-					<img src="images/phone-icon.svg" loading="lazy" alt="" class="contacts__image"/>
+			{% if data.sales_whatsapp %}
+				<a href="{{ data.sales_whatsapp}}" data-w-id="389d7e11-de83-2435-42e9-2b98f6599f7d" class="contacts__link w-inline-block" target="_blank">
+					<div class="flex w-embed">
+					<img src="/themes/custom/tufting/images/what3.png" loading="lazy" alt="" class="hero__icon-image whatsapp"/>
+					</div>
 				</a>
-				<a href="#" class="contacts__link w-inline-block">
-					<img src="images/mail-icon.svg" loading="lazy" alt="" class="contacts__image"/>
+			{% endif %}
+			{% if data.sales_telephone %}
+				<a href="tel:{{ data.sales_telephone}}" class="contacts__link w-inline-block">
+					<img src="/themes/custom/tufting/images/phone-icon.svg" loading="lazy" alt="" class="contacts__image"/>
 				</a>
+				{% endif %}
+				{% if data.sales_email %}
+				<a href="mailto:{{ data.sales_email }}" class="contacts__link w-inline-block">
+					<img src="/themes/custom/tufting/images/mail-icon.svg" loading="lazy" alt="" class="contacts__image"/>
+				</a>
+				{% endif %}
 			</div>
-			<a href="#" class="button button--light w-button">Contact us</a>
+			<a href="https://bookings.tuftingtime.com/?wizard-step=location" class="button button--light w-button">Contact us</a>
 		</div>
 	</div>
 </nav>
