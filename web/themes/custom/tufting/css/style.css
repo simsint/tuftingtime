@@ -7632,6 +7632,6 @@ a {
   .testimonials .bg{left: -25% !important;}
   .section.section-gallery{margin-bottom: 0;}
   .paragraph.paragraph--heder-link{font-size: 2.5rem !important;}
-  .video-container video{height: auto !important; object-fit: contain !important;}
-  .banner-video-wrapper{height: auto !important;}
+  .illustration .video-container video{height: auto !important; object-fit: contain !important;}
+  .illustration .banner-video-wrapper{height: auto !important;}
 }
