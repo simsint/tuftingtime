@@ -7599,6 +7599,7 @@ a {
   .section.faq{padding-top: 4.5rem; padding-bottom: 2.5rem;}
   .container.faq__container{grid-row-gap: 2rem;}
   .branch{padding: 2rem 2rem 10rem;}
+  .footer___brand{font-size: 5.5rem !important; text-align: center !important;}
 }
 
 @media (max-width: 767px) {
@@ -7613,4 +7614,6 @@ a {
   .testimonial-slide__paragraph.scrollable{font-size: 1.1rem;}
   .bg_image.bg_image--md.bg_image--testimonilas{height: 100vh !important; object-fit: cover !important;}
   .testimonials .drug-slider-wrapper{margin-top: -80% !important;}
+  .footer___brand{font-size: 3.5rem !important; text-align: center !important; margin-left: 0 !important;}
+  .bring__text{display: block !important; font-size: 4rem !important;}
 }
