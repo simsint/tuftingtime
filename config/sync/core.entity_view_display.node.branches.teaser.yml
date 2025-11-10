@@ -7,6 +7,7 @@ dependencies:
     - field.field.node.branches.field_address
     - field.field.node.branches.field_email
     - field.field.node.branches.field_gallery_image
+    - field.field.node.branches.field_map_url
     - field.field.node.branches.field_phone
     - field.field.node.branches.field_whatsapp_link
     - node.type.branches
@@ -26,5 +27,6 @@ hidden:
   field_address: true
   field_email: true
   field_gallery_image: true
+  field_map_url: true
   field_phone: true
   field_whatsapp_link: true

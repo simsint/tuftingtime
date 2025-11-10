@@ -47,7 +47,15 @@
 			<div class="illustration__body illustration__body--no-bottom-padding">
 				<div class="illustration__content">
 					<div class="illustration__heading italic">{{ plan.title.value }}</div>
-					<p class="illustration__address">{{ plan.field_address.value }}</p>
+					<p class="illustration__address">
+					{{ plan.field_address.value }}
+					</p>
+					<p class="illustration__address gmap">
+					{% if plan.field_map_url.value %}<a href="{{ plan.field_map_url.value }}" class="gmap__link" target="_blank">
+							<img src="/themes/custom/tufting/images/google-maps.png" loading="lazy" alt="" class=""/>
+						</a>{% else %}&nbsp;{% endif %}
+
+					</p>
 
 					<div class="illustration__details">
 						{% if plan.field_phone is not empty %}

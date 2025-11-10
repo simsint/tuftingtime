@@ -322,3 +322,22 @@
   font-family: 'Josefin Sans', sans-serif;
   font-weight: 400;
 }
+
+
+.gmap__link {
+  justify-content: center;
+  align-items: center;
+  width: 32px;
+  height: 32px;
+  display: flex;
+}
+
+.gmap_span {
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+}
+
+.gmap {
+  margin-top: -30px;
+}
