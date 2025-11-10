@@ -312,6 +312,40 @@
           background-color: #1EAE56;
           text-decoration: none;
         }
+
+        .gmap__link {
+          justify-content: center;
+          align-items: center;
+          width: 32px;
+          height: 32px;
+          display: flex;
+        }
+
+        .gmap_span {
+          display: flex;
+          justify-content: center;
+          margin-top: 15px;
+        }
+
+        .gmap {
+          margin-top: -30px;
+        }
+
+        .gmap_text {
+          text-decoration: none;
+          display: inline-flex;
+          align-items: center;
+          gap: 8px;
+        }
+
+        .links a:hover {
+          text-decoration: none;
+        }
+
+        .gmap__image {
+          width: 24px;
+          height: 24px;
+        }
 }
 
 #how-we-work .subheading {
@@ -324,20 +358,4 @@
 }
 
 
-.gmap__link {
-  justify-content: center;
-  align-items: center;
-  width: 32px;
-  height: 32px;
-  display: flex;
-}
 
-.gmap_span {
-  display: flex;
-  justify-content: center;
-  margin-top: 15px;
-}
-
-.gmap {
-  margin-top: -30px;
-}

@@ -55,9 +55,13 @@
 
 							<p>
                 <strong>Map:</strong>
-                <span class="links">
-                  <a href="{{plan.field_map_url.value}}" target="_blank">Click for Direction</a>
-                </span>
+
+								<span class="links">
+									<a href="{{plan.field_map_url.value}}" target="_blank" class="gmap_text">
+											<span>Click for Direction</span>
+											<img src="/themes/custom/tufting/images/google-maps.png" loading="lazy" alt="Google Maps" class="gmap__image">
+									</a>
+								</span>
               </p>
 
 					{% endif %}
