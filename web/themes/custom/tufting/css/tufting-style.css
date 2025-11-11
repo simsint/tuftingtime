@@ -158,6 +158,11 @@
             padding: 1.5rem;
             /* 24px */
           }
+
+          .section.section--illustration {
+            width:110% !important;
+            margin-left: -10px;
+          }
         }
 
         /* Card Styles */
