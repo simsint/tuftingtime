@@ -7595,6 +7595,11 @@ a {
 
 #how-we-work .subheading{margin-top: 55% !important;}
 
+@media (max-width: 1200px) {
+.section.section--illustration.section--sohowroom{padding-top: 0 !important; padding-bottom: 15px !important;}
+.illustration__bg-wrapper img{width: 100% !important;}
+}
+
 @media (max-width: 1000px) {
   .section.section--steps{padding-bottom: 0;}
   .video-container video{height: 100vh; object-fit: cover;}
@@ -7613,6 +7618,9 @@ a {
   .container.faq__container{grid-row-gap: 2rem;}
   .branch{padding: 2rem 2rem 10rem;}
   .footer___brand{font-size: 5.5rem !important; text-align: center !important;}
+  .testimonials .drug-slider-wrapper{margin-top: 12%;}
+  .testimonials .drug-slide{min-height: 215px;}
+  .showroom-grid-container{margin-top: 0 !important;}
 }
 
 @media (max-width: 767px) {
