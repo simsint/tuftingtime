@@ -1,0 +1,12 @@
+# HSTS (HTTP Strict Transport Security)
+# Enables HSTS with includeSubDomains and preload for HTTPS connections
+<IfModule mod_headers.c>
+    # Set HSTS header with includeSubDomains and preload
+    # max-age=31536000 = 1 year
+    # includeSubDomains = Apply HSTS to all subdomains
+    # preload = Allow inclusion in HSTS preload list
+    # Only set HSTS header for HTTPS connections
+    <If "%{HTTPS} == 'on'">
+        Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+    </If>
+</IfModule>
