@@ -7619,9 +7619,9 @@ a {
   .branch{padding: 2rem 2rem 10rem;}
   .footer___brand{font-size: 5.5rem !important; text-align: center !important;}
   .testimonials .drug-slider-wrapper{margin-top: 12%;}
- /*.testimonials .drug-slide{min-height: 215px;}*/
+  /*.testimonials .drug-slide{min-height: 215px;}*/
   .showroom-grid-container{margin-top: 0 !important;}
-  .section.section--illustration{width: 100% !important; margin-left: 0;}
+  .showroom-grid-container .section.section--illustration{width: 100% !important; margin-left: 0 !important;}
   .footer__body{display: block; overflow: hidden; padding-bottom: 100px;}
   .footer__body .illustration__inner-wrapper{display: block; width: 48%; float: left;}
   .footer__content{width: 48%; float: right;}
@@ -7650,4 +7650,6 @@ a {
   .paragraph.paragraph--heder-link{font-size: 2.5rem !important;}
   .illustration .video-container video{height: auto !important; object-fit: contain !important;}
   .illustration .banner-video-wrapper{height: auto !important;}
+  .footer__body .illustration__inner-wrapper{display: block; width: 100%; float: left;}
+  .footer__content{width: 100%; float: right;}
 }
