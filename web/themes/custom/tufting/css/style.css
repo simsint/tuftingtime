@@ -7619,8 +7619,16 @@ a {
   .branch{padding: 2rem 2rem 10rem;}
   .footer___brand{font-size: 5.5rem !important; text-align: center !important;}
   .testimonials .drug-slider-wrapper{margin-top: 12%;}
-  /*.testimonials .drug-slide{min-height: 215px;}*/
+ /*.testimonials .drug-slide{min-height: 215px;}*/
   .showroom-grid-container{margin-top: 0 !important;}
+  .section.section--illustration{width: 100% !important; margin-left: 0;}
+  .footer__body{display: block; overflow: hidden; padding-bottom: 100px;}
+  .footer__body .illustration__inner-wrapper{display: block; width: 48%; float: left;}
+  .footer__content{width: 48%; float: right;}
+  .footer__row.footer__row--top{display: block !important;}
+  .footer__paragraph.footer__paragraph--hidden-mob{display: none !important;}
+  .footer .container.container--lg{padding-left: 1.5rem !important; padding-right: 1.5rem !important;}
+  .footer__col-contacts{column-gap: 2.188rem;}
 }
 
 @media (max-width: 767px) {
