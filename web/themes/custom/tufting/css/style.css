@@ -7629,6 +7629,7 @@ a {
   .footer__paragraph.footer__paragraph--hidden-mob{display: none !important;}
   .footer .container.container--lg{padding-left: 1.5rem !important; padding-right: 1.5rem !important;}
   .footer__col-contacts{column-gap: 2.188rem;}
+  .footer__location-tablet{padding: 50px 0 0;}
 }
 
 @media (max-width: 767px) {
@@ -7652,4 +7653,7 @@ a {
   .illustration .banner-video-wrapper{height: auto !important;}
   .footer__body .illustration__inner-wrapper{display: block; width: 100%; float: left;}
   .footer__content{width: 100%; float: right;}
+  .showroom-grid-container .section.section--illustration{margin-left: -10px !important;}
+  .disclamer--footer{margin-top: 50px;}
+  .footer__location-tablet{padding: 0;}
 }
