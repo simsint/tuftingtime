@@ -7661,6 +7661,7 @@ a {
   .footer .container.container--lg{padding-left: 1.5rem !important; padding-right: 1.5rem !important;}
   .footer__col-contacts{column-gap: 2.188rem;}
   .footer__location-tablet{padding: 50px 0 0;}
+  .branch .heading.heading--lg.discover__header-heading{margin-bottom: 20px;}
 }
 
 @media (max-width: 767px) {
