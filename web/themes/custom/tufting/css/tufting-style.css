@@ -160,7 +160,7 @@
           }
 
           .section.section--illustration {
-            width:110% !important;
+            /*width:110% !important;*/
             margin-left: -10px;
           }
         }
