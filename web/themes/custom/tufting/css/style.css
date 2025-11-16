@@ -6547,7 +6547,7 @@ a {
 
   .disclamer__close {
     width: 1.125rem;
-    display: none;
+    /*display: none;*/
     top: -.88rem;
     right: -.3rem;
   }
@@ -7675,7 +7675,7 @@ a {
   .section.section-introduction{padding-top: 4rem;}
   .testimonial-slide__paragraph.scrollable{font-size: 1.1rem;}
   /*.bg_image.bg_image--md.bg_image--testimonilas{height: 100vh !important; object-fit: cover !important;}*/
-  .testimonials .drug-slider-wrapper{margin-top: -30% !important;}
+  .testimonials .drug-slider-wrapper{margin-top: -40% !important;}
   .footer___brand{font-size: 3.5rem !important; text-align: center !important; margin-left: 0 !important;}
   .bring__text{display: block !important; font-size: 5rem !important;}
   .testimonials .bg{left: -25% !important;}
@@ -7686,8 +7686,9 @@ a {
   .footer__body .illustration__inner-wrapper{display: block; width: 100%; float: left;}
   .footer__content{width: 100%; float: right;}
   .showroom-grid-container .section--sohowroom{margin-left: -10px !important;}
-  .disclamer--footer{margin-top: 50px;}
+  .disclamer--footer{margin-top: 50px !important;}
   .footer__location-tablet{padding: 0;}
   .heading.heading--lg{font-size: 2.5rem;}
   .section.bring{overflow: hidden;}
+  .section.section--illustration{padding-bottom: 3.375rem !important;}
 }
