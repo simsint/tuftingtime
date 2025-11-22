@@ -363,4 +363,14 @@
 }
 
 
+.drug-slider__wrapper-2 {
+  /* 1. Flip the entire slider container horizontally (180 degrees) */
+  transform: scaleX(-1);
+}
+
+.drug-slider__wrapper-2 .slick-slide {
+  /* 2. Flip the individual slides back so the content is readable */
+  transform: scaleX(-1);
+}
+
 

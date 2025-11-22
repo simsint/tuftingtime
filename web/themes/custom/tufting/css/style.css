@@ -3912,7 +3912,7 @@ a {
 
 .portfolio__image-wrapper {
   pointer-events: none;
-  width: 30.5vw;
+  /*width: 30.5vw;*/
 }
 
 .portfolio__image {
