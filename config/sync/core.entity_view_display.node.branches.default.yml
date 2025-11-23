@@ -4,13 +4,18 @@ status: true
 dependencies:
   config:
     - field.field.node.branches.field_address
+    - field.field.node.branches.field_autoplay_video
     - field.field.node.branches.field_email
     - field.field.node.branches.field_gallery_image
+    - field.field.node.branches.field_loop_video
     - field.field.node.branches.field_map_url
+    - field.field.node.branches.field_mute_video
     - field.field.node.branches.field_phone
+    - field.field.node.branches.field_video_file
     - field.field.node.branches.field_whatsapp_link
     - node.type.branches
   module:
+    - file
     - user
 id: node.branches.default
 targetEntityType: node
@@ -23,6 +28,16 @@ content:
     settings: {  }
     third_party_settings: {  }
     weight: 101
+    region: content
+  field_autoplay_video:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 107
     region: content
   field_email:
     type: basic_string
@@ -40,12 +55,32 @@ content:
     third_party_settings: {  }
     weight: 101
     region: content
+  field_loop_video:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 108
+    region: content
   field_map_url:
     type: basic_string
     label: above
     settings: {  }
     third_party_settings: {  }
     weight: 105
+    region: content
+  field_mute_video:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 109
     region: content
   field_phone:
     type: string
@@ -54,6 +89,14 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     weight: 102
+    region: content
+  field_video_file:
+    type: file_default
+    label: above
+    settings:
+      use_description_as_link_text: true
+    third_party_settings: {  }
+    weight: 106
     region: content
   field_whatsapp_link:
     type: string

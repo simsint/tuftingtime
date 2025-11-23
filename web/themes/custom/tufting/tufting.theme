@@ -4,7 +4,6 @@
  * Implements hook_preprocess_views_view().
  */
 function tufting_preprocess_views_view(&$variables) {
-  //dump($variables);
   // Check if this is the view you want to target.
   if ($variables['id'] == 'features') {
 
@@ -196,6 +195,45 @@ function tufting_preprocess_views_view(&$variables) {
       }
     }
   }
+
+   if ($variables['id'] == 'branches_xx' && $variables['display_id'] == 'block_1') {
+    foreach ($variables['rows']['0']['#rows'] as $key => $row) {
+      $entity = $row['#row']->_entity;
+      $row_x['custom_fields'] = [
+        'video_url' => '',
+        'mime_type' => '',
+        'play_str' => '',
+      ];
+
+      if ($entity->hasField('field_video_file') && !$entity->get('field_video_file')->isEmpty()) {
+        $file_item = $entity->get('field_video_file')->first();
+        $fid = $file_item->target_id;
+
+        if ($fid) {
+          $file_entity = \Drupal::entityTypeManager()->getStorage('file')->load($fid);
+          $file_url_generator = \Drupal::service('file_url_generator');
+          $video_url = \Drupal::service('file_url_generator')->generateAbsoluteString($file_entity->getFileUri());
+          $row_x['custom_fields']['video_url'] = $video_url;
+          $play_str = '';
+          if ($entity->hasField('field_autoplay_video') && !$entity->get('field_autoplay_video')->isEmpty() && $entity->get('field_autoplay_video')->value == 1) {
+            $play_str .= 'autoplay ';
+          }
+          if ($entity->hasField('field_loop_video') && !$entity->get('field_loop_video')->isEmpty() && $entity->get('field_loop_video')->value == 1) {
+            $play_str .= 'loop ';
+          }
+          if ($entity->hasField('field_mute_video') && !$entity->get('field_mute_video')->isEmpty() && $entity->get('field_mute_video')->value == 1) {
+            $play_str .= 'muted ';
+          }
+
+          $row_x['custom_fields']['mime_type'] = $file_entity->getMimeType();
+          $row_x['custom_fields']['play_str'] = $play_str;
+        }
+        }
+      $variables['x_rows'][$key] = $row_x;
+      //dump($row);
+    }
+    //dump($variables);
+  }
 }
 
 
@@ -214,5 +252,12 @@ function tufting_theme_suggestions_block_alter(array &$suggestions, array $varia
     $suggestions[] = 'block__custom__' . $sanitized_value;
   }
 
+
+}
+
+/**
+ * Implements template_preprocess_views_view_unformatted().
+ */
+function tufting_preprocess_views_view__unformatted(&$variables) {
 
 }

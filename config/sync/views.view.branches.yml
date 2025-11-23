@@ -4,13 +4,18 @@ status: true
 dependencies:
   config:
     - field.storage.node.field_address
+    - field.storage.node.field_autoplay_video
     - field.storage.node.field_email
     - field.storage.node.field_gallery_image
+    - field.storage.node.field_loop_video
     - field.storage.node.field_map_url
+    - field.storage.node.field_mute_video
     - field.storage.node.field_phone
+    - field.storage.node.field_video_file
     - field.storage.node.field_whatsapp_link
     - node.type.branches
   module:
+    - file
     - media
     - node
     - user
@@ -471,6 +476,263 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
+        field_video_file:
+          id: field_video_file
+          table: node__field_video_file
+          field: field_video_file
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: field
+          label: ''
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: description
+          type: file_url_plain
+          settings: {  }
+          group_column: ''
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+        field_autoplay_video:
+          id: field_autoplay_video
+          table: node__field_autoplay_video
+          field: field_autoplay_video
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: field
+          label: ''
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: boolean
+          settings:
+            format: custom
+            format_custom_false: ''
+            format_custom_true: 'autoplay '
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+        field_loop_video:
+          id: field_loop_video
+          table: node__field_loop_video
+          field: field_loop_video
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: field
+          label: ''
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: boolean
+          settings:
+            format: custom
+            format_custom_false: ''
+            format_custom_true: 'loop '
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+        field_mute_video:
+          id: field_mute_video
+          table: node__field_mute_video
+          field: field_mute_video
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: field
+          label: ''
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: boolean
+          settings:
+            format: custom
+            format_custom_false: ''
+            format_custom_true: 'muted '
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
       pager:
         type: none
         options:
@@ -557,10 +819,14 @@ display:
         - user.permissions
       tags:
         - 'config:field.storage.node.field_address'
+        - 'config:field.storage.node.field_autoplay_video'
         - 'config:field.storage.node.field_email'
         - 'config:field.storage.node.field_gallery_image'
+        - 'config:field.storage.node.field_loop_video'
         - 'config:field.storage.node.field_map_url'
+        - 'config:field.storage.node.field_mute_video'
         - 'config:field.storage.node.field_phone'
+        - 'config:field.storage.node.field_video_file'
         - 'config:field.storage.node.field_whatsapp_link'
   block_1:
     id: block_1
@@ -578,8 +844,12 @@ display:
         - user.permissions
       tags:
         - 'config:field.storage.node.field_address'
+        - 'config:field.storage.node.field_autoplay_video'
         - 'config:field.storage.node.field_email'
         - 'config:field.storage.node.field_gallery_image'
+        - 'config:field.storage.node.field_loop_video'
         - 'config:field.storage.node.field_map_url'
+        - 'config:field.storage.node.field_mute_video'
         - 'config:field.storage.node.field_phone'
+        - 'config:field.storage.node.field_video_file'
         - 'config:field.storage.node.field_whatsapp_link'

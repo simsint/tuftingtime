@@ -109,6 +109,16 @@
     border-radius: 10px;
 }
 
+.branch-banner-video-wrapper {
+  width: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 10px;
+  height:280px;
+}
+
 
 .branch {
 

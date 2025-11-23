@@ -12,6 +12,7 @@
   {% set plan = row._entity %}
   {% set index = loop.index0 %}
 
+
 {# ------------------------------------------------------------- #}
 {# --- Corrected steps for Media Entity Reference field: ----- #}
 
@@ -35,13 +36,52 @@
 {% endif %}
 {# ------------------------------------------------------------- #}
 
+{% set video_url = null %}
+{% set video_file_entity = plan.field_video_file.entity %}
+
+{% if video_file_entity %}
+	{# 1. Get the File URI (e.g., 'public://videos/file.mp4') #}
+	{% set video_uri = video_file_entity.uri.value %}
+
+	{# 2. Convert the URI to a web-accessible URL using file_url() #}
+	{% set video_url = video_uri | file_url %}
+{% endif %}
+
+{% set autoplay_raw_value = plan.field_autoplay_video.value %}
+{% set autoplay_attribute = '' %}
+{% if autoplay_raw_value == 1 %}
+    {% set autoplay_attribute = 'autoplay ' %}
+{% endif %}
+
+{% set loop_raw_value = plan.field_loop_video.value %}
+{% set loop_attribute = '' %}
+{% if loop_raw_value == 1 %}
+	{% set loop_attribute = 'loop ' %}
+{% endif %}
+
+
+{% set mute_raw_value = plan.field_mute_video.value %}
+{% set mute_attribute = '' %}
+{% if mute_raw_value == 1 %}
+	{% set mute_attribute = 'muted ' %}
+{% endif %}
+
+
+
 
 <section class="section section--illustration section--sohowroom">
 	<div class="illustration showroom">
 		<div
 			class="illustration__bg-wrapper">
-			<!-- Image Added Back -->
-			<img src="{{image_url}}" loading="lazy" alt="{{ media_entity.label }}" class=""/>
+			<!--<img src="{{image_url}}" loading="lazy" alt="{{ media_entity.label }}" class=""/>-->
+			{% if video_url is not empty %}
+				<video class=" branch-banner-video-wrapper" style="--bs-aspect-ratio: 56.25%;" controls="false" {{ autoplay_attribute }} {{ mute_attribute }} {{ loop_attribute }} playsinline>
+					<source src="{{ video_url }}" type="">
+					Your browser does not support the video tag.
+				</video>
+			{% else %}
+					<img src="{{image_url}}" loading="lazy" alt="{{ media_entity.label }}" class=""/>
+			{% endif %}
 		</div>
 		<div class="illustration__inner">
 			<div class="illustration__body illustration__body--no-bottom-padding">

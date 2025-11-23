@@ -5,10 +5,14 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.branches.field_address
+    - field.field.node.branches.field_autoplay_video
     - field.field.node.branches.field_email
     - field.field.node.branches.field_gallery_image
+    - field.field.node.branches.field_loop_video
     - field.field.node.branches.field_map_url
+    - field.field.node.branches.field_mute_video
     - field.field.node.branches.field_phone
+    - field.field.node.branches.field_video_file
     - field.field.node.branches.field_whatsapp_link
     - node.type.branches
   module:
@@ -25,8 +29,12 @@ content:
     region: content
 hidden:
   field_address: true
+  field_autoplay_video: true
   field_email: true
   field_gallery_image: true
+  field_loop_video: true
   field_map_url: true
+  field_mute_video: true
   field_phone: true
+  field_video_file: true
   field_whatsapp_link: true

@@ -1,0 +1,21 @@
+uuid: 71aae35e-68d2-4381-a6c3-130861516244
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_mute_video
+    - node.type.branches
+id: node.branches.field_mute_video
+field_name: field_mute_video
+entity_type: node
+bundle: branches
+label: 'Mute Video'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

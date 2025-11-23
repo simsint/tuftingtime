@@ -4,13 +4,18 @@ status: true
 dependencies:
   config:
     - field.field.node.branches.field_address
+    - field.field.node.branches.field_autoplay_video
     - field.field.node.branches.field_email
     - field.field.node.branches.field_gallery_image
+    - field.field.node.branches.field_loop_video
     - field.field.node.branches.field_map_url
+    - field.field.node.branches.field_mute_video
     - field.field.node.branches.field_phone
+    - field.field.node.branches.field_video_file
     - field.field.node.branches.field_whatsapp_link
     - node.type.branches
   module:
+    - file
     - media_library
     - path
 id: node.branches.default
@@ -32,6 +37,13 @@ content:
       rows: 5
       placeholder: ''
     third_party_settings: {  }
+  field_autoplay_video:
+    type: boolean_checkbox
+    weight: 127
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
   field_email:
     type: email_default
     weight: 123
@@ -47,6 +59,13 @@ content:
     settings:
       media_types: {  }
     third_party_settings: {  }
+  field_loop_video:
+    type: boolean_checkbox
+    weight: 128
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
   field_map_url:
     type: string_textarea
     weight: 125
@@ -55,6 +74,13 @@ content:
       rows: 5
       placeholder: ''
     third_party_settings: {  }
+  field_mute_video:
+    type: boolean_checkbox
+    weight: 129
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
   field_phone:
     type: string_textfield
     weight: 122
@@ -62,6 +88,13 @@ content:
     settings:
       size: 60
       placeholder: ''
+    third_party_settings: {  }
+  field_video_file:
+    type: file_generic
+    weight: 126
+    region: content
+    settings:
+      progress_indicator: throbber
     third_party_settings: {  }
   field_whatsapp_link:
     type: string_textfield
@@ -115,5 +148,10 @@ content:
       match_limit: 10
       size: 60
       placeholder: ''
+    third_party_settings: {  }
+  url_redirects:
+    weight: 50
+    region: content
+    settings: {  }
     third_party_settings: {  }
 hidden: {  }
