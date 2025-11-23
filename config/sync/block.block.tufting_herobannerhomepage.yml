@@ -1,9 +1,9 @@
-uuid: e423a4f2-9a12-4ddd-9aa5-b01c7ca95ee8
+uuid: b8b97988-8d72-4d5a-b576-8f60d9e69b9b
 langcode: en
 status: true
 dependencies:
   content:
-    - 'block_content:hero_banner:71197a48-44c8-4807-b43f-1074f903cd89'
+    - 'block_content:hero_banner:0cef0b4c-6c92-47a2-83c2-4a4cbf3d070f'
   module:
     - block_content
   theme:
@@ -13,9 +13,9 @@ theme: tufting
 region: content
 weight: -13
 provider: null
-plugin: 'block_content:71197a48-44c8-4807-b43f-1074f903cd89'
+plugin: 'block_content:0cef0b4c-6c92-47a2-83c2-4a4cbf3d070f'
 settings:
-  id: 'block_content:71197a48-44c8-4807-b43f-1074f903cd89'
+  id: 'block_content:0cef0b4c-6c92-47a2-83c2-4a4cbf3d070f'
   label: 'Hero Banner - Homepage'
   label_display: '0'
   provider: block_content

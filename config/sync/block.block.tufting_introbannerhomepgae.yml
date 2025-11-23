@@ -1,9 +1,9 @@
-uuid: 765f8014-62c2-4150-b1fd-35cfeda7c0ac
+uuid: d965a1e2-f58c-4902-9ee5-878170926ed6
 langcode: en
 status: true
 dependencies:
   content:
-    - 'block_content:hero_banner:992bd269-9d31-4ec2-9be1-5283828876eb'
+    - 'block_content:hero_banner:f49bb117-9ecb-49bf-9bd1-be1712382dbd'
   module:
     - block_content
   theme:
@@ -13,9 +13,9 @@ theme: tufting
 region: content
 weight: -12
 provider: null
-plugin: 'block_content:992bd269-9d31-4ec2-9be1-5283828876eb'
+plugin: 'block_content:f49bb117-9ecb-49bf-9bd1-be1712382dbd'
 settings:
-  id: 'block_content:992bd269-9d31-4ec2-9be1-5283828876eb'
+  id: 'block_content:f49bb117-9ecb-49bf-9bd1-be1712382dbd'
   label: 'Intro Banner - Homepgae'
   label_display: '0'
   provider: block_content

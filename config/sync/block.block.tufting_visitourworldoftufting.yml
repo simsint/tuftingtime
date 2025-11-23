@@ -1,0 +1,25 @@
+uuid: 4f4aeca9-1fb7-47a1-bc99-6de404edec48
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:hero_banner:80c9af84-b72c-4723-8c0a-5d242ee00d31'
+  module:
+    - block_content
+  theme:
+    - tufting
+id: tufting_visitourworldoftufting
+theme: tufting
+region: content
+weight: -2
+provider: null
+plugin: 'block_content:80c9af84-b72c-4723-8c0a-5d242ee00d31'
+settings:
+  id: 'block_content:80c9af84-b72c-4723-8c0a-5d242ee00d31'
+  label: 'Visit Our World of Tufting'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

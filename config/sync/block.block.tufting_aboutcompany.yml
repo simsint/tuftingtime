@@ -1,9 +1,9 @@
-uuid: 92a99d99-130e-487e-a97a-539ad2fe74f7
+uuid: 20418bcf-c9d3-46c8-8eb2-faedad365cac
 langcode: en
 status: true
 dependencies:
   content:
-    - 'block_content:about_company:e78b91c5-bb0f-46ad-8ce5-0d0c85010da1'
+    - 'block_content:about_company:9d670967-2ce7-4fa7-aa3e-e22fb2b44c4a'
   module:
     - block_content
   theme:
@@ -13,9 +13,9 @@ theme: tufting
 region: content
 weight: -7
 provider: null
-plugin: 'block_content:e78b91c5-bb0f-46ad-8ce5-0d0c85010da1'
+plugin: 'block_content:9d670967-2ce7-4fa7-aa3e-e22fb2b44c4a'
 settings:
-  id: 'block_content:e78b91c5-bb0f-46ad-8ce5-0d0c85010da1'
+  id: 'block_content:9d670967-2ce7-4fa7-aa3e-e22fb2b44c4a'
   label: 'About Company'
   label_display: '0'
   provider: block_content

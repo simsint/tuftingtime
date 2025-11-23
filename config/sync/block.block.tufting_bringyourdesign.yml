@@ -1,9 +1,9 @@
-uuid: 8a123004-1220-401e-a2eb-aa5b4a68b763
+uuid: cc897823-ec0a-4ccb-aee6-29da7ab180c7
 langcode: en
 status: true
 dependencies:
   content:
-    - 'block_content:bring_your_design:b0791ca4-4a9e-479b-9d3d-892385309830'
+    - 'block_content:bring_your_design:9e11d527-38f5-45db-83c3-cf2f3d83231e'
   module:
     - block_content
   theme:
@@ -13,9 +13,9 @@ theme: tufting
 region: content
 weight: -5
 provider: null
-plugin: 'block_content:b0791ca4-4a9e-479b-9d3d-892385309830'
+plugin: 'block_content:9e11d527-38f5-45db-83c3-cf2f3d83231e'
 settings:
-  id: 'block_content:b0791ca4-4a9e-479b-9d3d-892385309830'
+  id: 'block_content:9e11d527-38f5-45db-83c3-cf2f3d83231e'
   label: 'Bring Your Design'
   label_display: '0'
   provider: block_content

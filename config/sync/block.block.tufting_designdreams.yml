@@ -1,9 +1,9 @@
-uuid: 9c90dcdc-4731-417f-bde9-b37cdc1673bc
+uuid: 72825a07-c214-4d0d-a75a-0d0795e1adce
 langcode: en
 status: true
 dependencies:
   content:
-    - 'block_content:design_dreams:ced438f1-1223-469c-ada0-e3722e506c3b'
+    - 'block_content:design_dreams:64f8c043-72c7-484a-a927-b94d13524c89'
   module:
     - block_content
   theme:
@@ -13,9 +13,9 @@ theme: tufting
 region: content
 weight: -10
 provider: null
-plugin: 'block_content:ced438f1-1223-469c-ada0-e3722e506c3b'
+plugin: 'block_content:64f8c043-72c7-484a-a927-b94d13524c89'
 settings:
-  id: 'block_content:ced438f1-1223-469c-ada0-e3722e506c3b'
+  id: 'block_content:64f8c043-72c7-484a-a927-b94d13524c89'
   label: 'Design Dreams'
   label_display: '0'
   provider: block_content
