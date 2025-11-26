@@ -11,7 +11,7 @@ dependencies:
 id: tufting_bringyourdesign
 theme: tufting
 region: content
-weight: -5
+weight: -4
 provider: null
 plugin: 'block_content:9e11d527-38f5-45db-83c3-cf2f3d83231e'
 settings:

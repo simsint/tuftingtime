@@ -11,7 +11,7 @@ dependencies:
 id: tufting_visitourworldoftufting
 theme: tufting
 region: content
-weight: -2
+weight: -1
 provider: null
 plugin: 'block_content:80c9af84-b72c-4723-8c0a-5d242ee00d31'
 settings:
