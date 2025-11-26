@@ -272,4 +272,14 @@
     display: flex;
     padding-bottom:60px;
   }
+
+    .branch-banner-video-wrapper-collage {
+      width: 100%;
+      object-fit: cover;
+      position: absolute;
+      top: 0;
+      left: 0;
+      border-radius: 10px;
+      height: 355px;
+    }
 }

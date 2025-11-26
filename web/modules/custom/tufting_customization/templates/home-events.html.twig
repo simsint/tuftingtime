@@ -16,7 +16,7 @@
 			<a href="#" class="collage-item {% if loop.index0 % 3 == 0 %} tile-wide{% endif %}">
 				<!--<span class="category-label" style="background: #fef08a; color: #78350f;">FEATURED</span>-->
         {% if  item.video_url  is not empty %}
-				<video class=" branch-banner-video-wrapper" style="--bs-aspect-ratio: 56.25%;" controls="false" {{ item.play_str }} playsinline>
+				<video class=" branch-banner-video-wrapper-collage" style="--bs-aspect-ratio: 56.25%;" controls="false" {{ item.play_str }} playsinline>
 					<source src="{{ item.video_url }}" type="">
 					Your browser does not support the video tag.
 				</video>
