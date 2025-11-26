@@ -27,7 +27,6 @@
   /* --- 1. SEAMLESS GRID LAYOUT (Desktop Focus) --- */
   .branch-collage-grid {
     display: grid;
-    grid-template-columns: repeat(1, 1fr);
     gap: 10px;
     grid-auto-rows: 350px;
     border-radius: 12px;
