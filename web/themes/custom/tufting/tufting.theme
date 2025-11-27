@@ -172,13 +172,17 @@ function tufting_preprocess_views_view(&$variables) {
 
       if ($block_content) {
         if ($block_content->hasField('field_image') && !$block_content->get('field_image')->isEmpty()) {
-          $fid = $block_content->get('field_image')->target_id;
-          $file = \Drupal::entityTypeManager()->getStorage('file')->load($fid);
+          if (!$block_content->get('field_image')->isEmpty()) {
+            $media_entity = $block_content->get('field_image')->entity;
 
-          if ($file) {
-              $uri = $file->getFileUri();
-              $image_url = \Drupal::service('file_url_generator')->generateAbsoluteString($uri);
-              $variables['portfolio_logo_image'] = $image_url;
+            if ($media_entity) {
+              $image_source_field = $media_entity->get('field_media_image');
+
+              if (!$image_source_field->isEmpty()) {
+                $file_uri = $image_source_field->entity->getFileUri();
+                $variables['portfolio_logo_image'] = \Drupal::service('file_url_generator')->generateAbsoluteString($file_uri);
+              }
+            }
           }
         }
 
