@@ -4,4 +4,8 @@ events_home_styles:
     theme:
       css/home-events.css: {}
 
-
+branch_gallery_styles:
+  version: 1.0
+  css:
+    theme:
+      css/branch-gallery.css: {}

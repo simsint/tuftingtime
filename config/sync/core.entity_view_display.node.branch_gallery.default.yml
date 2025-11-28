@@ -1,0 +1,81 @@
+uuid: 43a69900-2dbf-4756-ad88-2adb5369b55f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.branch_gallery.field_autoplay_video
+    - field.field.node.branch_gallery.field_branch
+    - field.field.node.branch_gallery.field_gallery_image
+    - field.field.node.branch_gallery.field_loop_video
+    - field.field.node.branch_gallery.field_mute_video
+    - field.field.node.branch_gallery.field_video_file
+    - node.type.branch_gallery
+  module:
+    - file
+    - user
+id: node.branch_gallery.default
+targetEntityType: node
+bundle: branch_gallery
+mode: default
+content:
+  field_autoplay_video:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 107
+    region: content
+  field_branch:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 110
+    region: content
+  field_gallery_image:
+    type: entity_reference_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  field_loop_video:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 108
+    region: content
+  field_mute_video:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 109
+    region: content
+  field_video_file:
+    type: file_default
+    label: above
+    settings:
+      use_description_as_link_text: true
+    third_party_settings: {  }
+    weight: 106
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden: {  }

@@ -6,6 +6,7 @@ dependencies:
     - 'block_content:about_company:9d670967-2ce7-4fa7-aa3e-e22fb2b44c4a'
   module:
     - block_content
+    - system
   theme:
     - tufting
 id: tufting_aboutcompany
@@ -22,4 +23,8 @@ settings:
   status: true
   info: ''
   view_mode: full
-visibility: {  }
+visibility:
+  request_path:
+    id: request_path
+    negate: true
+    pages: '/branch-gallery/*'

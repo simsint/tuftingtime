@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   module:
+    - system
     - tufting_customization
   theme:
     - tufting
@@ -17,4 +18,8 @@ settings:
   label: 'Home Branch Events Gallery Block'
   label_display: '0'
   provider: tufting_customization
-visibility: {  }
+visibility:
+  request_path:
+    id: request_path
+    negate: true
+    pages: '/branch-gallery/*'

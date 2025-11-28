@@ -6,6 +6,7 @@ dependencies:
     - 'block_content:hero_banner:f49bb117-9ecb-49bf-9bd1-be1712382dbd'
   module:
     - block_content
+    - system
   theme:
     - tufting
 id: tufting_introbannerhomepgae
@@ -22,4 +23,8 @@ settings:
   status: true
   info: ''
   view_mode: full
-visibility: {  }
+visibility:
+  request_path:
+    id: request_path
+    negate: true
+    pages: '/branch-gallery/*'

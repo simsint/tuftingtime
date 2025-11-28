@@ -1,0 +1,644 @@
+:root {
+  /* Colors */
+  --bg-color: #f8fafc;
+  --card-bg: #ffffff;
+  --text-ink: #0f172a;
+  --text-subtle: #64748b;
+  --text-light: #94a3b8;
+  --accent-cobalt: #2563eb;
+  --accent-cobalt-dark: #1e40af;
+  --border-color: #e2e8f0;
+
+  /* Shadows */
+  --shadow-soft: 0 10px 40px -10px rgba(0, 0, 0, 0.08);
+  --shadow-lifted: 0 20px 40px -10px rgba(37, 99, 235, 0.15);
+  --shadow-card: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+
+  /* Spacing */
+  --container-max-width: 1600px;
+  --radius-lg: 1.5rem;
+  --radius-pill: 9999px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-ink);
+
+  -webkit-font-smoothing: antialiased;
+  overflow-y: scroll;
+}
+
+/* Selection styling */
+::selection {
+  background: var(--accent-cobalt);
+  color: white;
+}
+
+/* --- Layout Utilities --- */
+.container {
+  width: 100%;
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: 0 2rem;
+  padding-bottom: 5rem;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 1rem;
+  }
+}
+
+/* --- Hero Section --- */
+header.hero {
+  padding: 8rem 0;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+header.hero h1 {
+  font-size: 5rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  margin-bottom: 1rem;
+  position: relative;
+  z-index: 10;
+  line-height: 1.1;
+}
+
+@media (max-width: 768px) {
+  header.hero h1 {
+    font-size: 3rem;
+  }
+}
+
+header.hero h1 span {
+  color: var(--accent-cobalt);
+}
+
+header.hero p {
+  font-size: 1.25rem;
+  color: var(--text-subtle);
+  font-weight: 500;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+  position: relative;
+  z-index: 10;
+}
+
+.hero-divider {
+  margin-top: 3rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.divider-line {
+  height: 1px;
+  width: 2rem;
+  background-color: #cbd5e1;
+}
+
+.hero-divider span {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-light);
+}
+
+/* --- Section Headers --- */
+.section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2.5rem;
+  padding: 0 0.5rem;
+}
+
+.header-title-group {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.dot-indicator {
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 50%;
+  background-color: var(--accent-cobalt);
+}
+
+.dot-indicator.dark {
+  background-color: var(--accent-cobalt-dark);
+}
+
+.section-header h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.badge {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--text-light);
+  background-color: var(--card-bg);
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--radius-pill);
+  box-shadow: var(--shadow-card);
+}
+
+/* --- Masonry Grid Layout --- */
+.masonry-grid {
+  column-count: 2;
+  column-gap: 2rem;
+  padding: 0.5rem;
+}
+
+@media (min-width: 768px) {
+  .masonry-grid {
+    column-count: 3;
+  }
+}
+
+@media (min-width: 1280px) {
+  .masonry-grid {
+    column-count: 4;
+  }
+}
+
+@media (max-width: 640px) {
+  .masonry-grid {
+    column-count: 1;
+  }
+    .masonry-grid.videos {
+      column-count: 1;
+    }
+}
+
+/* Stack on mobile */
+
+/* --- Card Item --- */
+.card-item {
+  background-color: var(--card-bg);
+  border-radius: var(--radius-lg);
+  margin-bottom: 2rem;
+  break-inside: avoid;
+  /* Prevents card from splitting columns */
+  position: relative;
+  box-shadow: var(--shadow-card);
+  border: 1px solid white;
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.card-item:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+}
+
+.card-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.card-item:hover img {
+  transform: scale(1.05);
+}
+
+/* --- Card Overlays & Content --- */
+.card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0) 50%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 1.5rem;
+}
+
+.card-item:hover .card-overlay {
+  opacity: 1;
+}
+
+.tag-pill {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  background: white;
+  color: var(--accent-cobalt);
+  padding: 0.35rem 0.85rem;
+  border-radius: var(--radius-pill);
+  align-self: flex-start;
+  margin-bottom: 0.5rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.card-overlay h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1;
+  margin-top: 0.25rem;
+}
+
+/* --- Play Buttons --- */
+.play-indicator {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  color: white;
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(4px);
+  padding: 0.5rem;
+  border-radius: 50%;
+  opacity: 1;
+  transition: opacity 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+}
+
+.card-item:hover .play-indicator {
+  opacity: 0;
+}
+
+.play-btn-large {
+  width: 3.5rem;
+  height: 3.5rem;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(8px);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.9);
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  opacity: 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  color: var(--text-ink);
+}
+
+.card-item:hover .play-btn-large {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+  background: var(--accent-cobalt);
+  color: white;
+}
+
+/* --- Footer --- */
+footer {
+  padding: 4rem 0;
+  text-align: center;
+  border-top: 1px solid var(--border-color);
+  background-color: var(--card-bg);
+  margin-top: 4rem;
+}
+
+footer h3 {
+  font-size: 1.5rem;
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.02em;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--text-subtle);
+  letter-spacing: 0.02em;
+}
+
+.footer-links a {
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.2s;
+}
+
+.footer-links a:hover {
+  color: var(--accent-cobalt);
+}
+
+footer p.copyright {
+  margin-top: 2rem;
+  font-size: 0.75rem;
+  color: var(--text-light);
+}
+
+/* --- Lightbox Modal --- */
+#lightbox {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  z-index: 50;
+  display: none;
+  /* Hidden by default */
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+#lightbox.visible {
+  display: flex;
+}
+
+.lightbox-content {
+  position: relative;
+  width: 100%;
+  max-width: 1100px;
+  max-height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.close-btn {
+  position: absolute;
+  top: -3rem;
+  right: 0;
+  background: none;
+  border: none;
+  font-size: 3rem;
+  font-weight: 300;
+  color: var(--text-light);
+  cursor: pointer;
+  transition: color 0.2s;
+  line-height: 1;
+}
+
+.close-btn:hover {
+  color: var(--text-ink);
+}
+
+#lightbox-media-container {
+  width: 100%;
+  min-height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 20px 50px -10px rgba(0, 0, 0, 0.15);
+  border: 4px solid white;
+}
+
+/* Style for injected images in lightbox */
+#lightbox-media-container img {
+  max-height: 80vh;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+/* Style for injected video wrapper */
+#lightbox-media-container .video-wrapper {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%;
+  /* 16:9 Aspect Ratio */
+  background: black;
+}
+
+#lightbox-media-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.lightbox-caption-box {
+  margin-top: 2rem;
+  text-align: center;
+  background: white;
+  padding: 1.25rem 2rem;
+  border-radius: 1rem;
+  box-shadow: var(--shadow-soft);
+  border: 1px solid var(--border-color);
+  max-width: 600px;
+}
+
+.lightbox-caption-box h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+}
+
+.lightbox-caption-box p {
+  font-size: 0.875rem;
+  color: var(--text-subtle);
+  font-weight: 500;
+}
+
+.nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: #cbd5e1;
+  /* Light gray */
+  cursor: pointer;
+  transition: color 0.2s;
+  padding: 1rem;
+}
+
+.nav-btn:hover {
+  color: var(--accent-cobalt);
+}
+
+.nav-btn svg {
+  width: 4rem;
+  height: 4rem;
+}
+
+.nav-prev {
+  left: -5rem;
+}
+
+.nav-next {
+  right: -5rem;
+}
+.masonry-grid.videos{
+  column-count: 2;
+  column-gap: 2rem;
+  padding: 0.5rem;
+}
+
+/* --- Core Masonry Grid Structure (Based on your CSS) --- */
+.masonry-grid {
+  column-count: 2;
+  column-gap: 2rem;
+  padding: 0.5rem;
+}
+
+@media (min-width: 768px) {
+  .masonry-grid {
+    column-count: 3;
+  }
+
+}
+
+@media (min-width: 1280px) {
+  .masonry-grid {
+    column-count: 4;
+  }
+}
+
+/* --- NEW ASPECT RATIO CLASSES for Collage Effect --- */
+
+.aspect-ratio-wrapper {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-top: var(--aspect-ratio-value);
+
+  /* CRITICAL FIX: Hide anything that pokes outside the rounded corners */
+  overflow: hidden;
+
+  /* Apply the same radius as the card-item to the top-level video container */
+  border-radius: var(--radius-lg);
+}
+
+/* 16:9 - Standard Widescreen (e.g., 56.25% height of width) */
+.aspect-16-9 {
+  --aspect-ratio-value: 56.25%;
+}
+
+/* 4:3 - Old TV/Monitor (e.g., 75% height of width) */
+.aspect-4-3 {
+  --aspect-ratio-value: 75%;
+}
+
+/* 1:1 - Square (e.g., 100% height of width) */
+.aspect-1-1 {
+  --aspect-ratio-value: 100%;
+}
+
+/* Ensure the video fills the new container */
+.aspect-ratio-wrapper video.branch-gallery-video-wrapper {
+  position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    /* CRITICAL: Ensures the video content covers the container completely */
+    object-fit: cover;
+
+    /* Remove the individual radius from the video element */
+    border-radius: 0 !important;
+}
+
+/* Reposition play icons to be absolute to the card item */
+.card-item .play-indicator,
+.card-item .play-btn-large {
+  z-index: 10;
+}
+
+/* --- Core Card Sizing --- */
+.card-item {
+  background-color: #ffffff;
+  /* var(--card-bg) */
+  border-radius: var(--radius-lg);
+    /* 1.5rem */
+    margin-bottom: 2rem;
+    position: relative;
+    box-shadow: var(--shadow-card);
+    overflow: hidden;
+    /* CRITICAL: Hides content outside the border radius */
+    /* Ensure the background is what you want to fill the space */
+    background-color: var(--card-bg);
+    /* #ffffff */
+  /* Important for clean corners */
+}
+
+/* --- CRITICAL VIDEO SIZING FIX --- */
+
+/* This rule applies the height: auto property to ensure the video sizes
+   by its intrinsic aspect ratio, just like an image. */
+.branch-gallery-video-wrapper {
+  height: auto;
+  display: block;
+  object-fit: cover;
+  min-height: 0;
+  padding: 0;
+  margin: 0;
+  border-radius: 10px;
+}
+
+
+
+/* --- Play Button Positioning (Ensuring it sits correctly on the video) --- */
+.play-indicator {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  /* ... (rest of your play-indicator styles) ... */
+}
+
+@media (max-width: 1024px) {
+  .nav-prev {
+    left: 0;
+    z-index: 10;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    width: 3rem;
+    height: 3rem;
+    padding: 0.5rem;
+    color: var(--text-ink);
+  }
+
+  .nav-next {
+    right: 0;
+    z-index: 10;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    width: 3rem;
+    height: 3rem;
+    padding: 0.5rem;
+    color: var(--text-ink);
+  }
+
+  .nav-btn svg {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  .close-btn {
+    top: 1rem;
+    right: 1rem;
+    z-index: 60;
+    font-size: 2rem;
+  }
+}

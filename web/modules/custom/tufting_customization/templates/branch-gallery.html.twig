@@ -1,0 +1,85 @@
+<div class="branch-gallery">
+
+	<div
+		class="container">
+
+		<!-- HERO SECTION -->
+		<header class="hero">
+			<h1>
+				<span>{{ data.branch_info.name }}
+				</span>
+			</h1>
+			<p>
+				{{ data.branch_info.address }}
+
+			</p>
+
+			<div class="hero-divider">
+				<span class="divider-line"></span>
+				<span>Scroll to Explore</span>
+				<span class="divider-line"></span>
+			</div>
+		</header>
+
+		<!-- SECTION 1: STILLS -->
+		<section id="photos" style="margin-bottom: 5rem;">
+
+			{% set images = data.images %}
+
+			<div
+				class="masonry-grid">
+				{% for image_item in images %}
+				<!-- Card 1 -->
+				<div class="card-item group"  data-type="photo">
+					<img src="{{ image_item }}" alt="Clean Lines" data-caption="Minimalist architectural geometry.">
+					<!--<div class="card-overlay">
+						<span class="tag-pill">Architecture</span>
+						<h3>Clean Lines</h3>
+					</div>-->
+				</div>
+			{% endfor %}
+			</div>
+		</section>
+
+		<!-- SECTION 2: MOTION -->
+<section id="videos">
+
+	{% set videos = data.videos %}
+	<div class="masonry-grid videos">
+	{% for video_item in videos %}
+{% set index_mod = loop.index0 % 3 %}
+{% if index_mod == 0 %}
+	{% set aspect_class = 'aspect-16-9' %}
+{% elseif index_mod == 1 %}
+	{% set aspect_class = 'aspect-4-3' %}
+{% else %}
+	{% set aspect_class = 'aspect-1-1' %}
+{% endif %}
+
+		<div class="card-item group" data-type="video">
+			<video class="branch-gallery-video-wrapper" controls="false" {{ video_item.play_str }} playsinline>
+				<source src="{{ video_item.video_url }}" type="{{ video_item.video_mime }}">
+				Your browser does not support the video tag.
+			</video>
+			<!--<div class="play-indicator">
+				<svg width="16" height="16" fill="currentColor" viewbox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+			</div>
+			<div class="play-btn-large">
+				<svg width="24" height="24" fill="currentColor" viewbox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+			</div>-->
+		</div>
+	{% endfor %}
+
+
+	</div>
+</section>
+
+
+		<!-- Footer -->
+
+
+	</div>
+
+
+
+</div>

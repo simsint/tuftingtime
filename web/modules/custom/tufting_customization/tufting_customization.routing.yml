@@ -1,0 +1,9 @@
+tufting_customization.branch_gallery:
+  path: '/branch-gallery/{nid}'
+  defaults:
+    _controller: '\Drupal\tufting_customization\Controller\TuftingTimeController::branchGallery'
+    _title: 'Branch Gallery'
+  requirements:
+    _access: 'TRUE'
+
+

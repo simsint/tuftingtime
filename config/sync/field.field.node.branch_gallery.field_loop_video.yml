@@ -1,0 +1,21 @@
+uuid: 0fb8d30a-22cf-418c-8795-c2c6feb38bf7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_loop_video
+    - node.type.branch_gallery
+id: node.branch_gallery.field_loop_video
+field_name: field_loop_video
+entity_type: node
+bundle: branch_gallery
+label: 'Loop Video'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean
