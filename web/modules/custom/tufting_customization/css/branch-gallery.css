@@ -184,7 +184,7 @@ header.hero p {
     column-count: 1;
   }
     .masonry-grid.videos {
-      column-count: 1;
+      column-count: 1 !important;
     }
 }
 
@@ -489,7 +489,7 @@ footer p.copyright {
   right: -5rem;
 }
 .masonry-grid.videos{
-  column-count: 2;
+  column-count: 4;
   column-gap: 2rem;
   padding: 0.5rem;
 }
@@ -549,8 +549,8 @@ footer p.copyright {
   position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
+    width: 580px;
+    height: 580px;
 
     /* CRITICAL: Ensures the video content covers the container completely */
     object-fit: cover;
@@ -587,7 +587,8 @@ footer p.copyright {
 /* This rule applies the height: auto property to ensure the video sizes
    by its intrinsic aspect ratio, just like an image. */
 .branch-gallery-video-wrapper {
-  height: auto;
+  width: 100%;
+  height: 400px;
   display: block;
   object-fit: cover;
   min-height: 0;
