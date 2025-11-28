@@ -26,10 +26,9 @@
   padding: 0;
 }
 
-body {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  background-color: var(--bg-color);
-  color: var(--text-ink);
+.branch-gallery {
+  font-family: 'Nyghtserif,sans-serif';
+  color: #51483f;
 
   -webkit-font-smoothing: antialiased;
   overflow-y: scroll;
@@ -84,12 +83,12 @@ header.hero h1 {
 }
 
 header.hero h1 span {
-  color: var(--accent-cobalt);
+  color: #51483f;
 }
 
 header.hero p {
   font-size: 1.25rem;
-  color: var(--text-subtle);
+  color: #51483f;
   font-weight: 500;
   max-width: 600px;
   margin: 0 auto;
