@@ -9,199 +9,226 @@
 		</div>
 
 		<!-- SEAMLESS MASONRY COLLAGE BLOCK -->
-		<div
-			class="branch-collage-grid">
-      {% set branches = data.items %}
-      {% for item in branches %}
-			<a href="/branch-gallery/{{ item.nid }}" class="collage-item {% if loop.index0 % 3 == 0 %} tile-wide{% endif %}">
-				<!--<span class="category-label" style="background: #fef08a; color: #78350f;">FEATURED</span>-->
-        {% if  item.video_url  is not empty %}
-				<video class=" branch-banner-video-wrapper-collage" style="--bs-aspect-ratio: 56.25%;" controls="false" {{ item.play_str }} playsinline>
-					<source src="{{ item.video_url }}" type="">
-					Your browser does not support the video tag.
-				</video>
-			{% else %}
-					<img src="{{ item.image_url }}" onerror="this.style.display='none'" alt="{{ item.image_alt }}" loading="lazy">
-			{% endif %}
+		<div class="branch-collage-grid">
+			{% set branches = data.items %}
+			{% set total_items = branches|length %}
+
+{% for item in branches %}
+
+	{% set final_class = '' %}
+
+{% if loop.index0 % 3 == 0 %}
+{% set final_class = 'tile-wide' %}
+{% endif %}
+	{# 1. Check if the total item count is ODD #}
+	{% if total_items is not divisible by 2 %}
+		{# 2. Check if this is the LAST item (only for odd counts) #}
+		{% if loop.last %}
+			{# CORRECT: Use the 'set' keyword for assignment #}
+			{% set final_class = 'tile-wide-full' %}
+		{% endif %}
+	{% endif %}
+
+{% if total_items is  divisible by 2 %}
+	{# 2. Check if this is the LAST item (only for odd counts) #}
+	{% if loop.last %}
+		{# CORRECT: Use the 'set' keyword for assignment #}
+		{% set final_class = 'tile-wide' %}
+	{% endif %}
+{% endif %}
 
 
 
-				<div class="item-overlay"></div>
-				<div class="text-anchor">
-					<h3>{{ item.branch_name }}</h3>
-					<p>{{ item.branch_address }}</p>
-					<!--<span class="cta-link">
-						View Gallery
-						<svg fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-						</svg>
-					</span>-->
-				</div>
-			</a>
-      {% endfor %}
+
+				<a
+					href="/branch-gallery/{{ item.nid }}" class="collage-item {{ final_class}}">
+					<!--<span class="category-label" style="background: #fef08a; color: #78350f;">FEATURED</span>-->
+					{% if  item.video_url  is not empty %}
+						<video class=" branch-banner-video-wrapper-collage" style="--bs-aspect-ratio: 56.25%;" controls="false" {{ item.play_str }} playsinline>
+							<source src="{{ item.video_url }}" type="">
+							Your browser does not support the video tag.
+						</video>
+					{% else %}
+						<img src="{{ item.image_url }}" onerror="this.style.display='none'" alt="{{ item.image_alt }}" loading="lazy">
+					{% endif %}
+
+
+					<div class="item-overlay"></div>
+					<div class="text-anchor">
+						<h3>{{ item.branch_name }}</h3>
+						<p>{{ item.branch_address }}</p>
+						<!--<span class="cta-link">
+												View Gallery
+												<svg fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+													<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+												</svg>
+											</span>-->
+					</div>
+				</a>
+			{% endfor %}
 
 			<!-- TILE 2: PARTIES LIST (R1-R2, C3) - TALL Content Block -->
-			<!--<div id="parties-tile" class="collage-item tile-tall content-block">
-				<span class="category-label" style="background: #fb7185; color: #520000;">Party Calendar</span>
+		<!--<div id="parties-tile" class="collage-item tile-tall content-block">
+						<span class="category-label" style="background: #fb7185; color: #520000;">Party Calendar</span>
 
-				<div
-					class="content-list-wrapper">
-					<a href="#party-1" class="list-card">
-						<span class="list-date">DECEMBER 15, 2025 | 8:00 PM</span>
-						<span class="list-title">Annual Client Gala</span>
-					</a>
-					<a href="#party-2" class="list-card">
-						<span class="list-date">JANUARY 10, 2026 | 7:30 PM</span>
-						<span class="list-title">New Year Celebration</span>
-					</a>
-					<a href="#party-3" class="list-card">
-						<span class="list-date">FEBRUARY 28, 2026 | 9:00 PM</span>
-						<span class="list-title">Mardi Gras Theme Night</span>
-					</a>
-					<a href="#party-4" class="list-card">
-						<span class="list-date">APRIL 1, 2026 | 7:00 PM</span>
-						<span class="list-title">Spring Mixer & Cocktails</span>
-					</a>
-					<a href="#party-5" class="list-card">
-						<span class="list-date">JUNE 1, 2026 | 10:00 PM</span>
-						<span class="list-title">Summer Solstice Bash</span>
-					</a>
-					<a href="#party-6" class="list-card">
-						<span class="list-date">SEPTEMBER 1, 2026 | 8:00 PM</span>
-						<span class="list-title">End of Season Celebration</span>
-					</a>
-					<a href="#party-7" class="list-card">
-						<span class="list-date">NOVEMBER 11, 2026 | 9:00 PM</span>
-						<span class="list-title">Veterans Day Fundraiser</span>
-					</a>
-				</div>
-			</div>-->
+						<div
+							class="content-list-wrapper">
+							<a href="#party-1" class="list-card">
+								<span class="list-date">DECEMBER 15, 2025 | 8:00 PM</span>
+								<span class="list-title">Annual Client Gala</span>
+							</a>
+							<a href="#party-2" class="list-card">
+								<span class="list-date">JANUARY 10, 2026 | 7:30 PM</span>
+								<span class="list-title">New Year Celebration</span>
+							</a>
+							<a href="#party-3" class="list-card">
+								<span class="list-date">FEBRUARY 28, 2026 | 9:00 PM</span>
+								<span class="list-title">Mardi Gras Theme Night</span>
+							</a>
+							<a href="#party-4" class="list-card">
+								<span class="list-date">APRIL 1, 2026 | 7:00 PM</span>
+								<span class="list-title">Spring Mixer & Cocktails</span>
+							</a>
+							<a href="#party-5" class="list-card">
+								<span class="list-date">JUNE 1, 2026 | 10:00 PM</span>
+								<span class="list-title">Summer Solstice Bash</span>
+							</a>
+							<a href="#party-6" class="list-card">
+								<span class="list-date">SEPTEMBER 1, 2026 | 8:00 PM</span>
+								<span class="list-title">End of Season Celebration</span>
+							</a>
+							<a href="#party-7" class="list-card">
+								<span class="list-date">NOVEMBER 11, 2026 | 9:00 PM</span>
+								<span class="list-title">Veterans Day Fundraiser</span>
+							</a>
+						</div>
+					</div>-->
 
 			<!-- TILE 3: EVENT LIST (R1-R2, C4) - TALL Content Block -->
 			<!--<div id="events-tile" class="collage-item tile-tall content-block">
-				<span class="category-label" style="background: #a78bfa; color: #39007f;">Events Calendar</span>
+							<span class="category-label" style="background: #a78bfa; color: #39007f;">Events Calendar</span>
 
-				<div
-					class="content-list-wrapper">
-					<a href="#event-1" class="list-card">
-						<span class="list-date">DECEMBER 12, 2025 | 7:00 PM</span>
-						<span class="list-title">Holiday Networking Mixer</span>
-					</a>
-					<a href="#event-2" class="list-card">
-						<span class="list-date">JANUARY 5, 2026 | 9:00 AM</span>
-						<span class="list-title">Q1 Strategy Planning Session</span>
-					</a>
-					<a href="#event-3" class="list-card">
-						<span class="list-date">JANUARY 21, 2026 | 6:30 PM</span>
-						<span class="list-title">Advanced Data Workshop</span>
-					</a>
-					<a href="#event-4" class="list-card">
-						<span class="list-date">FEBRUARY 1, 2026 | 10:00 AM</span>
-						<span class="list-title">New User Onboarding Webinar</span>
-					</a>
-					<a href="#event-5" class="list-card">
-						<span class="list-date">FEBRUARY 14, 2026 | 5:00 PM</span>
-						<span class="list-title">Valentine's Client Appreciation</span>
-					</a>
-					<a href="#event-6" class="list-card">
-						<span class="list-date">MARCH 10, 2026 | 8:00 AM</span>
-						<span class="list-title">Leadership Roundtable</span>
-					</a>
-					<a href="#event-7" class="list-card">
-						<span class="list-date">MARCH 25, 2026 | 7:00 PM</span>
-						<span class="list-title">Spring Product Showcase</span>
-					</a>
-					<a href="#event-8" class="list-card">
-						<span class="list-date">APRIL 5, 2026 | 2:00 PM</span>
-						<span class="list-title">Community Volunteer Day</span>
-					</a>
-				</div>
-			</div>-->
+							<div
+								class="content-list-wrapper">
+								<a href="#event-1" class="list-card">
+									<span class="list-date">DECEMBER 12, 2025 | 7:00 PM</span>
+									<span class="list-title">Holiday Networking Mixer</span>
+								</a>
+								<a href="#event-2" class="list-card">
+									<span class="list-date">JANUARY 5, 2026 | 9:00 AM</span>
+									<span class="list-title">Q1 Strategy Planning Session</span>
+								</a>
+								<a href="#event-3" class="list-card">
+									<span class="list-date">JANUARY 21, 2026 | 6:30 PM</span>
+									<span class="list-title">Advanced Data Workshop</span>
+								</a>
+								<a href="#event-4" class="list-card">
+									<span class="list-date">FEBRUARY 1, 2026 | 10:00 AM</span>
+									<span class="list-title">New User Onboarding Webinar</span>
+								</a>
+								<a href="#event-5" class="list-card">
+									<span class="list-date">FEBRUARY 14, 2026 | 5:00 PM</span>
+									<span class="list-title">Valentine's Client Appreciation</span>
+								</a>
+								<a href="#event-6" class="list-card">
+									<span class="list-date">MARCH 10, 2026 | 8:00 AM</span>
+									<span class="list-title">Leadership Roundtable</span>
+								</a>
+								<a href="#event-7" class="list-card">
+									<span class="list-date">MARCH 25, 2026 | 7:00 PM</span>
+									<span class="list-title">Spring Product Showcase</span>
+								</a>
+								<a href="#event-8" class="list-card">
+									<span class="list-date">APRIL 5, 2026 | 2:00 PM</span>
+									<span class="list-title">Community Volunteer Day</span>
+								</a>
+							</div>
+						</div>-->
 
 			<!-- TILE 4: News/Blog (R2, C1) - Image Tile -->
 			<!--<a href="#" class="collage-item">
-				<span class="category-label" style="background: #eab308; color: #854d0e;">News/Blog</span>
-				<img src="https://picsum.photos/id/600/600/450" onerror="this.style.display='none'" alt="News/Blog Tile" loading="lazy">
-				<div class="item-overlay"></div>
-				<div class="text-anchor">
-					<h3>Latest Blog Posts</h3>
-					<p>Read company updates and tips.</p>
-					<span class="cta-link">
-						Read Articles
-						<svg fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-						</svg>
-					</span>
-				</div>
-			</a>-->
+							<span class="category-label" style="background: #eab308; color: #854d0e;">News/Blog</span>
+							<img src="https://picsum.photos/id/600/600/450" onerror="this.style.display='none'" alt="News/Blog Tile" loading="lazy">
+							<div class="item-overlay"></div>
+							<div class="text-anchor">
+								<h3>Latest Blog Posts</h3>
+								<p>Read company updates and tips.</p>
+								<span class="cta-link">
+									Read Articles
+									<svg fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+										<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+									</svg>
+								</span>
+							</div>
+						</a>-->
 
 			<!-- TILE 5: Community (R2, C2) - Image Tile -->
 			<!--<a href="#" class="collage-item">
-				<span class="category-label" style="background: #ef4444; color: #7f1d1d;">Community</span>
-				<img src="https://picsum.photos/id/200/600/450" onerror="this.style.display='none'" alt="Community Tile" loading="lazy">
-				<div class="item-overlay"></div>
-				<div class="text-anchor">
-					<h3>Community Support</h3>
-					<p>Join the discussion forum.</p>
-					<span class="cta-link">
-						Visit Forum
-						<svg fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-						</svg>
-					</span>
-				</div>
-			</a>-->
+							<span class="category-label" style="background: #ef4444; color: #7f1d1d;">Community</span>
+							<img src="https://picsum.photos/id/200/600/450" onerror="this.style.display='none'" alt="Community Tile" loading="lazy">
+							<div class="item-overlay"></div>
+							<div class="text-anchor">
+								<h3>Community Support</h3>
+								<p>Join the discussion forum.</p>
+								<span class="cta-link">
+									Visit Forum
+									<svg fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+										<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+									</svg>
+								</span>
+							</div>
+						</a>-->
 
 			<!-- TILE 6: Upcoming (R3, C1-C2) - Wide Image Tile -->
 			<!--<a href="#" class="collage-item tile-wide">
-				<span class="category-label" style="background: #10b981; color: #064e3b;">Upcoming</span>
-				<img src="https://picsum.photos/id/600/1200/600" onerror="this.style.display='none'" alt="Upcoming Tile" loading="lazy">
-				<div class="item-overlay"></div>
-				<div class="text-anchor">
-					<h3>New Product Launch</h3>
-					<p>Coming Soon: Summer 2026</p>
-					<span class="cta-link">
-						Get Notifications
-						<svg fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-						</svg>
-					</span>
-				</div>
-			</a>-->
+							<span class="category-label" style="background: #10b981; color: #064e3b;">Upcoming</span>
+							<img src="https://picsum.photos/id/600/1200/600" onerror="this.style.display='none'" alt="Upcoming Tile" loading="lazy">
+							<div class="item-overlay"></div>
+							<div class="text-anchor">
+								<h3>New Product Launch</h3>
+								<p>Coming Soon: Summer 2026</p>
+								<span class="cta-link">
+									Get Notifications
+									<svg fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+										<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+									</svg>
+								</span>
+							</div>
+						</a>-->
 
 			<!-- TILE 7: Gallery (R3, C3) - Image Tile (Single Column) -->
 			<!--<a href="#" class="collage-item">
-				<span class="category-label" style="background: #38bdf8; color: #075985;">Gallery</span>
-				<img src="https://picsum.photos/id/1000/1200/600" onerror="this.style.display='none'" alt="Gallery Tile" loading="lazy">
-				<div class="item-overlay"></div>
-				<div class="text-anchor">
-					<h3>Branch 6: Full Photo Gallery</h3>
-					<p>All Interior and Exterior Shots</p>
-					<span class="cta-link">
-						Browse Full Gallery
-						<svg fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-						</svg>
-					</span>
-				</div>
-			</a>-->
+							<span class="category-label" style="background: #38bdf8; color: #075985;">Gallery</span>
+							<img src="https://picsum.photos/id/1000/1200/600" onerror="this.style.display='none'" alt="Gallery Tile" loading="lazy">
+							<div class="item-overlay"></div>
+							<div class="text-anchor">
+								<h3>Branch 6: Full Photo Gallery</h3>
+								<p>All Interior and Exterior Shots</p>
+								<span class="cta-link">
+									Browse Full Gallery
+									<svg fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+										<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+									</svg>
+								</span>
+							</div>
+						</a>-->
 
 			<!-- TILE 8: General Info (R3, C4) - Image Tile (Single Column) -->
 			<!--<a href="#" class="collage-item">
-				<span class="category-label" style="background: #9ca3af; color: #1f2937;">Info</span>
-				<img src="https://picsum.photos/id/1010/1200/600" onerror="this.style.display='none'" alt="General Info Tile" loading="lazy">
-				<div class="item-overlay"></div>
-				<div class="text-anchor">
-					<h3>General Contact Info</h3>
-					<p>Hours, Phone, and Address</p>
-					<span class="cta-link">
-						Get Details
-						<svg fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-						</svg>
-					</span>
-				</div>
-			</a>-->
+							<span class="category-label" style="background: #9ca3af; color: #1f2937;">Info</span>
+							<img src="https://picsum.photos/id/1010/1200/600" onerror="this.style.display='none'" alt="General Info Tile" loading="lazy">
+							<div class="item-overlay"></div>
+							<div class="text-anchor">
+								<h3>General Contact Info</h3>
+								<p>Hours, Phone, and Address</p>
+								<span class="cta-link">
+									Get Details
+									<svg fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+										<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+									</svg>
+								</span>
+							</div>
+						</a>-->
 
 
 		</div>

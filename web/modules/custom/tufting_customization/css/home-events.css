@@ -1,12 +1,11 @@
-
-  .home-events {
-    font-family: 'Inter', sans-serif;
-    background-color: transparent;
-    /* Dark Background */
-    /*min-height: 100vh;
+.home-events {
+  font-family: 'Inter', sans-serif;
+  background-color: transparent;
+  /* Dark Background */
+  /*min-height: 100vh;
     padding: 32px;*/
-    margin: 0;
-    color: #fff;
+  margin: 0;
+  color: #fff;
 
 
   .container {
@@ -68,6 +67,9 @@
   /* Tile Wide - Spans 2 columns */
   .tile-wide {
     grid-column: span 2;
+  }
+  .tile-wide-full {
+    grid-column: span 3;
   }
 
   /* --- 3. BASE COLLAGE ITEM STYLING (Shared by all) --- */
@@ -269,16 +271,16 @@
     justify-content: flex-start;
     align-items: center;
     display: flex;
-    padding-bottom:60px;
+    padding-bottom: 60px;
   }
 
-    .branch-banner-video-wrapper-collage {
-      width: 100%;
-      object-fit: cover;
-      position: absolute;
-      top: 0;
-      left: 0;
-      border-radius: 10px;
-      height: 355px;
-    }
+  .branch-banner-video-wrapper-collage {
+    width: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 10px;
+    height: 355px;
+  }
 }
