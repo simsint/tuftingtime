@@ -7679,7 +7679,7 @@ a {
   .footer___brand{font-size: 3.5rem !important; text-align: center !important; margin-left: 0 !important;}
   .bring__text{display: block !important; font-size: 5rem !important;}
   .testimonials .bg{left: -25% !important;}
-  .section.section-gallery{margin-bottom: 0;}
+  .section.section-gallery{margin-bottom: 0;margin-top:25%;}
   .paragraph.paragraph--heder-link{font-size: 2.5rem !important;}
   .illustration .video-container video{height: auto !important; object-fit: contain !important;}
   .illustration .banner-video-wrapper{height: auto !important;}
