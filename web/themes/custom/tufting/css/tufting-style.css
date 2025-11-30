@@ -386,12 +386,13 @@
 }
 
 
-.illustration__inner.intro-section {
+
+.illustration__inner.intro-section, .illustration__inner.showroom {
   visibility: hidden;
 }
 
  @media (max-width: 768px) {
-  .illustration__inner.intro-section {
+  .illustration__inner.intro-section, .illustration__inner.showroom {
       height: 125px;
     }
  }
