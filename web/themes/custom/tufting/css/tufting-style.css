@@ -71,7 +71,7 @@
 
 .banner-video-wrapper {
   width: 100%;
-  height: 100%;
+  height: 80%;
   position: absolute;
   top: 0;
   left: 0;
@@ -223,6 +223,8 @@
           display: flex;
           flex-direction: column;
         }
+
+
 
         .illustration__body {
           padding: 1.5rem;
@@ -383,4 +385,14 @@
   transform: scaleX(-1);
 }
 
+
+.illustration__inner.intro-section {
+  visibility: hidden;
+}
+
+ @media (max-width: 768px) {
+  .illustration__inner.intro-section {
+      height: 125px;
+    }
+ }
 
