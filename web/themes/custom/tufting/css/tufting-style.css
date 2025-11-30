@@ -398,5 +398,9 @@
     .banner-video-wrapper {
       height: 80%;
     }
+
+    .illustration__details strong {
+      width:60px !important;
+    }
  }
 
