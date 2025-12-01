@@ -26,5 +26,5 @@ settings:
 visibility:
   request_path:
     id: request_path
-    negate: true
-    pages: '/branch-gallery/*'
+    negate: false
+    pages: /home

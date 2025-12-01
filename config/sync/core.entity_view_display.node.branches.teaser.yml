@@ -8,6 +8,7 @@ dependencies:
     - field.field.node.branches.field_autoplay_video
     - field.field.node.branches.field_email
     - field.field.node.branches.field_gallery_image
+    - field.field.node.branches.field_gallery_title
     - field.field.node.branches.field_loop_video
     - field.field.node.branches.field_map_url
     - field.field.node.branches.field_mute_video
@@ -32,6 +33,7 @@ hidden:
   field_autoplay_video: true
   field_email: true
   field_gallery_image: true
+  field_gallery_title: true
   field_loop_video: true
   field_map_url: true
   field_mute_video: true

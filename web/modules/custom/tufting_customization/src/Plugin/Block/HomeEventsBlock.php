@@ -81,7 +81,7 @@ final class HomeEventsBlock extends BlockBase {
       }
 
       $items[] = [
-        'branch_name' => $node->getTitle(),
+        'branch_name' => $node->get('field_gallery_title')->value,
         'branch_address' => $node->get('field_address')->value,
         'image_url' => $image_url,
         'image_alt' => $image_alt,

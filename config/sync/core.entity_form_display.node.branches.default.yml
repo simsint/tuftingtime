@@ -7,6 +7,7 @@ dependencies:
     - field.field.node.branches.field_autoplay_video
     - field.field.node.branches.field_email
     - field.field.node.branches.field_gallery_image
+    - field.field.node.branches.field_gallery_title
     - field.field.node.branches.field_loop_video
     - field.field.node.branches.field_map_url
     - field.field.node.branches.field_mute_video
@@ -25,13 +26,13 @@ mode: default
 content:
   created:
     type: datetime_timestamp
-    weight: 10
+    weight: 3
     region: content
     settings: {  }
     third_party_settings: {  }
   field_address:
     type: string_textarea
-    weight: 121
+    weight: 9
     region: content
     settings:
       rows: 5
@@ -39,14 +40,14 @@ content:
     third_party_settings: {  }
   field_autoplay_video:
     type: boolean_checkbox
-    weight: 127
+    weight: 16
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   field_email:
     type: email_default
-    weight: 123
+    weight: 12
     region: content
     settings:
       placeholder: ''
@@ -54,21 +55,29 @@ content:
     third_party_settings: {  }
   field_gallery_image:
     type: media_library_widget
-    weight: 121
+    weight: 10
     region: content
     settings:
       media_types: {  }
     third_party_settings: {  }
+  field_gallery_title:
+    type: string_textfield
+    weight: 1
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
   field_loop_video:
     type: boolean_checkbox
-    weight: 128
+    weight: 17
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   field_map_url:
     type: string_textarea
-    weight: 125
+    weight: 14
     region: content
     settings:
       rows: 5
@@ -76,14 +85,14 @@ content:
     third_party_settings: {  }
   field_mute_video:
     type: boolean_checkbox
-    weight: 129
+    weight: 18
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   field_phone:
     type: string_textfield
-    weight: 122
+    weight: 11
     region: content
     settings:
       size: 60
@@ -91,14 +100,14 @@ content:
     third_party_settings: {  }
   field_video_file:
     type: file_generic
-    weight: 126
+    weight: 15
     region: content
     settings:
       progress_indicator: throbber
     third_party_settings: {  }
   field_whatsapp_link:
     type: string_textfield
-    weight: 124
+    weight: 13
     region: content
     settings:
       size: 60
@@ -106,34 +115,34 @@ content:
     third_party_settings: {  }
   path:
     type: path
-    weight: 30
+    weight: 6
     region: content
     settings: {  }
     third_party_settings: {  }
   promote:
     type: boolean_checkbox
-    weight: 15
+    weight: 4
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    weight: 120
+    weight: 8
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   sticky:
     type: boolean_checkbox
-    weight: 16
+    weight: 5
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   title:
     type: string_textfield
-    weight: -5
+    weight: 0
     region: content
     settings:
       size: 60
@@ -141,7 +150,7 @@ content:
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
-    weight: 5
+    weight: 2
     region: content
     settings:
       match_operator: CONTAINS
@@ -150,7 +159,7 @@ content:
       placeholder: ''
     third_party_settings: {  }
   url_redirects:
-    weight: 50
+    weight: 7
     region: content
     settings: {  }
     third_party_settings: {  }
