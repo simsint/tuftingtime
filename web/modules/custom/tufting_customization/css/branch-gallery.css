@@ -53,6 +53,9 @@
   .container {
     padding: 0 1rem;
   }
+  .close-btn {
+    top: 0rem !important;
+  }
 }
 
 /* --- Hero Section --- */
@@ -171,6 +174,7 @@ header.hero p {
   .masonry-grid {
     column-count: 3;
   }
+
 }
 
 @media (min-width: 1280px) {
@@ -216,6 +220,7 @@ header.hero p {
   display: block;
   object-fit: cover;
   transition: transform 0.5s ease;
+  cursor: pointer;
 }
 
 .card-item:hover img {
@@ -388,7 +393,7 @@ footer p.copyright {
   border: none;
   font-size: 3rem;
   font-weight: 300;
-  color: var(--text-light);
+  color: #000;
   cursor: pointer;
   transition: color 0.2s;
   line-height: 1;
