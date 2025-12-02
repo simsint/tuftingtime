@@ -489,7 +489,7 @@ footer p.copyright {
   right: -5rem;
 }
 .masonry-grid.videos{
-  column-count: 4;
+  column-count: 3;
   column-gap: 2rem;
   padding: 0.5rem;
 }
