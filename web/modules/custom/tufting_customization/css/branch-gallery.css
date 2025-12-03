@@ -377,7 +377,7 @@ footer p.copyright {
 
 .lightbox-content {
   position: relative;
-  width: 100%;
+  /*width: 100%;*/
   max-width: 1100px;
   max-height: 100%;
   display: flex;
@@ -470,7 +470,7 @@ footer p.copyright {
   transform: translateY(-50%);
   background: none;
   border: none;
-  color: #cbd5e1;
+  color: var(--accent-cobalt);
   /* Light gray */
   cursor: pointer;
   transition: color 0.2s;
