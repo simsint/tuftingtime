@@ -54,7 +54,7 @@
     padding: 0 1rem;
   }
   .close-btn {
-    top: 0rem !important;
+    top: -2rem !important;
   }
 }
 
