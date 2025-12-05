@@ -12,7 +12,7 @@ dependencies:
 id: tufting_herobannerhomepage
 theme: tufting
 region: content
-weight: -13
+weight: -14
 provider: null
 plugin: 'block_content:0cef0b4c-6c92-47a2-83c2-4a4cbf3d070f'
 settings:

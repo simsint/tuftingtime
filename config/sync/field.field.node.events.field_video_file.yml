@@ -1,0 +1,27 @@
+uuid: 4674022a-148c-4d8c-9748-26fa263b2c2e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_video_file
+    - node.type.events
+  module:
+    - file
+id: node.events.field_video_file
+field_name: field_video_file
+entity_type: node
+bundle: events
+label: 'Event Gallery Video files'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:file'
+  handler_settings: {  }
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: 'mp4 webm mov avi ogg ogv mkv'
+  max_filesize: ''
+  description_field: false
+field_type: file

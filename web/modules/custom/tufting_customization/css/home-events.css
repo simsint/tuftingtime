@@ -13,6 +13,11 @@
     margin: 0 auto;
   }
 
+    .events {
+      margin-top:10% !important;
+
+    }
+
   .section-title {
     font-size: 2.25rem;
     font-weight: 900;

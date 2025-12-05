@@ -1,0 +1,27 @@
+uuid: 74ab8eb6-7832-4d65-b3e9-1e5a788f9063
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_event_video
+    - node.type.events
+  module:
+    - file
+id: node.events.field_event_video
+field_name: field_event_video
+entity_type: node
+bundle: events
+label: 'Event Profile Video'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:file'
+  handler_settings: {  }
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: 'mp4 webm mov avi ogg ogv mkv'
+  max_filesize: ''
+  description_field: false
+field_type: file

@@ -40,6 +40,19 @@ function tufting_customization_theme($existing_theme, $type, $theme, $path) {
       ],
       'template' => 'branch-gallery',
     ],
+     'events_template' => [
+      'variables' => [
+        'data' => NULL,
+      ],
+      'template' => 'events',
+      'base hook' => 'block',
+    ],
+    'event_gallery_page' => [
+      'variables' => [
+        'data' => NULL,
+      ],
+      'template' => 'event-gallery',
+    ],
   ];
 }
 

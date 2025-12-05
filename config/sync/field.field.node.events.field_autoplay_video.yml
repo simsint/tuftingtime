@@ -1,0 +1,21 @@
+uuid: 6f37e340-6758-4f46-bfb8-a10670a5d2bd
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_autoplay_video
+    - node.type.events
+id: node.events.field_autoplay_video
+field_name: field_autoplay_video
+entity_type: node
+bundle: events
+label: 'Autoplay Video'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

@@ -1,4 +1,4 @@
-uuid: 1f38c67d-1048-4495-ae84-7bca3dc33c6d
+uuid: d67a65af-90b1-4ae1-ac82-d179f0171baf
 langcode: en
 status: true
 dependencies:
@@ -7,15 +7,15 @@ dependencies:
     - tufting_customization
   theme:
     - tufting
-id: tufting_homebrancheventsgalleryblock
+id: tufting_homeeventsblock
 theme: tufting
 region: content
-weight: -11
+weight: -10
 provider: null
-plugin: tufting_customization_home_events
+plugin: tufting_customization_events
 settings:
-  id: tufting_customization_home_events
-  label: 'Home Branch Events Gallery Block'
+  id: tufting_customization_events
+  label: 'Home Events Block'
   label_display: '0'
   provider: tufting_customization
 visibility:

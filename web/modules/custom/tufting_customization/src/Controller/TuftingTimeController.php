@@ -74,6 +74,92 @@ class TuftingTimeController extends ControllerBase {
     );
   }
 
+   public function eventGallery($nid) {
+
+    $node = Node::load($nid);
+    //dump($branch_node->get('field_phone')->getlistedItems());
+    //exit;
+    $date_object = $node->field_event_date->date;
+    if ($date_object) {
+      $formatted_date = $date_object->format('jS F, Y');
+    }
+    $branch_name = $node->getTitle();
+    $branch_address = $formatted_date;
+    $branch_info = [
+      'name' => $branch_name,
+      'date' => $branch_address,
+    ];
+
+
+    $entity_type_manager = \Drupal::entityTypeManager();
+    $file_url_generator = \Drupal::service('file_url_generator');
+    $media_storage = $entity_type_manager->getStorage('media');
+    $image_urls = [];
+    $video_urls = [];
+
+      $field_name = 'field_video_file';
+      if ($node->hasField($field_name) && !$node->get($field_name)->isEmpty()) {
+        $file_storage = \Drupal::entityTypeManager()->getStorage('file');
+        $play_str = '';
+          if ($node->hasField('field_autoplay_video') && !$node->get('field_autoplay_video')->isEmpty() && $node->get('field_autoplay_video')->value == 1) {
+            $play_str .= 'autoplay ';
+          }
+          if ($node->hasField('field_loop_video') && !$node->get('field_loop_video')->isEmpty() && $node->get('field_loop_video')->value == 1) {
+            $play_str .= 'loop ';
+          }
+          if ($node->hasField('field_mute_video') && !$node->get('field_mute_video')->isEmpty() && $node->get('field_mute_video')->value == 1) {
+            $play_str .= 'muted ';
+          }
+        foreach ($node->get($field_name) as $item) {
+            $fid = $item->target_id;
+            $file = $file_storage->load($fid);
+            if ($file) {
+                $video_urls[] = [
+                  'video_mime' => $file->getMimeType() ?: 'video/mp4',
+                  'play_str' => $play_str,
+                  'video_url' => $file_url_generator->generateAbsoluteString($file->getFileUri()),
+                ];
+            }
+        }
+      }
+
+
+      $gallery_field_name = 'field_gallery_image';
+      $media_image_field_name = 'field_media_image';
+      if ($node->hasField($gallery_field_name) && !$node->get($gallery_field_name)->isEmpty()) {
+          foreach ($node->get($gallery_field_name) as $media_ref_item) {
+            $media = $media_ref_item->entity;
+            if ($media && $media->hasField($media_image_field_name) && !$media->get($media_image_field_name)->isEmpty()) {
+                $image_field_item = $media->get($media_image_field_name)->first();
+                $media_file = $image_field_item->entity;
+                if ($media_file) {
+                    $image_urls[] = $media_file->createFileUrl(FALSE);
+                }
+            }
+        }
+
+
+      }
+
+    $data['videos'] = $video_urls;
+    $data['images'] = $image_urls;
+    $data['branch_info'] = $branch_info;
+
+    //dump($data);exit;
+
+      return [
+        '#theme' => 'event_gallery_page',
+        '#data' => $data,
+        '#attached' => [
+          'library' => [
+            'tufting_customization/branch_gallery_styles'
+          ],
+        ],
+      ];
+
+
+  }
+
   public function branchGallery($nid) {
 
     $branch_nid = $nid;

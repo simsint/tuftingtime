@@ -1,0 +1,213 @@
+<div class="branch-gallery">
+
+	<div
+		class="">
+
+		<!-- HERO SECTION -->
+		<header class="hero">
+			<h1>
+				<span>{{ data.branch_info.name }}
+				</span>
+			</h1>
+			<p>
+				{{ data.branch_info.date }}
+
+			</p>
+
+			<!--<div class="hero-divider">
+				<span class="divider-line"></span>
+				<span>Scroll to Explore</span>
+				<span class="divider-line"></span>
+			</div>-->
+		</header>
+
+		<!-- SECTION 1: STILLS -->
+		<section id="photos" style="margin-bottom: 5rem;">
+
+			{% set images = data.images %}
+
+			<div
+				class="masonry-grid">
+				{% for image_item in images %}
+				<!-- Card 1 -->
+				<div class="card-item group"  onclick="openLightbox(this)" data-type="photo">
+					<img src="{{ image_item }}" alt="Clean Lines" data-caption="Minimalist architectural geometry.">
+					<!--<div class="card-overlay">
+						<span class="tag-pill">Architecture</span>
+						<h3>Clean Lines</h3>
+					</div>-->
+				</div>
+			{% endfor %}
+			</div>
+		</section>
+
+		<!-- SECTION 2: MOTION -->
+<section id="videos">
+
+	{% set videos = data.videos %}
+	<div class="masonry-grid videos">
+	{% for video_item in videos %}
+{% set index_mod = loop.index0 % 3 %}
+{% if index_mod == 0 %}
+	{% set aspect_class = 'aspect-16-9' %}
+{% elseif index_mod == 1 %}
+	{% set aspect_class = 'aspect-4-3' %}
+{% else %}
+	{% set aspect_class = 'aspect-1-1' %}
+{% endif %}
+
+		<div class="card-item group" data-type="video">
+			<video class="branch-gallery-video-wrapper" controls="false" {{ video_item.play_str }} playsinline>
+				<source src="{{ video_item.video_url }}" >
+				Your browser does not support the video tag.
+			</video>
+			<!--<div class="play-indicator">
+				<svg width="16" height="16" fill="currentColor" viewbox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+			</div>
+			<div class="play-btn-large">
+				<svg width="24" height="24" fill="currentColor" viewbox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+			</div>-->
+		</div>
+	{% endfor %}
+
+
+	</div>
+</section>
+
+
+		<!-- Footer -->
+
+
+	</div>
+
+<div id="lightbox">
+
+	<div class="lightbox-content">
+		<button class="close-btn" onclick="closeLightbox(event)">&times;</button>
+
+		<div
+			id="lightbox-media-container"><!-- Media injected here -->
+		</div>
+
+		<!--<div class="lightbox-caption-box">
+			<h3 id="lightbox-title"></h3>
+			<p id="lightbox-caption"></p>
+		</div>-->
+
+		<button class="nav-btn nav-prev" onclick="navigateMedia(-1)">
+			<svg fill="none" stroke="currentColor" viewbox="0 0 24 24" stroke-width="2">
+				<path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"></path>
+			</svg>
+		</button>
+		<button class="nav-btn nav-next" onclick="navigateMedia(1)">
+			<svg fill="none" stroke="currentColor" viewbox="0 0 24 24" stroke-width="2">
+				<path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"></path>
+			</svg>
+		</button>
+		</div>
+	</div>
+
+<script>
+	const lightbox = document.getElementById('lightbox');
+const mediaContainer = document.getElementById('lightbox-media-container');
+//const captionElement = document.getElementById('lightbox-caption');
+//const titleElement = document.getElementById('lightbox-title');
+// Use querySelectorAll to get the list dynamically
+let galleryItems = [];
+let currentIndex = -1;
+
+// Initialize gallery items
+window.addEventListener('DOMContentLoaded', () => {
+galleryItems = Array.from(document.querySelectorAll('.card-item'));
+});
+
+// --- Core Lightbox Functions ---
+
+function openLightbox(item) {
+const type = item.dataset.type;
+const imageElement = item.querySelector('img');
+const fullCaption = imageElement.dataset.caption || "";
+const title = imageElement.alt;
+
+const mediaUrl = imageElement.src;
+const videoUrl = imageElement.dataset.videoUrl;
+
+// Clear previous content
+mediaContainer.innerHTML = '';
+//captionElement.textContent = fullCaption;
+//titleElement.textContent = title;
+
+if (type === 'photo') {
+const img = document.createElement('img');
+img.src = mediaUrl;
+img.alt = title;
+mediaContainer.appendChild(img);
+} else if (type === 'video' && videoUrl) { // Wrapper for aspect ratio
+const wrapper = document.createElement('div');
+wrapper.className = 'video-wrapper';
+
+const iframe = document.createElement('iframe');
+iframe.src = videoUrl + '?autoplay=1&rel=0&showinfo=0&modestbranding=1';
+iframe.allow = 'autoplay; encrypted-media';
+iframe.allowFullscreen = true;
+
+wrapper.appendChild(iframe);
+mediaContainer.appendChild(wrapper);
+}
+
+// Update index
+galleryItems = Array.from(document.querySelectorAll('.card-item'));
+currentIndex = galleryItems.indexOf(item);
+
+lightbox.classList.add('visible');
+document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox(event) { // Prevent closing if clicking inside content, unless it's the close button
+if (event && event.target.closest('.lightbox-content') && ! event.target.classList.contains('close-btn')) {
+return;
+}
+
+lightbox.classList.remove('visible');
+document.body.style.overflow = '';
+mediaContainer.innerHTML = '';
+currentIndex = -1;
+}
+
+function navigateMedia(direction) {
+if (galleryItems.length === 0)
+return;
+
+
+let nextIndex = currentIndex + direction;
+if (nextIndex < 0)
+nextIndex = galleryItems.length - 1;
+ else if (nextIndex >= galleryItems.length)
+nextIndex = 0;
+
+
+const nextItem = galleryItems[nextIndex];
+if (nextItem)
+openLightbox(nextItem);
+
+}
+
+document.addEventListener('keydown', (e) => {
+if (! lightbox.classList.contains('visible'))
+return;
+
+if (e.key === 'ArrowRight')
+navigateMedia(1);
+ else if (e.key === 'ArrowLeft')
+navigateMedia(-1);
+ else if (e.key === 'Escape')
+closeLightbox();
+
+});
+</script>
+
+
+
+
+
+</div>

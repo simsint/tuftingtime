@@ -6,4 +6,12 @@ tufting_customization.branch_gallery:
   requirements:
     _access: 'TRUE'
 
+tufting_customization.event_gallery:
+  path: '/events-gallery/{nid}'
+  defaults:
+    _controller: '\Drupal\tufting_customization\Controller\TuftingTimeController::eventGallery'
+    _title: 'Event Gallery'
+  requirements:
+    _access: 'TRUE'
+
 
