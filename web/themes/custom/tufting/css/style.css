@@ -2592,9 +2592,12 @@ a {
   right: 0;
   margin: 0 auto;
   padding-top: 0 !important;
-  top: -26px;
+  top: -16px;
   transition: all 0.3s ease-in-out;
   width: 120px !important;
+}
+.header.is-stuck .title-icon-wrapper{
+  top: -26px;
 }
 
 
