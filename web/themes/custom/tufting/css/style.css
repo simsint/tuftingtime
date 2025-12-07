@@ -2586,7 +2586,7 @@ a {
 /*.header.is-stuck .header__link:nth-child(1){margin-right: 50px;}
 .header.is-stuck .header__link:nth-child(2){margin-left: 130px;}*/
 /*.header.is-stuck */
-.title-icon-wrapper{
+.header .title-icon-wrapper{
   position: absolute;
   left: 0;
   right: 0;
