@@ -5228,6 +5228,14 @@ a {
   display: flex;
 }
 
+.section.section-portfolio {
+  padding-top: 7.5rem !important;
+  padding-bottom: 7.5rem !important;
+}
+.section-gallery__header {
+  padding-bottom: 7.5rem !important;
+}
+
 @media screen and (min-width: 1440px) {
   .header__links {
     grid-column-gap: 3.5rem;
@@ -5546,6 +5554,22 @@ a {
     padding-bottom: 2rem;
     padding-left: .55rem;
     padding-right: .55rem;
+  }
+
+  .hero.top{
+    padding-bottom: 0 !important;
+  }
+  section#why-choose-us{
+    padding-top: 0 !important;
+  }
+  .section.section--steps{
+    padding-bottom: 7rem !important;
+  }
+  .section.faq{
+    padding-bottom: 7rem !important;
+  }
+  .section.section--illustration{
+    padding-bottom: 6rem;
   }
 }
 
@@ -6302,8 +6326,8 @@ a {
   }
 
   .section.section-portfolio {
-    padding-top: 7.5rem;
-    padding-bottom: 7.5rem;
+    padding-top: 7.5rem !important;
+    padding-bottom: 7.5rem !important;
   }
 
   .section.section-introduction {
@@ -7116,7 +7140,7 @@ a {
     display: none;
   }
   .hero{
-    padding-top: 100px !important;
+    padding-top: 30px !important;
   }
   .hero.top{
     padding-top: 100px;
@@ -7127,6 +7151,16 @@ a {
   .header.is-stuck .main-navigation {
     padding-top: 1rem;
     padding-bottom: 1rem;
+  }
+  .section.bring {
+      min-height: 1px;
+  }
+  #bring-your-design .banner-video-wrapper{
+    position: static;
+    height: auto;
+  }
+  .bring__text-layout{
+    display: none;
   }
 }
 
@@ -7676,7 +7710,7 @@ a {
 @media (max-width: 767px) {
   .title-icon__heading{font-size: 4rem;}
   .gallery-header__heading{font-size: 4rem; line-height: 1;}
-  .section.section-portfolio{padding-top: 0.5rem; padding-bottom: 0;}
+  .section.section-portfolio{padding-top: 0.5rem; padding-bottom: 50px;}
   .section.section--illustration{padding-top: 4rem;}
   #why-choose-us .section.section--padding-lg{padding-top: 3.5rem;}
   #how-we-work .subheading{margin-top: 0 !important;}
